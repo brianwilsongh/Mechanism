@@ -1,10 +1,15 @@
 package com.wordpress.httpspandareaktor.mekanism;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.TextView;
+
+import static android.provider.LiveFolders.INTENT;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Set main text to include Xi
+        TextView title = (TextView) findViewById(R.id.title);
+        title.setText("\u039E MEKANISM");
 
         //Create rotation animation for the primary gear
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
@@ -44,26 +53,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.gearLogo3).startAnimation(rotateAnimation3);
 
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void startPhysics(View view) {
+        Intent intent = new Intent(this, PhysicsEquations.class);
+        startActivity(intent);
     }
 }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:orientation="vertical"
+    tools:context="com.wordpress.httpspandareaktor.mekanism.KinematicsSolver1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:text="Check boxes to verify variables you have. Input 3 variables to find 4th."
+        android:textAppearance="?android:textAppearanceMedium">
+
+    </TextView>
+    <!--Layout containing the checkboxes follow-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/check_deltax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="positionEnable"
+            android:text="Change in position, or displacement" />
+
+        <CheckBox
+            android:id="@+id/check_velocity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="velocityEnable"
+            android:text="Initial velocity, or starting speed" />
+
+        <CheckBox
+            android:id="@+id/check_acceleration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="accelerationEnable"
+            android:text="Acceleration (should be constant)" />
+
+        <CheckBox
+            android:id="@+id/check_deltat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="timeEnable"
+            android:text="Time, from beginning to end" />
+
+    </LinearLayout>
+    <!--Layout for the position edit component follows-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="d ="
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#4143ae" />
+
+        <EditText
+            android:id="@+id/input_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="unknown"
+            android:inputType="numberDecimal"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+
+    <!--Layout for the velocity edit component follows-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v₀ ="
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#488960" />
+
+        <EditText
+            android:id="@+id/input_velocity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="unknown"
+            android:inputType="numberDecimal"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+    <!--Layout for the acceleration edit component follows-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="a ="
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#bb1d1d" />
+
+        <EditText
+            android:id="@+id/input_acceleration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="unknown"
+            android:inputType="numberDecimal"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+    <!--Layout for the velocity edit component follows-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="t ="
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/input_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="unknown"
+            android:inputType="numberDecimal"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/trigger_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Calculate" />
+
+</LinearLayout>
