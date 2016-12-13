@@ -20,8 +20,9 @@ public class PhysicsEquations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_physics_equations);
 
+
         //create Equation objects for future use
-        Equation kinematics1 = new Equation(KinematicsSolver1.class, "from Kinematics", "Variables: 4", "Takes: " + "Displacement (\u0394x), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
+        Equation kinematics1 = new Equation(KinematicsSolver1.class, "Variables: 4", "Kinematics", "Takes: " + "Displacement (\u0394x), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
 
         //create ArrayList for adapter that will display equations to choose from
         final ArrayList<Equation> physicsEquationList = new ArrayList<>();
