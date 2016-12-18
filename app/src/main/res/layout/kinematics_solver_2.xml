@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:orientation="vertical"
-        tools:context="com.wordpress.httpspandareaktor.mekanism.KinematicsSolver1">
+        tools:context="com.wordpress.httpspandareaktor.mekanism.KinematicsSolver2">
 
         <TextView
             android:layout_width="match_parent"
@@ -29,12 +29,12 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/check_deltax"
+                android:id="@+id/eq2_check_final_velocity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="positionEnable"
-                android:text="Change in position, or displacement (m)" />
+                android:onClick="EQ2finalVelocityEnable"
+                android:text="Velocity at time=t , also known as final velocity"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,12 +43,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="d ="
+                    android:text="vₜ ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/input_position"
+                    android:id="@+id/eq2_input_final_velocity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -63,16 +63,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:text="meters"
+                    android:text="meters/second"
                     android:textAppearance="?android:textAppearanceMedium" />
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/check_velocity"
+                android:id="@+id/eq2_check_initial_velocity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="velocityEnable"
+                android:onClick="EQ2initialVelocityEnable"
                 android:text="Initial velocity, or starting speed (m/s)" />
 
             <LinearLayout
@@ -88,7 +88,7 @@
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/input_velocity"
+                    android:id="@+id/eq2_input_initial_velocity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -109,11 +109,11 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/check_acceleration"
+                android:id="@+id/eq2_check_acceleration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="accelerationEnable"
+                android:onClick="EQ2accelerationEnable"
                 android:text="Acceleration (should be constant (m/s^2))" />
 
             <LinearLayout
@@ -129,7 +129,7 @@
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/input_acceleration"
+                    android:id="@+id/eq2_input_acceleration"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -149,11 +149,11 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/check_deltat"
+                android:id="@+id/eq2_check_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="timeEnable"
+                android:onClick="EQ2timeEnable"
                 android:text="Time, from beginning to end (s)" />
 
             <LinearLayout
@@ -170,7 +170,7 @@
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/input_time"
+                    android:id="@+id/eq2_input_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -193,7 +193,7 @@
 
 
         <Button
-            android:id="@+id/trigger_button"
+            android:id="@+id/eq2_trigger_button"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center"

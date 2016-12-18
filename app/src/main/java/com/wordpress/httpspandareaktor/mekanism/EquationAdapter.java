@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,6 +33,10 @@ public class EquationAdapter extends ArrayAdapter<Equation> {
 
         // get and name the Event object at this position
         Equation thisEquation = getItem(position);
+
+        //set the image
+        ImageView equation = (ImageView) listItemView.findViewById(R.id.equation_image);
+        equation.setImageResource(thisEquation.getImageResourceId());
 
         //set the text values
         TextView subjectText = (TextView) listItemView.findViewById(R.id.equation_subject);

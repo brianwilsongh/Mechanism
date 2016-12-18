@@ -31,6 +31,7 @@ public class ShowCalculation extends AppCompatActivity {
     private String answerVal2;
     private String shareString;
     private String fullShareString;
+    private String rootClass;
 
 
     @Override
@@ -55,9 +56,13 @@ public class ShowCalculation extends AppCompatActivity {
             shareString = i.getStringExtra("shareString");
         }
 
+        rootClass = i.getStringExtra("rootClass");
+
+
         TextView resultTypeText = (TextView) findViewById(R.id.result_type);
         TextView resultValueText = (TextView) findViewById(R.id.result_value);
         TextView resultValueText2 = (TextView) findViewById(R.id.result_value2);
+        TextView rootButton = (TextView) findViewById(R.id.returnRootButton);
 
 
         Log.v("ShowCalculation", "retrieved: " + answerTypeVal + answerVal + answerVal2);
@@ -65,6 +70,7 @@ public class ShowCalculation extends AppCompatActivity {
         resultTypeText.setText(answerTypeVal);
         resultValueText.setText(answerVal);
         resultValueText2.setText(answerVal2);
+        rootButton.setText("Return to " + rootClass);
 
 //        try {
 //            String distanceString = intent.getStringExtra("positionData");
@@ -94,10 +100,36 @@ public class ShowCalculation extends AppCompatActivity {
     }
 
     public void sendSMS(View view) {
-        fullShareString = shareString + " " + answerVal + " " + answerVal2;
+        fullShareString = shareString + " ";
+        if (answerVal != null) {
+            fullShareString += answerVal + " ";
+        }
+        if (answerVal2 != null) {
+            fullShareString += answerVal2;
+        }
+
         Intent sendIntent = new Intent(Intent.ACTION_VIEW);
         sendIntent.setData(Uri.parse("sms:"));
         sendIntent.putExtra("sms_body", fullShareString);
+
+        startActivity(sendIntent);
+
+    }
+
+    public void sendEmail(View view) {
+        fullShareString = shareString + " ";
+        if (answerVal != null) {
+            fullShareString += answerVal + " ";
+        }
+        if (answerVal2 != null) {
+            fullShareString += answerVal2;
+        }
+
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("application/octet-stream");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, fullShareString);
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Calculation result");
+
         startActivity(sendIntent);
     }
 
@@ -105,6 +137,13 @@ public class ShowCalculation extends AppCompatActivity {
     public void returnMain(View view) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void returnRoot(View view) {
+        if (rootClass.equals("Physics")) {
+            Intent i = new Intent(this, PhysicsEquations.class);
+            startActivity(i);
+        }
     }
 
 }

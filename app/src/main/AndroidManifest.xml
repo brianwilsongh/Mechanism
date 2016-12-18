@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:debuggable="false"
         android:screenOrientation="portrait"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppThemeNoActionBar">
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -20,13 +20,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".PhysicsEquations"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:label="Physics Equations"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
         </activity>
         <activity android:name=".KinematicsSolver1"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/AppThemeNoActionBar">
         </activity>
+        <activity android:name=".KinematicsSolver2"
+            android:theme="@style/AppThemeNoActionBar"></activity>
         <activity android:name=".ShowCalculation"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

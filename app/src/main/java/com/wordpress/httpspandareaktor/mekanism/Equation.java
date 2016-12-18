@@ -11,12 +11,14 @@ public class Equation {
     private String mVarcount;
     private String mSubject;
     private Class mSolver;
+    private int mImageResourceId;
 
-    public Equation(Class solver, String varCount, String subject, String params) {
+    public Equation(Class solver, int ImageResourceId, String varCount, String subject, String params) {
         mSubject = subject;
         mVarcount = varCount;
         mParams = params;
         mSolver = solver;
+        mImageResourceId = ImageResourceId;
 
     }
 
@@ -38,5 +40,10 @@ public class Equation {
     public Class getSolver() {
         //getter method for solver, which is the class that takes inputs for equation
         return mSolver;
+    }
+
+    public int getImageResourceId() {
+        //getter method for the image resource ID for the equation
+        return mImageResourceId;
     }
 }

@@ -1,83 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceLarge"
-        tools:text="placeholder"
-        android:id="@+id/result_type"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:maxLines="1"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceLarge"
-        tools:text="placeholder"
-        android:id="@+id/result_value"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:maxLines="1"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceLarge"
-        tools:text="placeholder"
-        android:id="@+id/result_value2"
-        android:layout_gravity="center"
-        android:layout_margin="30dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBurntOJ"
-        android:text="Text result to friend"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:onClick="sendSMS"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBurntOJ"
-        android:text="Email result to friend"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:onClick="returnMain"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <Button
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="RESET MEKANISM"
-        android:onClick="returnMain"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/result_type"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:maxLines="1"
+            android:textAppearance="?android:textAppearanceLarge"
+            tools:text="placeholder" />
+
+        <TextView
+            android:id="@+id/result_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:maxLines="1"
+            android:textAppearance="?android:textAppearanceLarge"
+            tools:text="placeholder" />
+
+
+        <TextView
+            android:id="@+id/result_value2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:textAppearance="?android:textAppearanceLarge"
+            tools:text="placeholder" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
-            android:text="RESET MEKANISM"
-            android:onClick="returnMain"/>
+            android:onClick="sendSMS"
+            android:text="Text result to friend"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/colorBurntOJ" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:onClick="sendEmail"
+            android:text="Email result to friend"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/colorBurntOJ" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:id="@+id/returnRootButton"
+                android:onClick="returnRoot"
+                android:text="Return to Physics" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:onClick="returnMain"
+                android:text="RESET MEKANISM" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
 </ScrollView>

@@ -19,25 +19,25 @@ import android.widget.Toast;
 
 public class KinematicsSolver1 extends AppCompatActivity {
 
-    double finalDisplacement;
-    boolean displacementExists = false;
+    private double finalDisplacement;
+    private boolean displacementExists = false;
 
-    double finalVelocity;
-    boolean velocityExists = false;
+    private double finalVelocity;
+    private boolean velocityExists = false;
 
-    double finalAcceleration;
-    boolean accelerationExists = false;
+    private double finalAcceleration;
+    private boolean accelerationExists = false;
 
-    double finalTime;
-    boolean timeExists = false;
+    private double finalTime;
+    private boolean timeExists = false;
 
     //String for sending text/email messages with the problem
-    String shareString;
+    private String shareString;
 
     //declare parameters that will be sent by the intent to ShowCalculation
-    String resultType;
-    String resultValue;
-    String resultValue2;
+    private String resultType;
+    private String resultValue;
+    private String resultValue2;
 
     private MediaPlayer mMediaPlayer;
 
@@ -97,6 +97,7 @@ public class KinematicsSolver1 extends AppCompatActivity {
         } else {
             editText.setFocusable(false);
             editText.setHint("unknown");
+            accelerationExists = false;
 
         }
     }
@@ -132,6 +133,9 @@ public class KinematicsSolver1 extends AppCompatActivity {
                 i.putExtra("resultValue", resultValue);
                 i.putExtra("resultValue2", resultValue2);
                 i.putExtra("shareString", shareString);
+
+                // send extra as serializable
+                i.putExtra("rootClass", "Physics");
                 Log.v("sendData method", "sent" + resultType + resultValue + resultValue2);
                 startActivity(i);
             } catch (NullPointerException e) {
@@ -185,6 +189,7 @@ public class KinematicsSolver1 extends AppCompatActivity {
             finalAcceleration = Double.parseDouble(accelField.getText().toString());
         } else {
             accelerationExists = false;
+
         }
 
         //see if time field has value, if yes set it and make existence boolean true
@@ -300,26 +305,26 @@ public class KinematicsSolver1 extends AppCompatActivity {
     }
 
     private void buildShareString(String solutionMethod) {
-        switch (solutionMethod.toString()) {
+        switch (solutionMethod) {
             // create the string for sharing via email or text message
             case "0111":
-                shareString = "With velocity (" + finalVelocity + ") , acceleration " +
-                        "(" + finalAcceleration + ") , time (" + finalTime + "). Displacement =";
+                shareString = "Mekanism: given velocity (" + finalVelocity + ") , acceleration " +
+                        "(" + finalAcceleration + ") , time (" + finalTime + "); Displacement =";
                 break;
 
             case "1011":
-                shareString = "With displacement (" + finalDisplacement + ") , acceleration " +
-                        "(" + finalAcceleration + ") , time (" + finalTime + "). Velocity =";
+                shareString = "Mekanism: given displacement (" + finalDisplacement + ") , acceleration " +
+                        "(" + finalAcceleration + ") , time (" + finalTime + "); Velocity =";
                 break;
 
             case "1101":
-                shareString = "With displacement (" + finalDisplacement + ") , velocity " +
-                        "(" + finalVelocity + ") , time (" + finalTime + "). Displacement =";
+                shareString = "Mekanism: given displacement (" + finalDisplacement + ") , velocity " +
+                        "(" + finalVelocity + ") , time (" + finalTime + "); Acceleration =";
                 break;
 
             case "1110":
-                shareString = "With displacement (" + finalDisplacement + ") , velocity " +
-                        "(" + finalVelocity + ") , acceleration (" + finalAcceleration + "). Displacement =";
+                shareString = "Mekanism: given displacement (" + finalDisplacement + ") , velocity " +
+                        "(" + finalVelocity + ") , acceleration (" + finalAcceleration + "); Time =";
                 break;
 
             default:

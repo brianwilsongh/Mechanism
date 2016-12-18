@@ -22,11 +22,14 @@ public class PhysicsEquations extends AppCompatActivity {
 
 
         //create Equation objects for future use
-        Equation kinematics1 = new Equation(KinematicsSolver1.class, "Variables: 4", "Kinematics", "Takes: " + "Displacement (\u0394x), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
+        Equation kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.eqn_kin1, "Variables: 4", "Kinematics", "Takes: " + "Displacement (\u0394x), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
+
+        Equation kinematics2 = new Equation(KinematicsSolver2.class, R.drawable.eqn_kin2, "Variables: 4", "Kinematics", "Takes: " + "Velocity at time=t (v\u209C), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
 
         //create ArrayList for adapter that will display equations to choose from
         final ArrayList<Equation> physicsEquationList = new ArrayList<>();
         physicsEquationList.add(kinematics1);
+        physicsEquationList.add(kinematics2);
 
         //create and set up list view, adapters
         ListView equationList = (ListView) findViewById(R.id.physics_list);
