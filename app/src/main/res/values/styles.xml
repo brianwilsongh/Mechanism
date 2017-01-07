@@ -44,4 +44,9 @@
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
     </style>
 
+    <style name="unitDisplayText">
+        <item name="android:textColor">@color/darkWorld</item>
+        <item  name="android:textSize">14sp</item>
+    </style>
+
 </resources>

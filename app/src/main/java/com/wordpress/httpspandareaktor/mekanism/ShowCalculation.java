@@ -4,7 +4,11 @@ package com.wordpress.httpspandareaktor.mekanism;
  * Created by Brian on 12/11/2016.
  */
 
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
@@ -33,16 +37,19 @@ public class ShowCalculation extends AppCompatActivity {
     private String fullShareString;
     private String rootClass;
 
+    //variables for sharing on FB
+    private String sharingURL = "https://play.google.com/store/apps/details?id=com.wordpress.httpspandareaktor.mekanism";
+    ShareDialog shareDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.show_calculation);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //retreve strings from intent extra data, set texts
-        Intent i;
-        i = getIntent();
+        Intent i = getIntent();
         if (i.getStringExtra("resultType") != null) {
             answerTypeVal = i.getStringExtra("resultType");
         }
@@ -71,32 +78,6 @@ public class ShowCalculation extends AppCompatActivity {
         resultValueText.setText(answerVal);
         resultValueText2.setText(answerVal2);
         rootButton.setText("Return to " + rootClass);
-
-//        try {
-//            String distanceString = intent.getStringExtra("positionData");
-//            displacement = Double.parseDouble(distanceString);
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            String velocityString = intent.getStringExtra("velocityData");
-//            velocity = Double.parseDouble(velocityString);
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            String accelerationString = intent.getStringExtra("accelerationData");
-//            acceleration = Double.parseDouble(accelerationString);
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            String timeString = intent.getStringExtra("timeData");
-//            time = Double.parseDouble(timeString);
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
-//        Log.v("ShowCalc", "params are " + displacement + velocity + acceleration + time);
     }
 
     public void sendSMS(View view) {
@@ -126,7 +107,7 @@ public class ShowCalculation extends AppCompatActivity {
         }
 
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
-        sendIntent.setType("application/octet-stream");
+        sendIntent.setType("text/html");
         sendIntent.putExtra(Intent.EXTRA_TEXT, fullShareString);
         sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Calculation result");
 
@@ -144,6 +125,16 @@ public class ShowCalculation extends AppCompatActivity {
             Intent i = new Intent(this, PhysicsEquations.class);
             startActivity(i);
         }
+    }
+
+    public void shareFB(View view) {
+        //Build a share for the url of the app
+        shareDialog = new ShareDialog(this);
+        ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                .setContentTitle("Ξ Mekanism")
+                .setContentDescription(getString(R.string.app_description))
+                .setContentUrl(Uri.parse(sharingURL)).build();
+        shareDialog.show(linkContent);
     }
 
 }

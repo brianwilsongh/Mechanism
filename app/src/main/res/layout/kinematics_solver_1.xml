@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingBottom="10dp"
-            android:text="For each variable, check the appropriate box. Verify units and input the values."
+            android:text="Check and fill in all variables except the one that you are solving for. Verify units."
             android:textAppearance="?android:textAppearanceMedium">
 
         </TextView>
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:onClick="positionEnable"
-                android:text="Change in position, or displacement (m)" />
+                android:text="@string/distance_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,26 +59,25 @@
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:text="meters"
-                    android:textAppearance="?android:textAppearanceMedium" />
+                    android:layout_weight="1"
+                    android:text="meters" />
             </LinearLayout>
 
             <CheckBox
                 android:id="@+id/check_velocity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:onClick="velocityEnable"
-                android:text="Initial velocity, or starting speed (m/s)" />
+                android:text="@string/init_velo_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,12 +98,12 @@
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:text="meters / second"
-                    android:textAppearance="?android:textAppearanceMedium" />
+                    android:layout_weight="1"
+                    android:text="meters / second" />
 
             </LinearLayout>
 
@@ -112,14 +111,13 @@
                 android:id="@+id/check_acceleration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:onClick="accelerationEnable"
-                android:text="Acceleration (should be constant (m/s^2))" />
+                android:text="@string/accel_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -140,21 +138,21 @@
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:text="meters / second^2"
-                    android:textAppearance="?android:textAppearanceMedium" />
+                    android:layout_weight="1"
+                    android:text="meters / second^2" />
             </LinearLayout>
 
             <CheckBox
                 android:id="@+id/check_deltat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:onClick="timeEnable"
-                android:text="Time, from beginning to end (s)" />
+                android:text="@string/time_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -164,8 +162,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="t ="
                     android:layout_gravity="center"
+                    android:text="t ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
@@ -182,11 +180,12 @@
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="seconds"
-                    android:textAppearance="?android:textAppearanceMedium" />
+                    android:text="seconds"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -197,13 +196,10 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:background="@color/darkWorld"
-            android:textColor="#FFFFFF"
-            android:text="Calculate" />
+            android:layout_margin="30dp"
+            android:background="@color/darkerWorld"
+            android:text="Calculate"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 </ScrollView>

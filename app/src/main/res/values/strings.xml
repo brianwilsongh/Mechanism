@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Mekanism</string>
+    <string name="app_description">Mekanism is an application built to solve mathematical equations for you.</string>
+
+    <!--strings to describe what variables are-->
+    <string name="distance_desc">(d): displacement of the object</string>
+    <string name="init_velo_desc">(v₀): initial velocity, or velocity at time=0</string>
+    <string name="final_velo_desc">(vₜ): final velocity, or velocity at time=t </string>
+    <string name="accel_desc">(a): constant acceleration</string>
+    <string name="time_desc">(t): elapsed time</string>
+
+    <!-- define the physics variables and offer the best symbols for them -->
+    <string name="velocity_t">vₜ</string>
+    <string name="velocity_init">v₀</string>
+
+    <!-- greek letters -->
+    <string name="greek_capital_delta">Δ</string>
+    <string name="greek_capital_theta">Θ</string>
+    <string name="greek_capital_omega">Ω</string>
+    <string name="greek_theta">θ</string>
+    <string name="greek_pi">π</string>
+
+    <!-- strings for facebook sdk -->
+    <string name="facebook_app_id">1830996480511287</string>
+    <string name="fb_login_protocol_scheme">fb1830996480511287</string>
 </resources>

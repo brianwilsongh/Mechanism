@@ -45,9 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:onClick="sendSMS"
-            android:text="Text result to friend"
+            android:text="Text your result to a friend"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/colorBurntOJ" />
 
@@ -55,11 +55,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:onClick="sendEmail"
-            android:text="Email result to friend"
+            android:text="Email your result to a friend"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/colorBurntOJ" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="#3B5998"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:id="@+id/shareButtonFB"
+                android:onClick="shareFB"
+                android:text="Share Mekanism on facebook" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,6 +101,8 @@
                 android:text="RESET MEKANISM" />
 
         </LinearLayout>
+
+
 
     </LinearLayout>
 </ScrollView>

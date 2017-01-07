@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,21 +16,35 @@ public class PhysicsEquations extends AppCompatActivity {
 
     private EquationAdapter equationAdapter;
 
+    // from stack overflow, how to super/subscript:
+    // ((TextView)findViewById(R.id.text)).setText(Html.fromHtml("X<sup><small>2</small></sup>"));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_physics_equations);
 
+        Toast.makeText(this, "Scroll and tap to select", Toast.LENGTH_LONG).show();
+
 
         //create Equation objects for future use
-        Equation kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.eqn_kin1, "Variables: 4", "Kinematics", "Takes: " + "Displacement (\u0394x), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
+        Equation kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.eqn_kin1, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        Equation kinematics2 = new Equation(KinematicsSolver2.class, R.drawable.eqn_kin2, "Variables: 4", "Kinematics", "Takes: " + "Velocity at time=t (v\u209C), Initial Velocity (v\u2080), Constant Acceleration (a), Time (t)");
+        Equation kinematics2 = new Equation(KinematicsSolver2.class, R.drawable.eqn_kin2, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+
+        Equation kinematics3 = new Equation(KinematicsSolver3.class, R.drawable.eqn_kin3, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
+
+        Equation kinematics4 = new Equation(KinematicsSolver4.class, R.drawable.eqn_kin4, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
+
+        Equation kinematics5 = new Equation(KinematicsSolver5.class, R.drawable.eqn_kin5, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
         //create ArrayList for adapter that will display equations to choose from
         final ArrayList<Equation> physicsEquationList = new ArrayList<>();
         physicsEquationList.add(kinematics1);
         physicsEquationList.add(kinematics2);
+        physicsEquationList.add(kinematics3);
+        physicsEquationList.add(kinematics4);
+        physicsEquationList.add(kinematics5);
 
         //create and set up list view, adapters
         ListView equationList = (ListView) findViewById(R.id.physics_list);

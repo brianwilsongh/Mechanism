@@ -6,7 +6,6 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -29,12 +28,12 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/eq2_check_final_velocity"
+                android:id="@+id/eq4_check_displacement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="EQ2finalVelocityEnable"
-                android:text="@string/final_velo_desc" />
+                android:onClick="EQ4displacementEnable"
+                android:text="@string/distance_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,12 +42,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="vₜ ="
+                    android:text="d ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_final_velocity"
+                    android:id="@+id/eq4_input_displacement"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -64,16 +63,16 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="meters/second" />
+                    android:text="meters" />
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/eq2_check_initial_velocity"
+                android:id="@+id/eq4_check_final_velocity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="EQ2initialVelocityEnable"
-                android:text="@string/init_velo_desc" />
+                android:onClick="EQ4finalVelocityEnable"
+                android:text="@string/final_velo_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,12 +82,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="v₀ ="
+                    android:text="vₜ = "
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_initial_velocity"
+                    android:id="@+id/eq4_input_final_velocity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -109,12 +108,12 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/eq2_check_acceleration"
+                android:id="@+id/eq4_check_initial_velocity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="EQ2accelerationEnable"
-                android:text="@string/accel_desc" />
+                android:onClick="EQ4initialVelocityEnable"
+                android:text="@string/init_velo_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -124,12 +123,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="a ="
+                    android:text="v₀ ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_acceleration"
+                    android:id="@+id/eq4_input_initial_velocity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -145,15 +144,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="meters / second^2" />
+                    android:text="meters/second" />
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/eq2_check_time"
+                android:id="@+id/eq4_check_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="EQ2timeEnable"
+                android:onClick="EQ4timeEnable"
                 android:text="@string/time_desc" />
 
             <LinearLayout
@@ -170,7 +169,7 @@
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_time"
+                    android:id="@+id/eq4_input_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -187,14 +186,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="seconds"/>
+                    android:text="seconds" />
             </LinearLayout>
 
         </LinearLayout>
 
 
         <Button
-            android:id="@+id/eq2_trigger_button"
+            android:id="@+id/eq4_trigger_button"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center"
