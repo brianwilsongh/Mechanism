@@ -3,6 +3,8 @@ package com.wordpress.httpspandareaktor.mekanism;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,6 +18,20 @@ public class PhysicsEquations extends AppCompatActivity {
 
     private EquationAdapter equationAdapter;
 
+    //instantiate physicsEquationList ArrayList for the array adapter
+    final ArrayList<Equation> physicsEquationList = new ArrayList<>();
+
+    //instantiate the equationList for later manipulation
+    ListView equationList;
+
+    //instantiate all the individual equation objects here
+    Equation kinematics1;
+    Equation kinematics2;
+    Equation kinematics3;
+    Equation kinematics4;
+    Equation kinematics5;
+
+
     // from stack overflow, how to super/subscript:
     // ((TextView)findViewById(R.id.text)).setText(Html.fromHtml("X<sup><small>2</small></sup>"));
 
@@ -26,20 +42,18 @@ public class PhysicsEquations extends AppCompatActivity {
 
         Toast.makeText(this, "Scroll and tap to select", Toast.LENGTH_LONG).show();
 
-
         //create Equation objects for future use
-        Equation kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.eqn_kin1, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.eqn_kin1, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        Equation kinematics2 = new Equation(KinematicsSolver2.class, R.drawable.eqn_kin2, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        kinematics2 = new Equation(KinematicsSolver2.class, R.drawable.eqn_kin2, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        Equation kinematics3 = new Equation(KinematicsSolver3.class, R.drawable.eqn_kin3, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
+        kinematics3 = new Equation(KinematicsSolver3.class, R.drawable.eqn_kin3, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
 
-        Equation kinematics4 = new Equation(KinematicsSolver4.class, R.drawable.eqn_kin4, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
+        kinematics4 = new Equation(KinematicsSolver4.class, R.drawable.eqn_kin4, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
 
-        Equation kinematics5 = new Equation(KinematicsSolver5.class, R.drawable.eqn_kin5, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        kinematics5 = new Equation(KinematicsSolver5.class, R.drawable.eqn_kin5, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        //create ArrayList for adapter that will display equations to choose from
-        final ArrayList<Equation> physicsEquationList = new ArrayList<>();
+        //by default, we will add the kinematics equations
         physicsEquationList.add(kinematics1);
         physicsEquationList.add(kinematics2);
         physicsEquationList.add(kinematics3);
@@ -47,7 +61,7 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(kinematics5);
 
         //create and set up list view, adapters
-        ListView equationList = (ListView) findViewById(R.id.physics_list);
+        equationList = (ListView) findViewById(R.id.physics_list);
         equationAdapter = new EquationAdapter(this, physicsEquationList);
         equationList.setAdapter(equationAdapter);
 
@@ -65,7 +79,49 @@ public class PhysicsEquations extends AppCompatActivity {
 
 
 
+    }
+
+    //method to rearrange the list for kinematics equations only
+    public void arrangeListKinematics (){
+        physicsEquationList.clear();
+        physicsEquationList.add(kinematics1);
+        physicsEquationList.add(kinematics2);
+        physicsEquationList.add(kinematics3);
+        physicsEquationList.add(kinematics4);
+        physicsEquationList.add(kinematics5);
+        equationList.setAdapter(equationAdapter);
+
+    }
+
+    //method to rearrange the list to show gravity equations only
+    public void arrangeListGravity () {
+        physicsEquationList.clear();
+        equationList.setAdapter(equationAdapter);
+    }
 
 
+
+    // this override will handle what happens after the options menu is created on the bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.physics_selection, menu);
+        return true;
+    }
+
+    // this override will handle what happens once an item in the menu is selected
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.physics_select_kinematics:
+                arrangeListKinematics();
+                return true;
+
+            case R.id.physics_select_gravity:
+                arrangeListGravity();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -20,6 +20,10 @@
     <string name="greek_theta">θ</string>
     <string name="greek_pi">π</string>
 
+    <!-- strings for physics equation subject selector -->
+    <string name="selection_kinematics">Kinematics (Motion)</string>
+    <string name="selection_gravity">Gravity / Free Fall</string>
+
     <!-- strings for facebook sdk -->
     <string name="facebook_app_id">1830996480511287</string>
     <string name="fb_login_protocol_scheme">fb1830996480511287</string>
