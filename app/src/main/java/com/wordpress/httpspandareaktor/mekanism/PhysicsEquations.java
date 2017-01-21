@@ -10,9 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver1;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver1extra;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver2;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver3;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver4;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver5;
 
-import static java.security.AccessController.getContext;
+import java.util.ArrayList;
 
 public class PhysicsEquations extends AppCompatActivity {
 
@@ -30,6 +35,7 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation kinematics3;
     Equation kinematics4;
     Equation kinematics5;
+    Equation kinematics6;
 
 
     // from stack overflow, how to super/subscript:
@@ -43,15 +49,17 @@ public class PhysicsEquations extends AppCompatActivity {
         Toast.makeText(this, "Scroll and tap to select", Toast.LENGTH_LONG).show();
 
         //create Equation objects for future use
-        kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.eqn_kin1, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics2 = new Equation(KinematicsSolver2.class, R.drawable.eqn_kin2, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        kinematics2 = new Equation(KinematicsSolver1extra.class, R.drawable.phys_kin_eqn2, "3", getString(R.string.eqn_kin2), getString(R.string.init_displacement_desc) + "\n" + getString(R.string.velocity_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics3 = new Equation(KinematicsSolver3.class, R.drawable.eqn_kin3, "Variables: 4", "Kinematics", getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
+        kinematics3 = new Equation(KinematicsSolver2.class, R.drawable.phys_kin_eqn3, "4", getString(R.string.eqn_kin3), getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics4 = new Equation(KinematicsSolver4.class, R.drawable.eqn_kin4, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
+        kinematics4 = new Equation(KinematicsSolver3.class, R.drawable.phys_kin_eqn4, "4", getString(R.string.eqn_kin4), getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
 
-        kinematics5 = new Equation(KinematicsSolver5.class, R.drawable.eqn_kin5, "Variables: 4", "Kinematics", getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        kinematics5 = new Equation(KinematicsSolver4.class, R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin5), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
+
+        kinematics6 = new Equation(KinematicsSolver5.class, R.drawable.phys_kin_eqn6, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
         //by default, we will add the kinematics equations
         physicsEquationList.add(kinematics1);
@@ -59,11 +67,14 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(kinematics3);
         physicsEquationList.add(kinematics4);
         physicsEquationList.add(kinematics5);
+        physicsEquationList.add(kinematics6);
 
         //create and set up list view, adapters
         equationList = (ListView) findViewById(R.id.physics_list);
         equationAdapter = new EquationAdapter(this, physicsEquationList);
         equationList.setAdapter(equationAdapter);
+
+        equationList.setDividerHeight(3);
 
         // set on item click listener for the ListView to create intents to send user to solvers
         equationList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

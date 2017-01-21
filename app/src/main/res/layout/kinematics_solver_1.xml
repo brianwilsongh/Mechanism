@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:orientation="vertical"
-        tools:context="com.wordpress.httpspandareaktor.mekanism.KinematicsSolver1">
+        tools:context="com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver1">
 
         <TextView
             android:layout_width="match_parent"

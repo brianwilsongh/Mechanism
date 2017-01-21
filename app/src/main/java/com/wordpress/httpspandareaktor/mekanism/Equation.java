@@ -9,12 +9,12 @@ public class Equation {
     //create a variable to store the string describing parameters needed to solve equation
     private String mParams;
     private String mVarcount;
-    private String mSubject;
+    private String mDesc;
     private Class mSolver;
     private int mImageResourceId;
 
-    public Equation(Class solver, int ImageResourceId, String varCount, String subject, String params) {
-        mSubject = subject;
+    public Equation(Class solver, int ImageResourceId, String varCount, String desc, String params) {
+        mDesc = desc;
         mVarcount = varCount;
         mParams = params;
         mSolver = solver;
@@ -32,9 +32,9 @@ public class Equation {
         return mVarcount;
     }
 
-    public String getSubject() {
+    public String getDesc() {
         //getter method for subject
-        return mSubject;
+        return mDesc;
     }
 
     public Class getSolver() {

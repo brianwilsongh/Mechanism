@@ -4,10 +4,20 @@
 
     <!--strings to describe what variables are-->
     <string name="distance_desc">(d): displacement of the object</string>
+    <string name="init_displacement_desc">(d₀): initial distance, or distance at time=0</string>
     <string name="init_velo_desc">(v₀): initial velocity, or velocity at time=0</string>
     <string name="final_velo_desc">(vₜ): final velocity, or velocity at time=t </string>
+    <string name="velocity_desc">(v): velocity </string>
     <string name="accel_desc">(a): constant acceleration</string>
     <string name="time_desc">(t): elapsed time</string>
+
+    <!--strings used to describe the use of equations in scroll-down list -->
+    <string name="eqn_kin1">determine distance traveled given initial velocity, acceleration, time</string>
+    <string name="eqn_kin2">find distance given initial distance, velocity, and time</string>
+    <string name="eqn_kin3">find velocity at time=t given initial velocity, and an acceleration </string>
+    <string name="eqn_kin4">velocity at time=t squared given initial velocity, acceleration, and distance</string>
+    <string name="eqn_kin5">determine distance given velocity at time=0 and time=t, and time</string>
+    <string name="eqn_kin6">determine distance given velocity at time=t, acceleration, and time</string>
 
     <!-- define the physics variables and offer the best symbols for them -->
     <string name="velocity_t">vₜ</string>
@@ -20,7 +30,7 @@
     <string name="greek_theta">θ</string>
     <string name="greek_pi">π</string>
 
-    <!-- strings for physics equation subject selector -->
+    <!-- strings for physics equation subject selection -->
     <string name="selection_kinematics">Kinematics (Motion)</string>
     <string name="selection_gravity">Gravity / Free Fall</string>
 

@@ -1,39 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp">
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_marginTop="30dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/equation_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/phys_kin_eqn1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/equation_descriptor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="This is placeholder text detailing the equation itself"
+            android:textColor="@color/fadeText"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="6">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/equation_subject"
+                android:id="@+id/phys_equation_varcount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:layout_marginRight="25dp"
-                android:gravity="center_vertical"
-                android:text="Kinematics"
+                android:gravity="center"
+                android:text="4"
                 android:textColor="@color/colorBurntOJ"
-                android:textSize="16sp" />
+                android:textSize="23sp" />
 
             <TextView
-                android:id="@+id/equation_varcount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Variables: 4"
-                android:textSize="15sp" />
+                android:gravity="center"
+                android:text="variables"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -42,20 +72,6 @@
             android:layout_weight="7"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4">
-
-                <ImageView
-                    android:id="@+id/equation_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:src="@drawable/pinion" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,8 +84,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:text=" placeholder"
-                    android:textSize="14sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </LinearLayout>

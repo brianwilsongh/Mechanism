@@ -39,14 +39,15 @@ public class EquationAdapter extends ArrayAdapter<Equation> {
         equation.setImageResource(thisEquation.getImageResourceId());
 
         //set the text values
-        TextView subjectText = (TextView) listItemView.findViewById(R.id.equation_subject);
-        subjectText.setText(thisEquation.getSubject());
 
-        TextView varcountText = (TextView) listItemView.findViewById(R.id.equation_varcount);
+        TextView varcountText = (TextView) listItemView.findViewById(R.id.phys_equation_varcount);
         varcountText.setText(thisEquation.getVarcount());
 
         TextView variableText = (TextView) listItemView.findViewById(R.id.equation_variables);
         variableText.setText(thisEquation.getParams());
+
+        TextView descText = (TextView) listItemView.findViewById(R.id.equation_descriptor);
+        descText.setText(thisEquation.getDesc());
 
         return listItemView;
 

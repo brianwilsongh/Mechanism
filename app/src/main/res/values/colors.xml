@@ -8,4 +8,5 @@
     <color name="darkWorld">#454442</color>
     <color name="darkerWorld">#272624</color>
     <color name="lightWorld">#cbd1d8</color>
+    <color name="fadeText">#a7a7a7</color>
 </resources>
