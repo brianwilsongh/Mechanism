@@ -25,33 +25,40 @@
             android:name=".PhysicsEquations"
             android:label="Physics Equations"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
 
         <!-- BELOW: Activities for physics equations which handle input and solution methods -->
         <activity
             android:name=".Solvers.KinematicsSolver1"
             android:label="Kinematic Equation 1"
             android:parentActivityName=".PhysicsEquations"
-            android:theme="@style/AppTheme"></activity>
-        <activity
-            android:name=".Solvers.KinematicsSolver2"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Solvers.KinematicsSolver1extra"
             android:label="Kinematic Equation 2"
             android:parentActivityName=".PhysicsEquations"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.KinematicsSolver3"
+            android:name=".Solvers.KinematicsSolver2"
             android:label="Kinematic Equation 3"
             android:parentActivityName=".PhysicsEquations"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.KinematicsSolver4"
+            android:name=".Solvers.KinematicsSolver3"
             android:label="Kinematic Equation 4"
             android:parentActivityName=".PhysicsEquations"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Solvers.KinematicsSolver5"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".Solvers.KinematicsSolver4"
             android:label="Kinematic Equation 5"
             android:parentActivityName=".PhysicsEquations"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Solvers.KinematicsSolver5"
+            android:label="Kinematic Equation 6"
+            android:parentActivityName=".PhysicsEquations"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Solvers.physicsDisplacementSolver1"
+            android:parentActivityName=".PhysicsEquations"
+            android:theme="@style/AppTheme"/>
 
 
         <activity

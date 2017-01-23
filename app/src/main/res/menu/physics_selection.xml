@@ -7,11 +7,16 @@
 
     <item
         android:id="@+id/physics_select_kinematics"
-        android:title="@string/selection_kinematics"
+        android:title="@string/physics_selection_motion"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/physics_select_force"
+        android:title="@string/physics_selection_force"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/physics_select_gravity"
-        android:title="@string/selection_gravity"
+        android:title="@string/physics_selection_mechanics"
         app:showAsAction="never" />
 </menu>

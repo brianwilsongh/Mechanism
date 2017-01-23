@@ -27,7 +27,7 @@ public class EquationAdapter extends ArrayAdapter<Equation> {
     public View getView(int position, View convertView, ViewGroup parent) {
         //see if list item is null, otherwise inflate a view to populate
         View listItemView = convertView;
-        if (listItemView == null){
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.equation_item, parent, false);
         }
 
@@ -44,7 +44,11 @@ public class EquationAdapter extends ArrayAdapter<Equation> {
         varcountText.setText(thisEquation.getVarcount());
 
         TextView variableText = (TextView) listItemView.findViewById(R.id.equation_variables);
-        variableText.setText(thisEquation.getParams());
+        if (thisEquation.specialFormatting) {
+            variableText.setText(thisEquation.getFormattedParams());
+        } else {
+            variableText.setText(thisEquation.getParams());
+        }
 
         TextView descText = (TextView) listItemView.findViewById(R.id.equation_descriptor);
         descText.setText(thisEquation.getDesc());
