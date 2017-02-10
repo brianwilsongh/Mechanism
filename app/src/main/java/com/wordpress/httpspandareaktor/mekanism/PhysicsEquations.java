@@ -17,6 +17,7 @@ import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion3;
 import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion4;
 import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion5;
 import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion6;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.physicsAccelerationSolver1;
 import com.wordpress.httpspandareaktor.mekanism.Solvers.physicsVelocitySolver1;
 
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class PhysicsEquations extends AppCompatActivity {
 
         velocity1 = new Equation(physicsVelocitySolver1.class, R.drawable.phys_velo_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantVelocity);
 
-        acceleration1 = new Equation(PhysMotion6.class, R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantAcceleration);
+        acceleration1 = new Equation(physicsAccelerationSolver1.class, R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantAcceleration);
 
         motion1 = new Equation(PhysMotion1.class, R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
