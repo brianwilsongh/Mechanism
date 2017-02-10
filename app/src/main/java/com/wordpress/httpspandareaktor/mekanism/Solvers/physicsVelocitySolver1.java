@@ -16,19 +16,19 @@ import com.wordpress.httpspandareaktor.mekanism.R;
 import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
 
 /**
- * Created by Brian on 1/22/2017.
+ * Created by Brian on 1/26/2017.
  */
 
-public class physicsDisplacementSolver1 extends AppCompatActivity {
+public class physicsVelocitySolver1 extends AppCompatActivity{
+
+    private double finalConstantVelocity;
+    private boolean finalConstantVelocityExists = false;
 
     private double finalDisplacement;
     private boolean finalDisplacementExists = false;
 
-    private double finalFinalPosition;
-    private boolean finalFinalPositionExists = false;
-
-    private double finalInitialPosition;
-    private boolean finalInitialPositionExists = false;
+    private double finalTime;
+    private boolean finalTimeExists = false;
 
 
     //String for sending text/email messages with the problem
@@ -45,12 +45,12 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.phys_displacement_solver_1);
+        setContentView(R.layout.phys_velo_solver_1);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // create the onClickListener for button that will trigger the calculation
         mMediaPlayer = MediaPlayer.create(this, R.raw.electron_hi);
-        Button calcButton = (Button) findViewById(R.id.eq6_trigger_button);
+        Button calcButton = (Button) findViewById(R.id.eq7_trigger_button);
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,43 +61,43 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
     }
 
 
-    public void EQ6displacementEnable(View view) {
+    public void EQ7velocityEnable(View view) {
 //this method is declared for the first checkbox to allow inputting of final velocity to work
-        EditText editText = (EditText) findViewById(R.id.eq6_input_displacement);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq6_check_displacement);
+        EditText editText = (EditText) findViewById(R.id.eq7_input_velocity);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq7_check_velocity);
+        if (checkBox.isChecked()) {
+            editText.setFocusableInTouchMode(true);
+        } else {
+            editText.setFocusable(false);
+            editText.setHint("unknown");
+            finalConstantVelocityExists = false;
+        }
+    }
+
+    public void EQ7displacementEnable(View view) {
+//this method is declared for the first checkbox to allow input_position view to work
+        EditText editText = (EditText) findViewById(R.id.eq7_input_displacement);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq7_check_displacement);
         if (checkBox.isChecked()) {
             editText.setFocusableInTouchMode(true);
         } else {
             editText.setFocusable(false);
             editText.setHint("unknown");
             finalDisplacementExists = false;
+
         }
     }
 
-    public void EQ6initialPositionEnable(View view) {
+    public void EQ7timeEnable(View view) {
 //this method is declared for the first checkbox to allow input_position view to work
-        EditText editText = (EditText) findViewById(R.id.eq6_input_initial_position);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq6_check_initial_position);
+        EditText editText = (EditText) findViewById(R.id.eq7_input_time);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq7_check_time);
         if (checkBox.isChecked()) {
             editText.setFocusableInTouchMode(true);
         } else {
             editText.setFocusable(false);
             editText.setHint("unknown");
-            finalInitialPositionExists = false;
-
-        }
-    }
-
-    public void EQ6finalPositionEnable(View view) {
-//this method is declared for the first checkbox to allow input_position view to work
-        EditText editText = (EditText) findViewById(R.id.eq6_input_final_position);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq6_check_final_position);
-        if (checkBox.isChecked()) {
-            editText.setFocusableInTouchMode(true);
-        } else {
-            editText.setFocusable(false);
-            editText.setHint("unknown");
-            finalFinalPositionExists = false;
+            finalTimeExists = false;
 
         }
     }
@@ -132,13 +132,13 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
 
 
     private boolean vetData() {
-        if (finalDisplacementExists && finalInitialPositionExists && finalFinalPositionExists) {
+        if (!finalConstantVelocityExists && finalDisplacementExists && finalTimeExists) {
             return true;
-        } else if (finalDisplacementExists && finalInitialPositionExists && !finalFinalPositionExists) {
+        } else if (finalConstantVelocityExists && finalDisplacementExists && !finalTimeExists) {
             return true;
-        } else if (finalDisplacementExists && !finalInitialPositionExists && finalFinalPositionExists) {
+        } else if (finalConstantVelocityExists && !finalDisplacementExists && finalTimeExists) {
             return true;
-        } else {
+        } else  {
             return false;
         }
     }
@@ -151,35 +151,35 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
 
         //see if first field has value, if yes set it and make existence boolean true, mark in algo
 
-        EditText firstField = (EditText) findViewById(R.id.eq6_input_displacement);
+        EditText firstField = (EditText) findViewById(R.id.eq7_input_velocity);
         if (firstField.length() != 0) {
-            finalDisplacementExists = true;
-            finalDisplacement = Double.parseDouble(firstField.getText().toString());
+            finalConstantVelocityExists = true;
+            finalConstantVelocity = Double.parseDouble(firstField.getText().toString());
             algo[0] = 1;
         } else {
             algo[0] = 0;
-            finalDisplacementExists = false;
+            finalConstantVelocityExists = false;
         }
 
         //see if second field has value, if yes set it and make existence boolean true
-        EditText secondField = (EditText) findViewById(R.id.eq6_input_final_position);
+        EditText secondField = (EditText) findViewById(R.id.eq7_input_displacement);
         if (secondField.length() != 0) {
-            finalFinalPositionExists = true;
-            finalFinalPosition = Double.parseDouble(secondField.getText().toString());
+            finalDisplacementExists = true;
+            finalDisplacement = Double.parseDouble(secondField.getText().toString());
             algo[1] = 1;
         } else {
-            finalFinalPositionExists = false;
+            finalDisplacementExists = false;
             algo[1] = 0;
         }
 
         //see if third field has value, if yes set it and make existence boolean true
-        EditText thirdField = (EditText) findViewById(R.id.eq6_input_initial_position);
+        EditText thirdField = (EditText) findViewById(R.id.eq7_input_time);
         if (thirdField.length() != 0) {
-            finalInitialPositionExists = true;
-            finalInitialPosition = Double.parseDouble(thirdField.getText().toString());
+            finalTimeExists = true;
+            finalTime = Double.parseDouble(thirdField.getText().toString());
             algo[2] = 1;
         } else {
-            finalInitialPositionExists = false;
+            finalTimeExists = false;
             algo[2] = 0;
         }
 
@@ -202,18 +202,18 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
         Log.v("calculateAnswer", "the algo in calculateAnswer is " + solutionMethod);
         switch (solutionMethod) {
             case "011":
-                resultType = "displacement = ";
-                resultValue = String.valueOf(finalInitialPosition - finalFinalPosition);
+                resultType = "constant velocity = ";
+                resultValue = String.valueOf(finalDisplacement / finalTime);
 
                 break;
             case "101":
-                resultType = "final position = ";
-                resultValue = String.valueOf(finalDisplacement + finalInitialPosition);
+                resultType = "displacement = ";
+                resultValue = String.valueOf(finalConstantVelocity * finalTime);
 
                 break;
             case "110":
-                resultType = "initial position = ";
-                resultValue = String.valueOf(finalFinalPosition - finalDisplacement);
+                resultType = "time = ";
+                resultValue = String.valueOf(finalDisplacement / finalConstantVelocity);
 
                 break;
             default:
@@ -227,18 +227,18 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
         switch (solutionMethod) {
             // create the string for sharing via email or text message
             case "011":
-                shareString = "[Mekanism]: given final position (" + finalFinalPosition + ") , initial position " +
-                        "(" + finalInitialPosition + "); Displacement =";
+                shareString = "[Mekanism]: given change in displacement (" + finalDisplacement + ") , change in time " +
+                        "(" + finalTime + "); constant velocity =";
                 break;
 
             case "101":
-                shareString = "[Mekanism]: given displacement (" + finalDisplacement + ") , initial position " +
-                        "(" + finalInitialPosition + ") , ; Final position =";
+                shareString = "[Mekanism]: given constant velocity (" + finalConstantVelocity + ") , time " +
+                        "(" + finalTime + ") , ; displacement =";
                 break;
 
             case "110":
-                shareString = "[Mekanism]: given displacement (" + finalDisplacement + ") , final position " +
-                        "(" + finalFinalPosition + "); Initial position =";
+                shareString = "[Mekanism]: given velocity (" + finalConstantVelocity + ") , final displacement " +
+                        "(" + finalDisplacement + "); time =";
                 break;
 
             default:
@@ -246,4 +246,3 @@ public class physicsDisplacementSolver1 extends AppCompatActivity {
         }
     }
 }
-

@@ -10,13 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver1;
-import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver1extra;
-import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver2;
-import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver3;
-import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver4;
-import com.wordpress.httpspandareaktor.mekanism.Solvers.KinematicsSolver5;
-import com.wordpress.httpspandareaktor.mekanism.Solvers.physicsDisplacementSolver1;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion1;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion1x;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion2;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion3;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion4;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion5;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion6;
+import com.wordpress.httpspandareaktor.mekanism.Solvers.physicsVelocitySolver1;
 
 import java.util.ArrayList;
 
@@ -31,15 +32,16 @@ public class PhysicsEquations extends AppCompatActivity {
     ListView equationList;
 
     //instantiate all the individual equation objects here
-    Equation displacement1; //equation 6
+    Equation motion6; //equation 6 -- def displacement
     Equation velocity1; //equation 7
     Equation acceleration1; //equation 8
-    Equation kinematics1; //equation 1
-    Equation kinematics2; //equation 2
-    Equation kinematics3; //equation 3
-    Equation kinematics4; //equation 4
-    Equation kinematics5; //equation 5
-    Equation kinematics6; //equation 1 X
+    Equation motion1; //equation 1
+    Equation motion2; //equation 2
+    Equation motion3; //equation 3
+    Equation motion4; //equation 4
+    Equation motion5; //equation 5
+    Equation motion1x; //equation 1 X
+    Equation physGrav1; // grav equation 1 -- universal grav
 
 
     // from stack overflow, how to super/subscript:
@@ -55,34 +57,34 @@ public class PhysicsEquations extends AppCompatActivity {
         //create Equation objects for future use
         //KINEMATIC AND MOTION EQUATIONS
 
-        displacement1 = new Equation(physicsDisplacementSolver1.class, R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1), PhysicsUtils.displacement);
+        motion6 = new Equation(PhysMotion6.class, R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1), PhysicsUtils.displacement);
 
-        velocity1 = new Equation(physicsDisplacementSolver1.class, R.drawable.phys_velo_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantVelocity);
+        velocity1 = new Equation(physicsVelocitySolver1.class, R.drawable.phys_velo_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantVelocity);
 
-        acceleration1 = new Equation(physicsDisplacementSolver1.class, R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantAcceleration);
+        acceleration1 = new Equation(PhysMotion6.class, R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), PhysicsUtils.constantAcceleration);
 
-        kinematics1 = new Equation(KinematicsSolver1.class, R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        motion1 = new Equation(PhysMotion1.class, R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics2 = new Equation(KinematicsSolver1extra.class, R.drawable.phys_kin_eqn2, "4", getString(R.string.eqn_kin2), getString(R.string.distance_desc) + "\n" + getString(R.string.init_displacement_desc) + "\n" + getString(R.string.velocity_desc) + "\n" + getString(R.string.time_desc));
+        motion1x = new Equation(PhysMotion1x.class, R.drawable.phys_kin_eqn1x, "4", getString(R.string.eqn_kin2), getString(R.string.distance_desc) + "\n" + getString(R.string.init_displacement_desc) + "\n" + getString(R.string.velocity_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics3 = new Equation(KinematicsSolver2.class, R.drawable.phys_kin_eqn3, "4", getString(R.string.eqn_kin3), getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        motion2 = new Equation(PhysMotion2.class, R.drawable.phys_kin_eqn2, "4", getString(R.string.eqn_kin3), getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics4 = new Equation(KinematicsSolver3.class, R.drawable.phys_kin_eqn4, "4", getString(R.string.eqn_kin4), getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
+        motion3 = new Equation(PhysMotion3.class, R.drawable.phys_kin_eqn3, "4", getString(R.string.eqn_kin4), getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
 
-        kinematics5 = new Equation(KinematicsSolver4.class, R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin5), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
+        motion4 = new Equation(PhysMotion4.class, R.drawable.phys_kin_eqn4, "4", getString(R.string.eqn_kin5), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
 
-        kinematics6 = new Equation(KinematicsSolver5.class, R.drawable.phys_kin_eqn6, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+        motion5 = new Equation(PhysMotion5.class, R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
         //by default, we will add the kinematics
-        physicsEquationList.add(displacement1);
+        physicsEquationList.add(motion6);
         physicsEquationList.add(velocity1);
         physicsEquationList.add(acceleration1);
-        physicsEquationList.add(kinematics1);
-        physicsEquationList.add(kinematics2);
-        physicsEquationList.add(kinematics3);
-        physicsEquationList.add(kinematics4);
-        physicsEquationList.add(kinematics5);
-        physicsEquationList.add(kinematics6);
+        physicsEquationList.add(motion1);
+        physicsEquationList.add(motion1x);
+        physicsEquationList.add(motion2);
+        physicsEquationList.add(motion3);
+        physicsEquationList.add(motion4);
+        physicsEquationList.add(motion5);
 
         //create and set up list view, adapters
         equationList = (ListView) findViewById(R.id.physics_list);
@@ -108,23 +110,23 @@ public class PhysicsEquations extends AppCompatActivity {
     }
 
     //method to rearrange the list for kinematics equations only
-    public void arrangeListKinematics (){
+    public void arrangeList1 (){
         physicsEquationList.clear();
-        physicsEquationList.add(displacement1);
+        physicsEquationList.add(motion6);
         physicsEquationList.add(velocity1);
         physicsEquationList.add(acceleration1);
-        physicsEquationList.add(kinematics1);
-        physicsEquationList.add(kinematics2);
-        physicsEquationList.add(kinematics3);
-        physicsEquationList.add(kinematics4);
-        physicsEquationList.add(kinematics5);
-        physicsEquationList.add(kinematics6);
+        physicsEquationList.add(motion1);
+        physicsEquationList.add(motion1x);
+        physicsEquationList.add(motion2);
+        physicsEquationList.add(motion3);
+        physicsEquationList.add(motion4);
+        physicsEquationList.add(motion5);
         equationList.setAdapter(equationAdapter);
 
     }
 
     //method to rearrange the list to show gravity equations only
-    public void arrangeListGravity () {
+    public void arrangeList2 () {
         physicsEquationList.clear();
         equationList.setAdapter(equationAdapter);
     }
@@ -144,11 +146,11 @@ public class PhysicsEquations extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.physics_select_kinematics:
-                arrangeListKinematics();
+                arrangeList1();
                 return true;
 
             case R.id.physics_select_gravity:
-                arrangeListGravity();
+                arrangeList2();
                 return true;
 
         }

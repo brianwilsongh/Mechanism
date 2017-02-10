@@ -16,19 +16,20 @@ import com.wordpress.httpspandareaktor.mekanism.R;
 import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
 
 /**
- * Created by Brian on 1/2/2017.
+ * Created by Brian on 1/3/2017.
  */
 
-public class KinematicsSolver4 extends AppCompatActivity{
+public class PhysMotion5 extends AppCompatActivity{
+
 
     private double finalFinalVelocity;
     private boolean finalVelocityExists = false;
 
-    private double finalInitialVelocity;
-    private boolean initialVelocityExists = false;
-
     private double finalTime;
     private boolean timeExists = false;
+
+    private double finalAcceleration;
+    private boolean accelerationExists = false;
 
     private double finalDisplacement;
     private boolean displacementExists = false;
@@ -47,12 +48,12 @@ public class KinematicsSolver4 extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kinematics_solver_4);
+        setContentView(R.layout.kinematics_solver_5);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // create the onClickListener for button that will trigger the calculation
         mMediaPlayer = MediaPlayer.create(this, R.raw.electron_hi);
-        Button calcButton = (Button) findViewById(R.id.eq4_trigger_button);
+        Button calcButton = (Button) findViewById(R.id.eq5_trigger_button);
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,37 +64,37 @@ public class KinematicsSolver4 extends AppCompatActivity{
     }
 
 
-    public void EQ4finalVelocityEnable(View view) {
+    public void EQ5displacementEnable(View view) {
 //this method is declared for the first checkbox to allow inputting of final velocity to work
-        EditText editText = (EditText) findViewById(R.id.eq4_input_final_velocity);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq4_check_final_velocity);
+        EditText editText = (EditText) findViewById(R.id.eq5_input_displacement);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq5_check_displacement);
+        if (checkBox.isChecked()) {
+            editText.setFocusableInTouchMode(true);
+        } else {
+            editText.setFocusable(false);
+            editText.setHint("unknown");
+            displacementExists = false;
+        }
+    }
+
+    public void EQ5finalVelocityEnable(View view) {
+//this method is declared for the first checkbox to allow inputting of initial velocity to work
+        EditText editText = (EditText) findViewById(R.id.eq5_input_final_velocity);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq5_check_final_velocity);
         if (checkBox.isChecked()) {
             editText.setFocusableInTouchMode(true);
         } else {
             editText.setFocusable(false);
             editText.setHint("unknown");
             finalVelocityExists = false;
-        }
-    }
-
-    public void EQ4initialVelocityEnable(View view) {
-//this method is declared for the first checkbox to allow inputting of initial velocity to work
-        EditText editText = (EditText) findViewById(R.id.eq4_input_initial_velocity);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq4_check_initial_velocity);
-        if (checkBox.isChecked()) {
-            editText.setFocusableInTouchMode(true);
-        } else {
-            editText.setFocusable(false);
-            editText.setHint("unknown");
-            initialVelocityExists = false;
 
         }
     }
 
-    public void EQ4timeEnable(View view) {
+    public void EQ5timeEnable(View view) {
 //this method is declared for the first checkbox to allow input_position view to work
-        EditText editText = (EditText) findViewById(R.id.eq4_input_time);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq4_check_time);
+        EditText editText = (EditText) findViewById(R.id.eq5_input_time);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq5_check_time);
         if (checkBox.isChecked()) {
             editText.setFocusableInTouchMode(true);
         } else {
@@ -104,16 +105,16 @@ public class KinematicsSolver4 extends AppCompatActivity{
         }
     }
 
-    public void EQ4displacementEnable(View view) {
+    public void EQ5accelerationEnable(View view) {
 //this method is declared for the first checkbox to allow input_position view to work
-        EditText editText = (EditText) findViewById(R.id.eq4_input_displacement);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.eq4_check_displacement);
+        EditText editText = (EditText) findViewById(R.id.eq5_input_acceleration);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.eq5_check_acceleration);
         if (checkBox.isChecked()) {
             editText.setFocusableInTouchMode(true);
         } else {
             editText.setFocusable(false);
             editText.setHint("unknown");
-            displacementExists = false;
+            accelerationExists = false;
 
         }
     }
@@ -148,13 +149,13 @@ public class KinematicsSolver4 extends AppCompatActivity{
 
 
     private boolean vetData() {
-        if (displacementExists && finalVelocityExists && initialVelocityExists && !timeExists) {
+        if (displacementExists && finalVelocityExists && accelerationExists && !timeExists) {
             return true;
-        } else if (displacementExists && finalVelocityExists && !initialVelocityExists && timeExists) {
+        } else if (displacementExists && finalVelocityExists && !accelerationExists && timeExists) {
             return true;
-        } else if (displacementExists && !finalVelocityExists && initialVelocityExists && timeExists) {
+        } else if (displacementExists && !finalVelocityExists && accelerationExists && timeExists) {
             return true;
-        } else if (!displacementExists && finalVelocityExists && initialVelocityExists && timeExists) {
+        } else if (!displacementExists && finalVelocityExists && accelerationExists && timeExists) {
             return true;
         } else {
             return false;
@@ -169,7 +170,7 @@ public class KinematicsSolver4 extends AppCompatActivity{
 
         //see if position field has value, if yes set it and make existence boolean true, mark in algo
 
-        EditText finalVeloField = (EditText) findViewById(R.id.eq4_input_displacement);
+        EditText finalVeloField = (EditText) findViewById(R.id.eq5_input_displacement);
         if (finalVeloField.length() != 0) {
             displacementExists = true;
             finalDisplacement = Double.parseDouble(finalVeloField.getText().toString());
@@ -180,7 +181,7 @@ public class KinematicsSolver4 extends AppCompatActivity{
         }
 
         //see if velo field has value, if yes set it and make existence boolean true
-        EditText initialVeloField = (EditText) findViewById(R.id.eq4_input_final_velocity);
+        EditText initialVeloField = (EditText) findViewById(R.id.eq5_input_final_velocity);
         if (initialVeloField.length() != 0) {
             finalVelocityExists = true;
             finalFinalVelocity = Double.parseDouble(initialVeloField.getText().toString());
@@ -191,18 +192,18 @@ public class KinematicsSolver4 extends AppCompatActivity{
         }
 
         //see if accel field has value, if yes set it and make existence boolean true
-        EditText accelField = (EditText) findViewById(R.id.eq4_input_initial_velocity);
+        EditText accelField = (EditText) findViewById(R.id.eq5_input_acceleration);
         if (accelField.length() != 0) {
-            initialVelocityExists = true;
-            finalInitialVelocity = Double.parseDouble(accelField.getText().toString());
+            accelerationExists = true;
+            finalAcceleration = Double.parseDouble(accelField.getText().toString());
             algo[2] = 1;
         } else {
-            initialVelocityExists = false;
+            accelerationExists = false;
             algo[2] = 0;
         }
 
         //see if time field has value, if yes set it and make existence boolean true
-        EditText timeField = (EditText) findViewById(R.id.eq4_input_time);
+        EditText timeField = (EditText) findViewById(R.id.eq5_input_time);
         if (timeField.length() != 0) {
             timeExists = true;
             finalTime = Double.parseDouble(timeField.getText().toString());
@@ -232,27 +233,60 @@ public class KinematicsSolver4 extends AppCompatActivity{
         Log.v("calculateAnswer", "the algo in calculateAnswer is " + solutionMethod);
         switch (solutionMethod) {
             case "0111":
-                resultType = "displacement =  ";
-                resultValue = String.valueOf((0.5)*(finalFinalVelocity + finalInitialVelocity)*finalTime);
+                resultType = getString(R.string.distance_desc) + "=";
+                resultValue = String.valueOf((finalFinalVelocity * finalTime) - (0.5 * finalAcceleration * Math.pow(finalTime, 2)));
 
                 break;
             case "1011":
-                resultType = "final velocity (v @ time=t) = ";
-                resultValue = String.valueOf(((2 * finalDisplacement) - (finalInitialVelocity * finalTime))/finalTime);
+                resultType = getString(R.string.final_velo_desc) + "=";
+                resultValue = String.valueOf((finalDisplacement + (0.5 * finalAcceleration * Math.pow(finalTime, 2)))/finalTime);
 
                 break;
             case "1101":
-                resultType = "initial velocity (v @ time=0) = ";
-                resultValue = String.valueOf(((2 * finalDisplacement) - (finalFinalVelocity * finalTime))/finalTime);
+                resultType = getString(R.string.accel_desc) + "=";
+                resultValue = String.valueOf(((2 * finalFinalVelocity * finalTime) - (2 * finalDisplacement))/Math.pow(finalTime, 2));
 
                 break;
             case "1110":
-                resultType = "time (t) = ";
-                resultValue = String.valueOf((2 * finalDisplacement)/(finalFinalVelocity + finalInitialVelocity));
+                resultType = getString(R.string.time_desc) + "=";
+                resultValue = String.valueOf(quadraticConvert(finalAcceleration, finalFinalVelocity, finalDisplacement, true));
+                resultValue2 = String.valueOf(quadraticConvert(finalAcceleration, finalFinalVelocity, finalDisplacement, false));
+                if (Double.parseDouble(resultValue) < 0) {
+                    resultValue = "";
+                }
+
+                if (Double.parseDouble(resultValue2) < 0) {
+                    resultValue2 = "";
+                }
                 break;
             default:
                 Log.v("Broken switch statement", " " + solutionMethod);
 
+        }
+    }
+
+    private double quadraticConvert(double a, double Vf, double d, boolean plusBeforeSqrt) {
+        double quadA = (-0.5) * a;
+        double quadB = Vf;
+        double quadC = -d;
+        if (plusBeforeSqrt) {
+            double solution =
+                    //TOP PART
+                    (-quadB +
+                            Math.sqrt((Math.pow(quadB, 2)) - ((4) * (quadA) * (quadC)))
+                    )
+                            //END TOP
+                            / (2 * quadA);
+            return solution;
+        } else {
+            double solution =
+                    //TOP PART
+                    (-quadB -
+                            Math.sqrt((Math.pow(quadB, 2)) - ((4) * (quadA) * (quadC)))
+                    )
+                            //END TOP
+                            / (2 * quadA);
+            return solution;
         }
     }
 
@@ -261,23 +295,23 @@ public class KinematicsSolver4 extends AppCompatActivity{
         switch (solutionMethod) {
             // create the string for sharing via email or text message
             case "0111":
-                shareString = "[Mekanism]: given final velocity (" + finalFinalVelocity + ") , initial velocity " +
-                        "(" + finalInitialVelocity + ") , time (" + finalTime + "); Displacement =";
+                shareString = "[Mekanism]: given final velocity (" + finalFinalVelocity + ") , acceleration " +
+                        "(" + finalAcceleration + ") , time (" + finalTime + "); Displacement =";
                 break;
 
             case "1011":
-                shareString = "[Mekanism]: given displacement (" + finalDisplacement + ") , initial velocity " +
-                        "(" + finalInitialVelocity + ") , time (" + finalTime + "); Final velocity =";
+                shareString = "[Mekanism]: given displacement (" + finalDisplacement + ") , acceleration " +
+                        "(" + finalAcceleration + ") , time (" + finalTime + "); Final velocity =";
                 break;
 
             case "1101":
                 shareString = "[Mekanism]: given displacement (" + finalDisplacement + ") , final velocity " +
-                        "(" + finalFinalVelocity + ") , time (" + finalTime + "); Initial velocity =";
+                        "(" + finalFinalVelocity + ") , time (" + finalTime + "); Acceleration =";
                 break;
 
             case "1110":
                 shareString = "[Mekanism]: given displacement (" + finalDisplacement + ") , final velocity " +
-                        "(" + finalFinalVelocity + ") , initial velocity (" + finalInitialVelocity + "); Time =";
+                        "(" + finalFinalVelocity + ") , acceleration (" + finalAcceleration + "); Time =";
                 break;
 
             default:
@@ -287,4 +321,5 @@ public class KinematicsSolver4 extends AppCompatActivity{
 
 
 }
+
 

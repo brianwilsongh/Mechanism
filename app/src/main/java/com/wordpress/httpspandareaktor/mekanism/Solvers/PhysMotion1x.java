@@ -20,7 +20,7 @@ import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
  */
 
 
-public class KinematicsSolver1extra extends AppCompatActivity {
+public class PhysMotion1x extends AppCompatActivity {
 
     private double finalDisplacement;
     private boolean finalDisplacementExists = false;

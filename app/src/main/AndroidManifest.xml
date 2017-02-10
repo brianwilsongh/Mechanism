@@ -29,34 +29,37 @@
 
         <!-- BELOW: Activities for physics equations which handle input and solution methods -->
         <activity
-            android:name=".Solvers.KinematicsSolver1"
+            android:name=".Solvers.PhysMotion1"
             android:label="Kinematic Equation 1"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.KinematicsSolver1extra"
+        <activity android:name=".Solvers.PhysMotion1x"
             android:label="Kinematic Equation 2"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.KinematicsSolver2"
+            android:name=".Solvers.PhysMotion2"
             android:label="Kinematic Equation 3"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.KinematicsSolver3"
+            android:name=".Solvers.PhysMotion3"
             android:label="Kinematic Equation 4"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.KinematicsSolver4"
+            android:name=".Solvers.PhysMotion4"
             android:label="Kinematic Equation 5"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.KinematicsSolver5"
+        <activity android:name=".Solvers.PhysMotion5"
             android:label="Kinematic Equation 6"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.physicsDisplacementSolver1"
+        <activity android:name=".Solvers.PhysMotion6"
+            android:parentActivityName=".PhysicsEquations"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Solvers.physicsVelocitySolver1"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
 

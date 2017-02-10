@@ -19,8 +19,8 @@
 
     <!--strings used to describe the use of equations in scroll-down list -->
     <string name="phys_eqn_disp1">Defines displacement, the net change in position by comparing final and initial</string>
-    <string name="phys_eqn_velo1">Defines velocity, a change in position over change in time. Assumes that it's constant</string>
-    <string name="phys_eqn_accel1">Defines acceleration, a change in velocity over time. Assumes that it's constant. </string>
+    <string name="phys_eqn_velo1">Defines velocity, a change in position over change in time. Assumes that it is constant</string>
+    <string name="phys_eqn_accel1">Defines acceleration, a change in velocity over time. Assumes that it is constant. </string>
     <string name="eqn_kin1">Determine distance traveled given initial velocity, acceleration, time</string>
     <string name="eqn_kin2">Find distance given initial distance, velocity, and time</string>
     <string name="eqn_kin3">Find velocity at time=t given initial velocity, and an acceleration </string>

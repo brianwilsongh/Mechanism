@@ -20,7 +20,7 @@ import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
  * Created by Brian on 12/14/2016.
  */
 
-public class KinematicsSolver2 extends AppCompatActivity {
+public class PhysMotion2 extends AppCompatActivity {
 
     private double finalFinalVelocity;
     private boolean finalVelocityExists = false;

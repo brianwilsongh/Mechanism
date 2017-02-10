@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:orientation="vertical"
-        tools:context="com.wordpress.httpspandareaktor.mekanism.Solvers.PhysMotion2">
+        tools:context="com.wordpress.httpspandareaktor.mekanism.Solvers.physicsVelocitySolver1">
 
         <TextView
             android:layout_width="match_parent"
@@ -28,12 +28,12 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/eq3_check_final_velocity"
+                android:id="@+id/eq7_check_velocity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="EQ3finalVelocityEnable"
-                android:text="@string/final_velo_desc" />
+                android:onClick="EQ7velocityEnable"
+                android:text="@string/velocity_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,52 +42,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="vₜ ="
+                    android:text="v ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq3_input_final_velocity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:focusable="false"
-                    android:gravity="center"
-                    android:hint="unknown"
-                    android:inputType="numberDecimal"
-                    android:textAppearance="?android:textAppearanceLarge" />
-
-                <TextView
-                    style="@style/unitDisplayText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="meters/second" />
-            </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/eq3_check_initial_velocity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:onClick="EQ3initialVelocityEnable"
-                android:text="@string/init_velo_desc" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="v₀ ="
-                    android:textAppearance="?android:textAppearanceLarge"
-                    android:textColor="@color/colorBurntOJ" />
-
-                <EditText
-                    android:id="@+id/eq3_input_initial_velocity"
+                    android:id="@+id/eq7_input_velocity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -104,55 +64,14 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="meters / second" />
-
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/eq3_check_acceleration"
+                android:id="@+id/eq7_check_displacement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="EQ3accelerationEnable"
-                android:text="@string/accel_desc" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="a ="
-                    android:textAppearance="?android:textAppearanceLarge"
-                    android:textColor="@color/colorBurntOJ" />
-
-                <EditText
-                    android:id="@+id/eq3_input_acceleration"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:focusable="false"
-                    android:gravity="center"
-                    android:hint="unknown"
-                    android:inputType="numberDecimal"
-                    android:textAppearance="?android:textAppearanceLarge" />
-
-                <TextView
-                    style="@style/unitDisplayText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="meters / second^2" />
-            </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/eq3_check_displacement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:onClick="EQ3displacementEnable"
+                android:onClick="EQ7displacementEnable"
                 android:text="@string/distance_desc" />
 
             <LinearLayout
@@ -163,13 +82,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="d ="
+                    android:text="Δd = "
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq3_input_displacement"
+                    android:id="@+id/eq7_input_displacement"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -177,7 +95,6 @@
                     android:gravity="center"
                     android:hint="unknown"
                     android:inputType="numberDecimal"
-                    android:padding="5dp"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
@@ -187,13 +104,56 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="meters" />
+
             </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/eq7_check_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="EQ7timeEnable"
+                android:text="@string/time_desc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Δt ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/eq7_input_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="seconds" />
+            </LinearLayout>
+
+
 
         </LinearLayout>
 
 
         <Button
-            android:id="@+id/eq3_trigger_button"
+            android:id="@+id/eq7_trigger_button"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center"
