@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Set main text to include the awesome Xi
         TextView title = (TextView) findViewById(R.id.title);
-        title.setText("MΞKANISM");
+        title.setText(getString(R.string.app_name));
 
         //Create rotation animation for the primary gear
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,

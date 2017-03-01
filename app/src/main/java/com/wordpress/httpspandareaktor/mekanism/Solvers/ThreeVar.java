@@ -6,16 +6,20 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wordpress.httpspandareaktor.mekanism.R;
+import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import static android.R.attr.value;
@@ -52,8 +56,7 @@ public class ThreeVar extends AppCompatActivity{
     TextView unitsC;
 
     ImageView equationImage;
-    TextView variableDescriptor;
-    TextView equationCodeViewer;
+    TextView equationDescriptor;
     Button calcButton;
 
     //other variables for other functions
@@ -61,14 +64,19 @@ public class ThreeVar extends AppCompatActivity{
     String shareString;
     String resultType;
     String resultVal;
-    String resultVal2;
+
+    //2 parameters for the solution method sitting in equationCode class
+    double solveMethodParam1;
+    double solveMethodParam2;
 
     //array coding for variable presence
-    int[] presenceArray;
-    String arrayCode;
+    String arrayCode = "";
 
     //equation code ex. "PHY1"
     String equationCode;
+
+    //root subject for redirection, attribute of the equationCode class
+    String rootSubject;
 
 
 
@@ -77,12 +85,10 @@ public class ThreeVar extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.solver_three_var);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        presenceArray = new int[3];
 
         // match all declared variables to matching view in the layout file
         equationImage = (ImageView) findViewById(R.id.threeVarImage);
-        variableDescriptor = (TextView) findViewById(R.id.threeVarDescriptor);
-        equationCodeViewer = (TextView) findViewById(R.id.threeVarCode);
+        equationDescriptor = (TextView) findViewById(R.id.threeVarDescriptor);
         calcButton = (Button) findViewById(R.id.threeVarButton);
 
         symbolA = (TextView) findViewById(R.id.threeVarSymbolA);
@@ -100,7 +106,7 @@ public class ThreeVar extends AppCompatActivity{
         //retrieve info from intent to set up the matching class
         Intent i = getIntent();
         equationCode = i.getStringExtra("equationCode");
-        equationCodeViewer.setText(equationCode);
+        setTitle("Equation ID:  " + equationCode);
 
 
         //set up the views given data from the class and other stuff
@@ -113,97 +119,138 @@ public class ThreeVar extends AppCompatActivity{
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendData();
+                try {attemptSolve(); } catch (Exception e) {e.printStackTrace();}
             }
         });
 
-        //retrieve symbols, units from the unique equation class, set TextViews accordingly
-
-
-        //retrieve the class given equationCode and set views
-        try { findClass();
-        } catch (Exception e) {e.printStackTrace();}
-
+        try {setClassInput(); } catch (Exception e) {e.printStackTrace();}
 
         }
 
 
 
-    private void sendData() {
-        //vet and send data with extras
+
+    private void attemptSolve() throws Exception {
+        //method that is called on Calculate button click
         if (validateInput()){
-            //do stuff
+
+            //get solve method from equationCode class
+            Class equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism.physics." + equationCode);
+            Log.v("ThreeVar.attemptSolve", "fetched " + equationClass.getCanonicalName());
+
+            //time to retrieve the method and store the solution given parameters
+            //getDeclaredMethod requires name of the method and the type classes of all params it takes...
+            Method solveMissing = equationClass.getDeclaredMethod("solveMissing", String.class, double.class, double.class);
+            solveMissing.setAccessible(true);
+            Object temp = equationClass.newInstance();
+            resultVal = (String) solveMissing.invoke(temp, arrayCode, solveMethodParam1, solveMethodParam2);
+
+            //here is the intent to travel to the solution page
+            Intent i = new Intent(this, ShowCalculation.class);
+            i.putExtra("resultUnits", resultType);
+            i.putExtra("resultValue", resultVal);
+            i.putExtra("shareString", shareString);
+            i.putExtra("rootSubject", rootSubject);
+            // send extra as a string
+            i.putExtra("eqnType", "Physics");
+            Log.v("attemptSolve method", "sent "  + resultType + " " + resultVal + " sharestring: " + shareString);
+
+            //reset that array in case they want to go back later
+            arrayCode = "";
+
+            startActivity(i);
+        } else {
+            Toast.makeText(this, "fill 2/3 fields to solve for missing variable", Toast.LENGTH_LONG).show();
         }
     }
 
 
     private boolean validateInput() {
+        //set up shareString in case user is returning here
+        String appName = getString(R.string.app_name);
+        shareString = "(" + appName + " - " + rootSubject + ") -- Given variables ";
+
         //not-blank fields are mapped to the presenceArray, build a string out of the presence array
         if (!fieldA.getText().toString().equals("")){
-            presenceArray[0] = 1;
-        }
-        if (!fieldB.getText().toString().equals("")){
-            presenceArray[1] = 1;
-        }
-        if (!fieldC.getText().toString().equals("")){
-            presenceArray[2] = 1;
-        }
+            arrayCode += "1";
+        } else { arrayCode += "0"; }
 
-        arrayCode = generateArrayCode(presenceArray);
+        if (!fieldB.getText().toString().equals("")){
+            arrayCode += "1";
+        } else { arrayCode += "0"; }
+
+        if (!fieldC.getText().toString().equals("")){
+            arrayCode += "1";
+        } else { arrayCode += "0"; }
+
+        Log.v("ThreeVar.validateInput", "I think the code is..." + arrayCode);
 
         switch (arrayCode) {
             case "011":
+                solveMethodParam1 = Double.parseDouble(fieldB.getText().toString());
+                solveMethodParam2 = Double.parseDouble(fieldC.getText().toString());
+                shareString += symbolB + "=" + solveMethodParam1 + " ; ";
+                shareString += symbolC + "=" + solveMethodParam2 + " ; ";
+                resultType = unitsA.getText().toString();
+                return true;
             case "101":
-            case "001":
-                Log.v("ThreeVar.class", " validates presenceArray with code" + arrayCode);
+                solveMethodParam1 = Double.parseDouble(fieldA.getText().toString());
+                solveMethodParam2 = Double.parseDouble(fieldC.getText().toString());
+                shareString += symbolA + "=" + solveMethodParam1 + " ; ";
+                shareString += symbolC + "=" + solveMethodParam2 + " ; ";
+                resultType = unitsB.getText().toString();
+                return true;
+            case "110":
+                solveMethodParam1 = Double.parseDouble(fieldA.getText().toString());
+                solveMethodParam2 = Double.parseDouble(fieldB.getText().toString());
+                shareString += symbolA + "=" + solveMethodParam1 + " ; ";
+                shareString += symbolB + "=" + solveMethodParam2 + " ; ";
+                resultType = unitsC.getText().toString();
                 return true;
             default:
-                presenceArray[0] = 0;
-                presenceArray[1] = 0;
-                presenceArray[2] = 0;
-                Log.v("ThreeVar.class", " failed validation with code" + arrayCode);
+                arrayCode = "";
+                Log.v("ThreeVar.class", " failed the validation with code " + arrayCode);
                 return false;
 
         }
 
     }
 
-    private String generateArrayCode(int[] array){
-        //takes array to generate array code for processing
-        int length = array.length;
-        String returnString = "";
-        for (int itr = 0; itr < length; itr++){
-            returnString += array[length - 1];
-        }
-        return returnString;
-    }
-
     public void setSymbolsAndUnits(String symA, String symB, String symC, String unitA, String unitB, String unitC){
-        symbolA.setText(symA);
-        symbolB.setText(symB);
-        symbolC.setText(symC);
-        unitsA.setText(unitA);
-        unitsB.setText(unitB);
-        unitsC.setText(unitC);
+        symbolA.setText(getString(getResources().getIdentifier(symA,"string","com.wordpress.httpspandareaktor.mekanism")));
+        symbolB.setText(getString(getResources().getIdentifier(symB,"string","com.wordpress.httpspandareaktor.mekanism")));
+        symbolC.setText(getString(getResources().getIdentifier(symC,"string","com.wordpress.httpspandareaktor.mekanism")));
+        unitsA.setText(getString(getResources().getIdentifier(unitA,"string","com.wordpress.httpspandareaktor.mekanism")));
+        unitsB.setText(getString(getResources().getIdentifier(unitB,"string","com.wordpress.httpspandareaktor.mekanism")));
+        unitsC.setText(getString(getResources().getIdentifier(unitC,"string","com.wordpress.httpspandareaktor.mekanism")));
     }
 
     //retrieve class based on the code string,
-    public void findClass() throws Exception {
+    public void setClassInput() throws Exception {
         //retrieves the specific equation class based on equationCode, sets views with appropriate values
         Class equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism.physics." + equationCode);
         Log.v("ThreeVar.findClass", "fetched " + equationClass.getCanonicalName());
+
         //field should be array list called "paramArray" in equationCode's class
-        Field paramArray = equationClass.getDeclaredField("paramArray");
-        Log.v("ThreeVar.findClass", "got field " + paramArray.toString());
-        //create array to store values, use them
+        Field resourceArray = equationClass.getDeclaredField("resourceArray");
+        Log.v("ThreeVar.findClass", "got field " + resourceArray.toString());
+
+        //create array to store values, get them from Field object, use them
         String[] valuesArray;
         Object temp = equationClass.newInstance();
-        valuesArray = (String[]) paramArray.get(temp);
-        Log.v("ThreeVar.findClass", "found params " + valuesArray.toString());
+        valuesArray = (String[]) resourceArray.get(temp);
+        Log.v("ThreeVar.findClass", "found resource names " + valuesArray.toString());
         setSymbolsAndUnits(valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3],
                 valuesArray[4], valuesArray[5]);
 
+        //use another Field object to retrieve the descriptor stored in the class
+        Field descriptorField = equationClass.getDeclaredField("descriptorText");
+        Spanned descriptor = (Spanned) descriptorField.get(temp);
+        equationDescriptor.setText(descriptor);
 
+        //use yet another Field object to retrieve the rootSubject for future navigation
+        Field rootSubjectField = equationClass.getDeclaredField("rootSubject");
+        rootSubject = (String) rootSubjectField.get(temp);
 
         }
 

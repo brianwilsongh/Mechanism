@@ -1,11 +1,12 @@
 <resources>
     <!--general information strings -->
-    <string name="app_name">MEKANISM</string>
+    <string name="app_name">MΞKANISM</string>
     <string name="app_description">Mekanism is an application built to solve mathematical equations for you.</string>
     <string name="version_number">BETA 0.1</string>
 
     <!--strings to describe what variables are-->
     <string name="distance_desc">d = displacement of the object</string>
+    <string name="desc_displacement">d = displacement of the object</string>
     <string name="init_displacement_desc">d₀ = initial distance, or distance at time=0</string>
     <string name="init_velo_desc">v₀ = initial velocity, or velocity at time=0</string>
     <string name="final_velo_desc">vₜ = final velocity, or velocity at time=t </string>
@@ -15,9 +16,14 @@
     <string name="accel_desc">a = constant acceleration</string>
     <string name="time_desc">t = elapsed time</string>
 
-    <!--shortened strings to reference particular variables -->
-    <string name="shortDesc_displacement">d</string>
-    <string name="shortDesc_init_displacement">d₀</string>
+    <!--symbols to represent specific variables -->
+    <string name="phy_sym_displacement">d</string>
+    <string name="phy_sym_initial_position">d₀</string>
+    <string name="phy_sym_final_position">dₜ</string>
+
+    <!--units for use in the solver and show calculation classes -->
+    <string name="phy_unit_meters">meters</string>
+    <string name="phy_unit_meters_per_second">meters/second</string>
 
     <!--strings used to describe the use of equations in scroll-down list -->
     <string name="phys_eqn_disp1">Defines displacement, the net change in position by comparing final and initial</string>
