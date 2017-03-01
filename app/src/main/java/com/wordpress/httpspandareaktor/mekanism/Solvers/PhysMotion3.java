@@ -1,4 +1,4 @@
-package com.wordpress.httpspandareaktor.mekanism.Solvers;
+package com.wordpress.httpspandareaktor.mekanism.solvers;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.wordpress.httpspandareaktor.mekanism.R;
 import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
-
-import static android.os.Build.VERSION_CODES.M;
 
 /**
  * Created by Brian on 12/31/2016.

@@ -29,40 +29,44 @@
 
         <!-- BELOW: Activities for physics equations which handle input and solution methods -->
         <activity
-            android:name=".Solvers.PhysMotion1"
+            android:name=".solvers.PhysMotion1"
             android:label="Kinematic Equation 1"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.PhysMotion1x"
+        <activity android:name=".solvers.PhysMotion1x"
             android:label="Kinematic Equation 2"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.PhysMotion2"
+            android:name=".solvers.PhysMotion2"
             android:label="Kinematic Equation 3"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.PhysMotion3"
+            android:name=".solvers.PhysMotion3"
             android:label="Kinematic Equation 4"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Solvers.PhysMotion4"
+            android:name=".solvers.PhysMotion4"
             android:label="Kinematic Equation 5"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.PhysMotion5"
+        <activity android:name=".solvers.PhysMotion5"
             android:label="Kinematic Equation 6"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.PhysMotion6"
+        <activity android:name=".solvers.PhysMotion6"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.physicsVelocitySolver1"
+        <activity android:name=".solvers.physicsVelocitySolver1"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Solvers.physicsAccelerationSolver1"
+        <activity android:name=".solvers.physicsAccelerationSolver1"
+            android:parentActivityName=".PhysicsEquations"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".solvers.ThreeVar"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>
 

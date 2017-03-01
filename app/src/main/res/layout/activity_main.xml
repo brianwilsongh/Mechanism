@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="5">
 
         <LinearLayout
             android:layout_width="300dp"
@@ -70,9 +70,9 @@
             android:id="@+id/gearLogo"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="100dp"
             android:layout_centerHorizontal="true"
-            android:alpha="0.4"
+            android:layout_marginTop="50dp"
+            android:alpha="0.5"
             android:src="@drawable/pinion" />
 
         <TextView
@@ -81,8 +81,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/gearLogo"
             android:layout_centerHorizontal="true"
-            android:paddingTop="15dp"
-            android:text="MEKANISM"
+            android:paddingTop="10dp"
+            android:text="@string/app_name"
             android:textColor="@color/colorBurntOJ"
             android:textSize="35sp" />
 
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_centerHorizontal="true"
-            android:text="BETA (ver 0.1)"
+            android:text="@string/version_number"
             android:textSize="20sp" />
     </RelativeLayout>
 
@@ -104,9 +104,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <Button
@@ -118,7 +118,7 @@
                 android:alpha="0.4"
                 android:maxLines="1"
                 android:padding="5dp"
-                android:text="Everyday"
+                android:text="General"
                 android:textSize="20sp" />
 
             <Button
@@ -138,9 +138,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <Button
@@ -170,28 +170,54 @@
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center">
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2">
 
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/fb_login_button"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_centerInParent="true"/>
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp">
 
-            <TextView
-                android:id="@+id/fb_login_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Logged in as Brian"
-                android:textColor="@color/colorBurntOJ"
-                android:layout_above="@id/fb_login_button"
-                android:layout_centerHorizontal="true"/>
-        </RelativeLayout>
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/fb_login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="5dp" />
+
+                <TextView
+                    android:id="@+id/fb_login_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/fb_login_button"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorBurntOJ"
+                    tools:text="Logged in as Brian" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alpha="0.4"
+                    android:background="@color/darkerWorld"
+                    android:drawableLeft="@drawable/messenger_bubble_small_white"
+                    android:padding="10dp"
+                    android:text="CONSOLE"
+                    android:textColor="@color/lightWorld" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

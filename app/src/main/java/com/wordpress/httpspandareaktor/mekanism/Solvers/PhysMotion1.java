@@ -1,4 +1,4 @@
-package com.wordpress.httpspandareaktor.mekanism.Solvers;
+package com.wordpress.httpspandareaktor.mekanism.solvers;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wordpress.httpspandareaktor.mekanism.R;

@@ -1,4 +1,4 @@
-package com.wordpress.httpspandareaktor.mekanism.Solvers;
+package com.wordpress.httpspandareaktor.mekanism.solvers;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

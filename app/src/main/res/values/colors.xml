@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ce4d06</color>
-    <color name="colorBurntOJ">#b71513</color>
+    <color name="colorBurntOJ">#ce4d06</color>
     <!-- real burnt oj is ce4d06 -->
     <color name="darkWorld">#454442</color>
     <color name="darkerWorld">#272624</color>

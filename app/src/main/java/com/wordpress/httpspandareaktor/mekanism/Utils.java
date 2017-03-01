@@ -10,7 +10,7 @@ import android.widget.TextView;
  * Created by Brian on 1/22/2017.
  */
 
-public class PhysicsUtils {
+public class Utils {
 
     public static final Spanned displacement = fromHtml("<br>d = displacement</br>" +
             "<br>x<sub><small>t</small></sub> = position at time=t, or x<sub><small>final</small></sub></br>" +

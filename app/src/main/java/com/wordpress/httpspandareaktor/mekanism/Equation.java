@@ -14,24 +14,27 @@ public class Equation {
     private String mVarcount;
     private String mDesc;
     private Class mSolver;
+    private String mCode;
     private int mImageResourceId;
     public boolean specialFormatting;
 
-    public Equation(Class solver, int ImageResourceId, String varCount, String desc, String params) {
+    public Equation(Class solver, String code, int ImageResourceId, String varCount, String desc, String params) {
         mDesc = desc;
         mVarcount = varCount;
         mParams = params;
         mSolver = solver;
+        mCode = code;
         mImageResourceId = ImageResourceId;
         specialFormatting = false;
 
     }
 
-    public Equation(Class solver, int ImageResourceId, String varCount, String desc, Spanned formattedParams) {
+    public Equation(Class solver, String code, int ImageResourceId, String varCount, String desc, Spanned formattedParams) {
         mDesc = desc;
         mVarcount = varCount;
         mFormattedParams = formattedParams;
         mSolver = solver;
+        mCode = code;
         mImageResourceId = ImageResourceId;
         specialFormatting = true;
     }
@@ -59,6 +62,11 @@ public class Equation {
     public Class getSolver() {
         //getter method for solver, which is the class that takes inputs for equation
         return mSolver;
+    }
+
+    public String getCode() {
+        //getter method for the code, which allows solver to find equation info
+        return mCode;
     }
 
     public int getImageResourceId() {
