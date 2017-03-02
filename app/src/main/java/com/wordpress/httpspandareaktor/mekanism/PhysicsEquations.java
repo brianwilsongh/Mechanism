@@ -39,12 +39,6 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation motion6; //equation 6 -- def displacement
     Equation velocity1; //equation 7
     Equation acceleration1; //equation 8
-    Equation motion1; //equation 1
-    Equation motion2; //equation 2
-    Equation motion3; //equation 3
-    Equation motion4; //equation 4
-    Equation motion5; //equation 5
-    Equation motion1x; //equation 1 X
     Equation physGrav1; // grav equation 1 -- universal grav
 
 
@@ -61,7 +55,7 @@ public class PhysicsEquations extends AppCompatActivity {
         //create Equation objects for future use
         //KINEMATIC AND MOTION EQUATIONS
 
-        test = new Equation(ThreeVar.class, "PHY1", R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1), Utils.displacement);
+        test = new Equation(ThreeVar.class, "PHY1", R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1));
 
         motion6 = new Equation(PhysMotion6.class, "PHY1", R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1), Utils.displacement);
 
@@ -69,29 +63,24 @@ public class PhysicsEquations extends AppCompatActivity {
 
         acceleration1 = new Equation(physicsAccelerationSolver1.class, "PHY3", R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), Utils.constantAcceleration);
 
-        motion1 = new Equation(PhysMotion1.class, "PHY4", R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
-
-        motion1x = new Equation(PhysMotion1x.class, "PHY5", R.drawable.phys_kin_eqn1x, "4", getString(R.string.eqn_kin2), getString(R.string.distance_desc) + "\n" + getString(R.string.init_displacement_desc) + "\n" + getString(R.string.velocity_desc) + "\n" + getString(R.string.time_desc));
-
-        motion2 = new Equation(PhysMotion2.class, "PHY6", R.drawable.phys_kin_eqn2, "4", getString(R.string.eqn_kin3), getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
-
-        motion3 = new Equation(PhysMotion3.class, "PHY7", R.drawable.phys_kin_eqn3, "4", getString(R.string.eqn_kin4), getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
-
-        motion4 = new Equation(PhysMotion4.class, "PHY8", R.drawable.phys_kin_eqn4, "4", getString(R.string.eqn_kin5), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
-
-        motion5 = new Equation(PhysMotion5.class, "PHY9", R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+//        motion1 = new Equation(PhysMotion1.class, "PHY4", R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+//
+//        motion1x = new Equation(PhysMotion1x.class, "PHY5", R.drawable.phys_kin_eqn1x, "4", getString(R.string.eqn_kin2), getString(R.string.distance_desc) + "\n" + getString(R.string.init_displacement_desc) + "\n" + getString(R.string.velocity_desc) + "\n" + getString(R.string.time_desc));
+//
+//        motion2 = new Equation(PhysMotion2.class, "PHY6", R.drawable.phys_kin_eqn2, "4", getString(R.string.eqn_kin3), getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
+//
+//        motion3 = new Equation(PhysMotion3.class, "PHY7", R.drawable.phys_kin_eqn3, "4", getString(R.string.eqn_kin4), getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
+//
+//        motion4 = new Equation(PhysMotion4.class, "PHY8", R.drawable.phys_kin_eqn4, "4", getString(R.string.eqn_kin5), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
+//
+//        motion5 = new Equation(PhysMotion5.class, "PHY9", R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
         //by default, we will add the kinematics
         physicsEquationList.add(test);
         physicsEquationList.add(motion6);
         physicsEquationList.add(velocity1);
         physicsEquationList.add(acceleration1);
-        physicsEquationList.add(motion1);
-        physicsEquationList.add(motion1x);
-        physicsEquationList.add(motion2);
-        physicsEquationList.add(motion3);
-        physicsEquationList.add(motion4);
-        physicsEquationList.add(motion5);
+
 
         //create and set up list view, adapters
         equationList = (ListView) findViewById(R.id.physics_list);
@@ -128,12 +117,7 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(motion6);
         physicsEquationList.add(velocity1);
         physicsEquationList.add(acceleration1);
-        physicsEquationList.add(motion1);
-        physicsEquationList.add(motion1x);
-        physicsEquationList.add(motion2);
-        physicsEquationList.add(motion3);
-        physicsEquationList.add(motion4);
-        physicsEquationList.add(motion5);
+
         equationList.setAdapter(equationAdapter);
 
     }

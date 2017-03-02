@@ -2,6 +2,8 @@ package com.wordpress.httpspandareaktor.mekanism;
 
 import android.os.Build;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.widget.TextView;
@@ -11,6 +13,15 @@ import android.widget.TextView;
  */
 
 public class Utils {
+
+    //descriptions of variables
+    //PHYSICS
+
+    public static Spanned PHYvarDescDisplacement = fromHtml("<br><b>d</b> : displacement, change of position of object (also known as Δx)</br>");
+    public static Spanned PHYvarDescInitialPosition = fromHtml("<br><b>x₀ or x<sub><small>initial</small></sub></b> : initial position, or position at time=0</br>");
+    public static Spanned PHYvarDescFinalPosition = fromHtml("<br><b>xₜ or x<sub><small>final</small></sub></b> : final position, or position at time=t</br>");
+
+
 
     public static final Spanned displacement = fromHtml("<br>d = displacement</br>" +
             "<br>x<sub><small>t</small></sub> = position at time=t, or x<sub><small>final</small></sub></br>" +

@@ -34,7 +34,7 @@ public class ShowCalculation extends AppCompatActivity {
     private String answerVal;
     private String answerVal2;
     private String shareString;
-    private String rootSubject;
+    private String subjectCode;
 
     //variables for sharing on FB
     private String sharingURL = "https://play.google.com/store/apps/details?id=com.wordpress.httpspandareaktor.mekanism";
@@ -58,11 +58,9 @@ public class ShowCalculation extends AppCompatActivity {
         if (i.getStringExtra("shareString") != null) {
             shareString = i.getStringExtra("shareString");
         }
-        if (i.getStringExtra("rootSubject") != null) {
-            rootSubject = i.getStringExtra("rootSubject");
+        if (i.getStringExtra("subjectCode") != null) {
+            subjectCode = i.getStringExtra("subjectCode");
         }
-
-        rootSubject = i.getStringExtra("rootSubject");
 
         TextView resultTypeText = (TextView) findViewById(R.id.result_type);
         TextView resultValueText = (TextView) findViewById(R.id.result_value);
@@ -75,7 +73,7 @@ public class ShowCalculation extends AppCompatActivity {
         resultTypeText.setText(answerUnits);
         resultValueText.setText(answerVal);
         resultValueText2.setText(answerVal2);
-        rootButton.setText("Return to " + rootSubject);
+        rootButton.setText("Return to " + subjectCode);
     }
 
     public void sendSMS(View view) {
@@ -103,8 +101,8 @@ public class ShowCalculation extends AppCompatActivity {
     }
 
     public void returnRoot(View view) {
-        switch (rootSubject) {
-            case "Physics":
+        switch (subjectCode) {
+            case "PHY":
                 Intent i = new Intent(this, PhysicsEquations.class);
                 startActivity(i);
             default:

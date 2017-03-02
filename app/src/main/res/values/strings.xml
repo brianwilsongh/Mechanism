@@ -18,8 +18,8 @@
 
     <!--symbols to represent specific variables -->
     <string name="phy_sym_displacement">d</string>
-    <string name="phy_sym_initial_position">d₀</string>
-    <string name="phy_sym_final_position">dₜ</string>
+    <string name="phy_sym_initial_position">x₀</string>
+    <string name="phy_sym_final_position">xₜ</string>
 
     <!--units for use in the solver and show calculation classes -->
     <string name="phy_unit_meters">meters</string>
@@ -49,7 +49,7 @@
 
     <!-- strings for physics equation subject selection -->
     <string name="physics_selection_motion">Kinematics/Motion</string>
-    <string name="physics_selection_force">Force</string>
+    <string name="physics_selection_force">Forces</string>
     <string name="physics_selection_mechanics">Mechanics</string>
 
     <!-- strings for facebook sdk -->

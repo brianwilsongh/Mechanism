@@ -9,8 +9,6 @@ import android.text.Spanned;
 public class Equation {
 
     //create a variable to store the string describing parameters needed to solve equation
-    private String mParams;
-    private Spanned mFormattedParams;
     private String mVarcount;
     private String mDesc;
     private Class mSolver;
@@ -18,10 +16,9 @@ public class Equation {
     private int mImageResourceId;
     public boolean specialFormatting;
 
-    public Equation(Class solver, String code, int ImageResourceId, String varCount, String desc, String params) {
+    public Equation(Class solver, String code, int ImageResourceId, String varCount, String desc) {
         mDesc = desc;
         mVarcount = varCount;
-        mParams = params;
         mSolver = solver;
         mCode = code;
         mImageResourceId = ImageResourceId;
@@ -32,21 +29,10 @@ public class Equation {
     public Equation(Class solver, String code, int ImageResourceId, String varCount, String desc, Spanned formattedParams) {
         mDesc = desc;
         mVarcount = varCount;
-        mFormattedParams = formattedParams;
         mSolver = solver;
         mCode = code;
         mImageResourceId = ImageResourceId;
         specialFormatting = true;
-    }
-
-    public String getParams() {
-        //getter method for params
-        return mParams;
-    }
-
-    public Spanned getFormattedParams() {
-        //getter method for formatted parameters
-        return mFormattedParams;
     }
 
     public String getVarcount() {

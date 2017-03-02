@@ -1,19 +1,14 @@
-package com.wordpress.httpspandareaktor.mekanism.physics;
+package com.wordpress.httpspandareaktor.mekanism.PHY;
 
-import android.content.res.Resources;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
 import android.text.Spanned;
-import android.widget.TextView;
-import android.view.View;
+import android.text.TextUtils;
 
-import com.wordpress.httpspandareaktor.mekanism.R;
 import com.wordpress.httpspandareaktor.mekanism.Utils;
-import com.wordpress.httpspandareaktor.mekanism.solvers.ThreeVar;
 
-import java.util.ArrayList;
+import static com.wordpress.httpspandareaktor.mekanism.Utils.PHYvarDescFinalPosition;
 
-import static com.wordpress.httpspandareaktor.mekanism.Utils.displacement;
 
 /**
  * Created by Brian on 2/28/2017.
@@ -23,14 +18,12 @@ public class PHY1 extends AppCompatActivity{
 
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
 
-    public final Spanned descriptorText = Utils.fromHtml("<br>d = displacement</br>" +
-            "<br>x<sub><small>t</small></sub> = position at time=t, or x<sub><small>final</small></sub></br>" +
-            "<br>x<sub><small>0</small></sub> = initial position, position at time = 0");
-
+    //descriptorText contains all the variables used and their descriptions
+    public final Spanned[] descriptorArray = {Utils.PHYvarDescDisplacement,
+            Utils.PHYvarDescInitialPosition,
+            Utils.PHYvarDescFinalPosition};
 
     //set up the solver page with the following
-    String rootSubject = "Physics";
-    String solverForm = "ThreeVar";
 
     public String symbolValA = "phy_sym_displacement";
     public String symbolValB = "phy_sym_final_position";
