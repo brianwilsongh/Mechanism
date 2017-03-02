@@ -55,7 +55,7 @@ public class PhysicsEquations extends AppCompatActivity {
         //create Equation objects for future use
         //KINEMATIC AND MOTION EQUATIONS
 
-        test = new Equation(ThreeVar.class, "PHY1", R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1));
+        test = new Equation("PHY1", ThreeVar.class, R.drawable.phys_disp_eqn1);
 
         motion6 = new Equation(PhysMotion6.class, "PHY1", R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1), Utils.displacement);
 

@@ -6,7 +6,6 @@
 
     <!--strings to describe what variables are-->
     <string name="distance_desc">d = displacement of the object</string>
-    <string name="desc_displacement">d = displacement of the object</string>
     <string name="init_displacement_desc">d₀ = initial distance, or distance at time=0</string>
     <string name="init_velo_desc">v₀ = initial velocity, or velocity at time=0</string>
     <string name="final_velo_desc">vₜ = final velocity, or velocity at time=t </string>

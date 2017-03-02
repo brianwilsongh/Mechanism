@@ -64,6 +64,7 @@ public class ThreeVar extends AppCompatActivity{
     String shareString;
     String resultType;
     String resultVal;
+    String symSolution;
 
     //2 parameters for the solution method sitting in equationCode class
     double solveMethodParam1;
@@ -75,8 +76,8 @@ public class ThreeVar extends AppCompatActivity{
     //equation code ex. "PHY1"
     String equationCode;
 
-    //root subject for redirection, attribute of the equationCode class
-    String rootSubject;
+    //stores subject based on equationCode
+    String subjectCode;
 
 
 
@@ -107,7 +108,7 @@ public class ThreeVar extends AppCompatActivity{
         Intent i = getIntent();
         equationCode = i.getStringExtra("equationCode");
         setTitle("Equation ID:  " + equationCode);
-
+        determineSubjectCode();
 
         //set up the views given data from the class and other stuff
         int newImageId = (i.getIntExtra("imageResourceId", 0));
@@ -135,7 +136,7 @@ public class ThreeVar extends AppCompatActivity{
         if (validateInput()){
 
             //get solve method from equationCode class
-            Class equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism.physics." + equationCode);
+            Class equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism." + subjectCode + "." + equationCode);
             Log.v("ThreeVar.attemptSolve", "fetched " + equationClass.getCanonicalName());
 
             //time to retrieve the method and store the solution given parameters
@@ -150,7 +151,7 @@ public class ThreeVar extends AppCompatActivity{
             i.putExtra("resultUnits", resultType);
             i.putExtra("resultValue", resultVal);
             i.putExtra("shareString", shareString);
-            i.putExtra("rootSubject", rootSubject);
+            i.putExtra("subjectCode", subjectCode);
             // send extra as a string
             i.putExtra("eqnType", "Physics");
             Log.v("attemptSolve method", "sent "  + resultType + " " + resultVal + " sharestring: " + shareString);
@@ -168,7 +169,7 @@ public class ThreeVar extends AppCompatActivity{
     private boolean validateInput() {
         //set up shareString in case user is returning here
         String appName = getString(R.string.app_name);
-        shareString = "(" + appName + " - " + rootSubject + ") -- Given variables ";
+        shareString = "(" + appName + " - " + subjectCode + ") -- Given variables ";
 
         //not-blank fields are mapped to the presenceArray, build a string out of the presence array
         if (!fieldA.getText().toString().equals("")){
@@ -189,23 +190,26 @@ public class ThreeVar extends AppCompatActivity{
             case "011":
                 solveMethodParam1 = Double.parseDouble(fieldB.getText().toString());
                 solveMethodParam2 = Double.parseDouble(fieldC.getText().toString());
-                shareString += symbolB + "=" + solveMethodParam1 + " ; ";
-                shareString += symbolC + "=" + solveMethodParam2 + " ; ";
+                shareString += symbolB.getText() + "=" + solveMethodParam1 + " ; ";
+                shareString += symbolC.getText() + "=" + solveMethodParam2 + " ; ";
                 resultType = unitsA.getText().toString();
+                symSolution = symbolA.getText().toString();
                 return true;
             case "101":
                 solveMethodParam1 = Double.parseDouble(fieldA.getText().toString());
                 solveMethodParam2 = Double.parseDouble(fieldC.getText().toString());
-                shareString += symbolA + "=" + solveMethodParam1 + " ; ";
-                shareString += symbolC + "=" + solveMethodParam2 + " ; ";
+                shareString += symbolA.getText() + "=" + solveMethodParam1 + " ; ";
+                shareString += symbolC.getText() + "=" + solveMethodParam2 + " ; ";
                 resultType = unitsB.getText().toString();
+                symSolution = symbolB.getText().toString();
                 return true;
             case "110":
                 solveMethodParam1 = Double.parseDouble(fieldA.getText().toString());
                 solveMethodParam2 = Double.parseDouble(fieldB.getText().toString());
-                shareString += symbolA + "=" + solveMethodParam1 + " ; ";
-                shareString += symbolB + "=" + solveMethodParam2 + " ; ";
+                shareString += symbolA.getText() + "=" + solveMethodParam1 + " ; ";
+                shareString += symbolB.getText() + "=" + solveMethodParam2 + " ; ";
                 resultType = unitsC.getText().toString();
+                symSolution  = symbolC.getText().toString();
                 return true;
             default:
                 arrayCode = "";
@@ -217,6 +221,9 @@ public class ThreeVar extends AppCompatActivity{
     }
 
     public void setSymbolsAndUnits(String symA, String symB, String symC, String unitA, String unitB, String unitC){
+
+        //retrieve appropriate strings with resource name string by getting resources and finding
+        //getIdentifier takes (String resourceName, String resourceType, String package)
         symbolA.setText(getString(getResources().getIdentifier(symA,"string","com.wordpress.httpspandareaktor.mekanism")));
         symbolB.setText(getString(getResources().getIdentifier(symB,"string","com.wordpress.httpspandareaktor.mekanism")));
         symbolC.setText(getString(getResources().getIdentifier(symC,"string","com.wordpress.httpspandareaktor.mekanism")));
@@ -225,10 +232,17 @@ public class ThreeVar extends AppCompatActivity{
         unitsC.setText(getString(getResources().getIdentifier(unitC,"string","com.wordpress.httpspandareaktor.mekanism")));
     }
 
+    public void determineSubjectCode() {
+        //determines the subject code given the equation code, basically first three letters stored as var
+        subjectCode = String.valueOf(equationCode.charAt(0)) + String.valueOf(equationCode.charAt(1)) +
+                String.valueOf(equationCode.charAt(2));
+        Log.v("determineSubjectCode", "determined that the subject code is" + subjectCode);
+    }
+
     //retrieve class based on the code string,
     public void setClassInput() throws Exception {
         //retrieves the specific equation class based on equationCode, sets views with appropriate values
-        Class equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism.physics." + equationCode);
+        Class equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism." + subjectCode + "." + equationCode);
         Log.v("ThreeVar.findClass", "fetched " + equationClass.getCanonicalName());
 
         //field should be array list called "paramArray" in equationCode's class
@@ -243,14 +257,14 @@ public class ThreeVar extends AppCompatActivity{
         setSymbolsAndUnits(valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3],
                 valuesArray[4], valuesArray[5]);
 
-        //use another Field object to retrieve the descriptor stored in the class
-        Field descriptorField = equationClass.getDeclaredField("descriptorText");
-        Spanned descriptor = (Spanned) descriptorField.get(temp);
-        equationDescriptor.setText(descriptor);
-
-        //use yet another Field object to retrieve the rootSubject for future navigation
-        Field rootSubjectField = equationClass.getDeclaredField("rootSubject");
-        rootSubject = (String) rootSubjectField.get(temp);
+        //use another Field object to retrieve the descriptor array stored in the class
+        Field descriptor = equationClass.getDeclaredField("descriptorArray");
+        Spanned[] descriptorArray = (Spanned[]) descriptor.get(temp);
+        equationDescriptor.setText(null);
+        //the iterator will append the variables one at a time, had issue concatenating chars while retaining style
+        for (int i = 0; i < descriptorArray.length; i ++){
+            equationDescriptor.append(descriptorArray[i]);
+        }
 
         }
 

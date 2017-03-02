@@ -16,9 +16,7 @@ public class Equation {
     private int mImageResourceId;
     public boolean specialFormatting;
 
-    public Equation(Class solver, String code, int ImageResourceId, String varCount, String desc) {
-        mDesc = desc;
-        mVarcount = varCount;
+    public Equation(String code, Class solver, int ImageResourceId) {
         mSolver = solver;
         mCode = code;
         mImageResourceId = ImageResourceId;

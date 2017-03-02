@@ -23,6 +23,7 @@ import static android.R.attr.x;
 public class EquationAdapter extends ArrayAdapter<Equation> {
     private Class equationClass;
     private Spanned[] descriptorArray;
+    private String descriptionGeneral;
 
     public EquationAdapter(Context context, ArrayList<Equation> objects) {
         super(context, 0, objects);
@@ -46,10 +47,17 @@ public class EquationAdapter extends ArrayAdapter<Equation> {
                 String.valueOf(equationCode.charAt(2));
         try {
             equationClass = Class.forName("com.wordpress.httpspandareaktor.mekanism." + subjectCode + "." + equationCode);
+
+            //field to retrieve descriptor containing individual variable descriptions
             Field descriptorField = equationClass.getDeclaredField("descriptorArray");
             descriptorField.setAccessible(true);
             Object temp = equationClass.newInstance();
             descriptorArray = (Spanned[]) descriptorField.get(temp);
+
+            //field to retrieve descriptionGeneral, describing equation as a whole
+            Field descriptionGeneralField = equationClass.getDeclaredField("descriptionGeneral");
+            descriptionGeneralField.setAccessible(true);
+            descriptionGeneral = (String) descriptionGeneralField.get(temp);
         } catch (Exception e) {e.printStackTrace();}
 
 
@@ -60,17 +68,21 @@ public class EquationAdapter extends ArrayAdapter<Equation> {
 
         //set the text values
 
-        TextView varcountText = (TextView) listItemView.findViewById(R.id.phys_equation_varcount);
-        varcountText.setText(thisEquation.getVarcount());
-
         //retrieve and set vals from descriptorArray from the equationCode class and set it here
-        TextView variableText = (TextView) listItemView.findViewById(R.id.equation_variables);
-        for (int i = 1; i < descriptorArray.length; i ++){
-            variableText.append(descriptorArray[i-1]);
+        TextView variableText = (TextView) listItemView.findViewById(R.id.equation_descriptor);
+        variableText.setText(null);
+        for (int i = 0; i < descriptorArray.length; i ++){
+            variableText.append(descriptorArray[i]);
         }
 
-        TextView descText = (TextView) listItemView.findViewById(R.id.equation_descriptor);
-        descText.setText(thisEquation.getDesc());
+        //set text space for general description to what was retrieve with java reflection
+        TextView descText = (TextView) listItemView.findViewById(R.id.equation_desc_general);
+        descText.setText(descriptionGeneral);
+
+        //varCount determined by length of descriptorArray since it contains Spanned for each object
+        TextView varcountText = (TextView) listItemView.findViewById(R.id.equation_varcount);
+        String variableCountString = String.valueOf(descriptorArray.length);
+        varcountText.setText(variableCountString);
 
         return listItemView;
 

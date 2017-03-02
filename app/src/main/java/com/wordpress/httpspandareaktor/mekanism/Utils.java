@@ -18,9 +18,14 @@ public class Utils {
     //PHYSICS
 
     public static Spanned PHYvarDescDisplacement = fromHtml("<br><b>d</b> : displacement, change of position of object (also known as Δx)</br>");
-    public static Spanned PHYvarDescInitialPosition = fromHtml("<br><b>x₀ or x<sub><small>initial</small></sub></b> : initial position, or position at time=0</br>");
-    public static Spanned PHYvarDescFinalPosition = fromHtml("<br><b>xₜ or x<sub><small>final</small></sub></b> : final position, or position at time=t</br>");
-
+    public static Spanned PHYvarDescInitialPosition = fromHtml("<br><b>x₀</b> or <b>x<sub><small>initial</small></sub></b> : initial position, or position at time=0</br>");
+    public static Spanned PHYvarDescFinalPosition = fromHtml("<br><b>xₜ</b> or <b>x<sub><small>final</small></sub></b> : final position, or position at time=t</br>");
+    public static Spanned PHYvarDescAverageVelocity = fromHtml("<br><b>v<sub><small>average</small></sub></b> : averaged velocity/speed for object from time=0 to time=t</br>");
+    public static Spanned PHYvarDescDeltaVelocity = fromHtml("<br><b>Δv</b> : change in velocity, difference between final and initial values</br>");
+    public static Spanned PHYvarDescInitialVelocity = fromHtml("<br><b>x₀</b> or <b>x<sub><small>initial</small></sub></b> : velocity/speed for object at time=0 (beginning)</br>");
+    public static Spanned PHYvarDescFinalVelocity = fromHtml("<br><b>xₜ</b> or <b>x<sub><small>final</small></sub></b> : velocity/speed for object at time=t (end)</br>");
+    public static Spanned PHYvarDescAverageAcceleration = fromHtml("<br><b>a<sub><small>average</small></sub></b> : averaged change in velocity/speed for object from time=0 to time=t</br>");
+    public static Spanned PHYvarDescTime = fromHtml("<br><b>t</b> : time, representing elapsed time or change in time (Δt)</br>");
 
 
     public static final Spanned displacement = fromHtml("<br>d = displacement</br>" +
