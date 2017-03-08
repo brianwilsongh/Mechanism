@@ -11,16 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion1;
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion1x;
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion2;
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion3;
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion4;
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion5;
+import com.wordpress.httpspandareaktor.mekanism.solvers.FourVar;
 import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion6;
 import com.wordpress.httpspandareaktor.mekanism.solvers.ThreeVar;
 import com.wordpress.httpspandareaktor.mekanism.solvers.physicsAccelerationSolver1;
-import com.wordpress.httpspandareaktor.mekanism.solvers.physicsVelocitySolver1;
 
 import java.util.ArrayList;
 
@@ -35,7 +29,11 @@ public class PhysicsEquations extends AppCompatActivity {
     ListView equationList;
 
     //instantiate all the individual equation objects here
-    Equation test;
+    Equation PHY1;
+    Equation PHY2;
+    Equation PHY3;
+    Equation PHY4;
+    Equation PHY5;
     Equation motion6; //equation 6 -- def displacement
     Equation velocity1; //equation 7
     Equation acceleration1; //equation 8
@@ -55,13 +53,18 @@ public class PhysicsEquations extends AppCompatActivity {
         //create Equation objects for future use
         //KINEMATIC AND MOTION EQUATIONS
 
-        test = new Equation("PHY1", ThreeVar.class, R.drawable.phys_disp_eqn1);
+        PHY1 = new Equation("PHY1", ThreeVar.class, R.drawable.phy1); //definition displacement
+        PHY2 = new Equation("PHY2", ThreeVar.class, R.drawable.phy2); //definition velocity
+        PHY3 = new Equation("PHY3", ThreeVar.class, R.drawable.phy3); //definition acceleration
+        PHY4 = new Equation("PHY4", FourVar.class, R.drawable.phy4); //kin equation
+        PHY5 = new Equation("PHY5", FourVar.class, R.drawable.phy5); //kin equation
 
-        motion6 = new Equation(PhysMotion6.class, "PHY1", R.drawable.phys_disp_eqn1, "3", getString(R.string.phys_eqn_disp1), Utils.displacement);
 
-        velocity1 = new Equation(physicsVelocitySolver1.class, "PHY2", R.drawable.phys_velo_eqn1, "3", getString(R.string.phys_eqn_accel1), Utils.constantVelocity);
+//        motion6 = new Equation(PhysMotion6.class, "phy1", R.drawable.phy1, "3", getString(R.string.phys_eqn_disp1), PHYutils.displacement);
 
-        acceleration1 = new Equation(physicsAccelerationSolver1.class, "PHY3", R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), Utils.constantAcceleration);
+//        velocity1 = new Equation(physicsVelocitySolver1.class, "phy2", R.drawable.phy2, "3", getString(R.string.phys_eqn_accel1), PHYutils.constantVelocity);
+
+//        acceleration1 = new Equation(physicsAccelerationSolver1.class, "phy3", R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), PHYutils.constantAcceleration);
 
 //        motion1 = new Equation(PhysMotion1.class, "PHY4", R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 //
@@ -76,10 +79,11 @@ public class PhysicsEquations extends AppCompatActivity {
 //        motion5 = new Equation(PhysMotion5.class, "PHY9", R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
 
         //by default, we will add the kinematics
-        physicsEquationList.add(test);
-        physicsEquationList.add(motion6);
-        physicsEquationList.add(velocity1);
-        physicsEquationList.add(acceleration1);
+        physicsEquationList.add(PHY1);
+        physicsEquationList.add(PHY2);
+        physicsEquationList.add(PHY3);
+        physicsEquationList.add(PHY4);
+        physicsEquationList.add(PHY5);
 
 
         //create and set up list view, adapters

@@ -2,206 +2,197 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
-        tools:context="com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion2">
+        tools:context="com.wordpress.httpspandareaktor.mekanism.solvers.physicsAccelerationSolver1">
 
-        <TextView
+        <ImageView
+            android:id="@+id/fourVarImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="10dp"
-            android:text="Check and fill in all variables except the one that you are solving for. Verify units."
-            android:textAppearance="?android:textAppearanceMedium">
+            android:padding="5dp"
+            android:src="@drawable/phy4" />
 
-        </TextView>
-        <!--Layout containing the checkboxes follow-->
+        <TextView
+            android:id="@+id/fourVarDescriptor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="var descriptions" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="@color/lightWorld" />
+
+        <!--Layout containing the input follow-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/eq2_check_final_velocity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:onClick="EQ2finalVelocityEnable"
-                android:text="@string/final_velo_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
 
                 <TextView
+                    android:id="@+id/fourVarSymbolA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="vₜ ="
+                    android:text="symA ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_final_velocity"
+                    android:id="@+id/fourVarFieldA"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:focusable="false"
                     android:gravity="center"
                     android:hint="unknown"
                     android:inputType="numberDecimal"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/fourVarUnitsA"
                     style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="meters/second" />
+                    android:text="units" />
             </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/eq2_check_initial_velocity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:onClick="EQ2initialVelocityEnable"
-                android:text="@string/init_velo_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:layout_marginTop="15dp">
 
                 <TextView
+                    android:id="@+id/fourVarSymbolB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="v₀ ="
+                    android:text="symB = "
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_initial_velocity"
+                    android:id="@+id/fourVarFieldB"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:focusable="false"
                     android:gravity="center"
                     android:hint="unknown"
                     android:inputType="numberDecimal"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/fourVarUnitsB"
                     style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="meters / second" />
+                    android:text="units" />
 
             </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/eq2_check_acceleration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:onClick="EQ2accelerationEnable"
-                android:text="@string/accel_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:layout_marginTop="15dp">
 
                 <TextView
+                    android:id="@+id/fourVarSymbolC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="a ="
+                    android:text="symC ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_acceleration"
+                    android:id="@+id/fourVarFieldC"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:focusable="false"
+                    android:layout_weight="4"
                     android:gravity="center"
                     android:hint="unknown"
                     android:inputType="numberDecimal"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/fourVarUnitsC"
                     style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="meters / second^2" />
+                    android:layout_weight="2"
+                    android:text="units" />
             </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/eq2_check_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:onClick="EQ2timeEnable"
-                android:text="@string/time_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:layout_marginTop="15dp">
 
                 <TextView
+                    android:id="@+id/fourVarSymbolD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="t ="
+                    android:text="symD ="
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorBurntOJ" />
 
                 <EditText
-                    android:id="@+id/eq2_input_time"
+                    android:id="@+id/fourVarFieldD"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:focusable="false"
+                    android:layout_weight="4"
                     android:gravity="center"
                     android:hint="unknown"
                     android:inputType="numberDecimal"
-                    android:padding="5dp"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/fourVarUnitsD"
                     style="@style/unitDisplayText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="seconds"/>
+                    android:layout_weight="2"
+                    android:text="units" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/lightWorld" />
+
 
         </LinearLayout>
 
 
         <Button
-            android:id="@+id/eq2_trigger_button"
+            android:id="@+id/fourVarButton"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_margin="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
             android:background="@color/darkerWorld"
             android:text="Calculate"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 </ScrollView>
