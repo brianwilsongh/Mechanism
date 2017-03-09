@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.math.*;
 
 import static android.R.attr.x;
 
@@ -31,6 +30,7 @@ import static android.R.attr.x;
 public class ShowCalculation extends AppCompatActivity {
 
     private String answerUnits;
+    private String answerSym;
     private String answerVal;
     private String answerVal2;
     private String shareString;
@@ -52,6 +52,9 @@ public class ShowCalculation extends AppCompatActivity {
         if (i.getStringExtra("resultUnits") != null) {
             answerUnits = i.getStringExtra("resultUnits");
         }
+        if (i.getStringExtra("resultSym") != null) {
+            answerSym = i.getStringExtra("resultSym") + " = ";
+        }
         if (i.getStringExtra("resultValue") != null) {
             answerVal = i.getStringExtra("resultValue");
         }
@@ -71,7 +74,9 @@ public class ShowCalculation extends AppCompatActivity {
         Log.v("ShowCalculation", "retrieved: " + answerUnits + answerVal + answerVal2);
 
         resultTypeText.setText(answerUnits);
-        resultValueText.setText(answerVal);
+        resultValueText.setText(answerSym);
+        resultValueText.setText(answerSym);
+        resultValueText.append(answerVal);
         resultValueText2.setText(answerVal2);
         rootButton.setText("Return to " + subjectCode);
     }
@@ -119,5 +124,6 @@ public class ShowCalculation extends AppCompatActivity {
                 .setContentUrl(Uri.parse(sharingURL)).build();
         shareDialog.show(linkContent);
     }
+
 
 }

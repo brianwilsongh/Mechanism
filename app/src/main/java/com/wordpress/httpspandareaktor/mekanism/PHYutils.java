@@ -41,7 +41,7 @@ public class PHYutils {
     public static Spanned PHYvarSymDeltaVelocity = fromHtml("<b>Δv</b>");
     public static Spanned PHYvarUnitDeltaVelocity = fromHtml("meters/second");
 
-    public static Spanned PHYvarDescInitialVelocity = fromHtml("<br><b>v₀</b> or <b>x<sub><small>initial</small></sub></b> : velocity/speed for object at time=0 (beginning)</br>");
+    public static Spanned PHYvarDescInitialVelocity = fromHtml("<br><b>v₀</b> or <b>v<sub><small>initial</small></sub></b> : velocity/speed for object at time=0 (beginning)</br>");
     public static Spanned PHYvarSymInitialVelocity = fromHtml("<b>v₀</b>");
     public static Spanned PHYvarUnitInitialVelocity = fromHtml("meters/second");
 
@@ -113,5 +113,10 @@ public class PHYutils {
         } else {
             return solution2;
         }
+    }
+
+    public static boolean isNumeric(String str)
+    {
+        return str.matches("-?\\d+(\\.\\d+)?");  //use RegEx to match a number with optional '-' and decimal.
     }
 }

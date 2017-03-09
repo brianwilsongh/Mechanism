@@ -14,7 +14,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.math.*;
 
+import com.wordpress.httpspandareaktor.mekanism.PHYutils;
 import com.wordpress.httpspandareaktor.mekanism.R;
 import com.wordpress.httpspandareaktor.mekanism.ShowCalculation;
 
@@ -148,8 +150,15 @@ public class ThreeVar extends AppCompatActivity{
             Object temp = equationClass.newInstance();
             resultVal = (String) solveMissing.invoke(temp, arrayCode, solveMethodParam1, solveMethodParam2);
 
+            //if the resultVal is not numeric, something went wrong so throw the toast and exit
+            if (!PHYutils.isNumeric(resultVal)){
+                Toast.makeText(this, "ERROR: failed to calculate given parameters, please check values!", Toast.LENGTH_LONG).show();
+                return;
+            }
+
             //here is the intent to travel to the solution page
             Intent i = new Intent(this, ShowCalculation.class);
+            i.putExtra("resultSym", symSolution);
             i.putExtra("resultUnits", resultType);
             i.putExtra("resultValue", resultVal);
             i.putExtra("shareString", shareString + resultVal);

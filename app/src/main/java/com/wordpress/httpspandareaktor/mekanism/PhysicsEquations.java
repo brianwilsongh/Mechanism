@@ -12,9 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.wordpress.httpspandareaktor.mekanism.solvers.FourVar;
-import com.wordpress.httpspandareaktor.mekanism.solvers.PhysMotion6;
 import com.wordpress.httpspandareaktor.mekanism.solvers.ThreeVar;
-import com.wordpress.httpspandareaktor.mekanism.solvers.physicsAccelerationSolver1;
 
 import java.util.ArrayList;
 
@@ -34,10 +32,10 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY3;
     Equation PHY4;
     Equation PHY5;
-    Equation motion6; //equation 6 -- def displacement
-    Equation velocity1; //equation 7
-    Equation acceleration1; //equation 8
-    Equation physGrav1; // grav equation 1 -- universal grav
+    Equation PHY6;
+    Equation PHY7;
+    Equation PHY8;
+    Equation PHY9;
 
 
     // from stack overflow, how to super/subscript:
@@ -58,6 +56,10 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY3 = new Equation("PHY3", ThreeVar.class, R.drawable.phy3); //definition acceleration
         PHY4 = new Equation("PHY4", FourVar.class, R.drawable.phy4); //kin equation
         PHY5 = new Equation("PHY5", FourVar.class, R.drawable.phy5); //kin equation
+        PHY6 = new Equation("PHY6", FourVar.class, R.drawable.phy6); //kin equation
+        PHY7 = new Equation("PHY7", FourVar.class, R.drawable.phy7); //kin equation
+        PHY8 = new Equation("PHY8", FourVar.class, R.drawable.phy8); //kin equation
+        PHY9 = new Equation("PHY9", ThreeVar.class, R.drawable.phy9); //alt definition avg velo
 
 
 //        motion6 = new Equation(PhysMotion6.class, "phy1", R.drawable.phy1, "3", getString(R.string.phys_eqn_disp1), PHYutils.displacement);
@@ -84,6 +86,10 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(PHY3);
         physicsEquationList.add(PHY4);
         physicsEquationList.add(PHY5);
+        physicsEquationList.add(PHY6);
+        physicsEquationList.add(PHY7);
+        physicsEquationList.add(PHY8);
+        physicsEquationList.add(PHY9);
 
 
         //create and set up list view, adapters
@@ -115,12 +121,18 @@ public class PhysicsEquations extends AppCompatActivity {
 
     }
 
-    //method to rearrange the list for kinematics equations only
+    //method to rearrange the list for motion equations
     public void arrangeList1 (){
         physicsEquationList.clear();
-        physicsEquationList.add(motion6);
-        physicsEquationList.add(velocity1);
-        physicsEquationList.add(acceleration1);
+        physicsEquationList.add(PHY1);
+        physicsEquationList.add(PHY2);
+        physicsEquationList.add(PHY3);
+        physicsEquationList.add(PHY4);
+        physicsEquationList.add(PHY5);
+        physicsEquationList.add(PHY6);
+        physicsEquationList.add(PHY7);
+        physicsEquationList.add(PHY8);
+        physicsEquationList.add(PHY9);
 
         equationList.setAdapter(equationAdapter);
 

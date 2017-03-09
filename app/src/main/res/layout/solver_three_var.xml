@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:src="@drawable/phys_accel_eqn1" />
+            android:src="@drawable/phy1" />
 
         <TextView
             android:id="@+id/threeVarDescriptor"
