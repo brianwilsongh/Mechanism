@@ -28,6 +28,10 @@
             android:theme="@style/AppTheme"/>
 
         <!--SOLVERS manifestations below -->
+        <activity android:name = ".solvers.TwoVar"
+            android:parentActivityName=".PhysicsEquations"
+            android:theme="@style/AppTheme"/>
+
         <activity android:name=".solvers.ThreeVar"
             android:parentActivityName=".PhysicsEquations"
             android:theme="@style/AppTheme"/>

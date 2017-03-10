@@ -6,17 +6,17 @@
     tools:context=".CatalogActivity">
 
     <item
-        android:id="@+id/physics_select_kinematics"
-        android:title="@string/physics_selection_motion"
+        android:id="@+id/physics_select_1"
+        android:title="@string/physics_menu_1"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/physics_select_force"
-        android:title="@string/physics_selection_force"
+        android:id="@+id/physics_select_2"
+        android:title="@string/physics_menu_2"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/physics_select_gravity"
-        android:title="@string/physics_selection_mechanics"
+        android:id="@+id/physics_select_3"
+        android:title="@string/physics_menu_3"
         app:showAsAction="never" />
 </menu>

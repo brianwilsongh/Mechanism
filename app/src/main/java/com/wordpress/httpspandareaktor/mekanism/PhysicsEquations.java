@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.wordpress.httpspandareaktor.mekanism.solvers.FourVar;
 import com.wordpress.httpspandareaktor.mekanism.solvers.ThreeVar;
+import com.wordpress.httpspandareaktor.mekanism.solvers.TwoVar;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,9 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY7;
     Equation PHY8;
     Equation PHY9;
+    Equation PHY10;
+    Equation PHY11;
+    Equation PHY12;
 
 
     // from stack overflow, how to super/subscript:
@@ -61,40 +65,15 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY8 = new Equation("PHY8", FourVar.class, R.drawable.phy8); //kin equation
         PHY9 = new Equation("PHY9", ThreeVar.class, R.drawable.phy9); //alt definition avg velo
 
-
-//        motion6 = new Equation(PhysMotion6.class, "phy1", R.drawable.phy1, "3", getString(R.string.phys_eqn_disp1), PHYutils.displacement);
-
-//        velocity1 = new Equation(physicsVelocitySolver1.class, "phy2", R.drawable.phy2, "3", getString(R.string.phys_eqn_accel1), PHYutils.constantVelocity);
-
-//        acceleration1 = new Equation(physicsAccelerationSolver1.class, "phy3", R.drawable.phys_accel_eqn1, "3", getString(R.string.phys_eqn_accel1), PHYutils.constantAcceleration);
-
-//        motion1 = new Equation(PhysMotion1.class, "PHY4", R.drawable.phys_kin_eqn1, "4", getString(R.string.eqn_kin1), getString(R.string.distance_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
-//
-//        motion1x = new Equation(PhysMotion1x.class, "PHY5", R.drawable.phys_kin_eqn1x, "4", getString(R.string.eqn_kin2), getString(R.string.distance_desc) + "\n" + getString(R.string.init_displacement_desc) + "\n" + getString(R.string.velocity_desc) + "\n" + getString(R.string.time_desc));
-//
-//        motion2 = new Equation(PhysMotion2.class, "PHY6", R.drawable.phys_kin_eqn2, "4", getString(R.string.eqn_kin3), getString(R.string.final_velo_desc)+ "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
-//
-//        motion3 = new Equation(PhysMotion3.class, "PHY7", R.drawable.phys_kin_eqn3, "4", getString(R.string.eqn_kin4), getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.distance_desc));
-//
-//        motion4 = new Equation(PhysMotion4.class, "PHY8", R.drawable.phys_kin_eqn4, "4", getString(R.string.eqn_kin5), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.init_velo_desc) + "\n" + getString(R.string.time_desc));
-//
-//        motion5 = new Equation(PhysMotion5.class, "PHY9", R.drawable.phys_kin_eqn5, "4", getString(R.string.eqn_kin6), getString(R.string.distance_desc) + "\n" + getString(R.string.final_velo_desc) + "\n" + getString(R.string.accel_desc) + "\n" + getString(R.string.time_desc));
-
-        //by default, we will add the kinematics
-        physicsEquationList.add(PHY1);
-        physicsEquationList.add(PHY2);
-        physicsEquationList.add(PHY3);
-        physicsEquationList.add(PHY4);
-        physicsEquationList.add(PHY5);
-        physicsEquationList.add(PHY6);
-        physicsEquationList.add(PHY7);
-        physicsEquationList.add(PHY8);
-        physicsEquationList.add(PHY9);
-
+        PHY10 = new Equation("PHY10", ThreeVar.class, R.drawable.phy10); //newton's second
+        PHY11 = new Equation("PHY11", TwoVar.class, R.drawable.phy11); //weight
+        PHY12 = new Equation("PHY12", FourVar.class, R.drawable.phy12); //universal gravitation
 
         //create and set up list view, adapters
         equationList = (ListView) findViewById(R.id.physics_list);
         equationAdapter = new EquationAdapter(this, physicsEquationList);
+        //by default we will add the kinematics motion equations in list 1 first
+        arrangeList1();
         equationList.setAdapter(equationAdapter);
 
         equationList.setDividerHeight(3);
@@ -123,6 +102,7 @@ public class PhysicsEquations extends AppCompatActivity {
 
     //method to rearrange the list for motion equations
     public void arrangeList1 (){
+        //list that contains motion
         physicsEquationList.clear();
         physicsEquationList.add(PHY1);
         physicsEquationList.add(PHY2);
@@ -141,6 +121,10 @@ public class PhysicsEquations extends AppCompatActivity {
     //method to rearrange the list to show gravity equations only
     public void arrangeList2 () {
         physicsEquationList.clear();
+        physicsEquationList.add(PHY10);
+        physicsEquationList.add(PHY11);
+        physicsEquationList.add(PHY12);
+
         equationList.setAdapter(equationAdapter);
     }
 
@@ -158,11 +142,11 @@ public class PhysicsEquations extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
 
-            case R.id.physics_select_kinematics:
+            case R.id.physics_select_1:
                 arrangeList1();
                 return true;
 
-            case R.id.physics_select_gravity:
+            case R.id.physics_select_2:
                 arrangeList2();
                 return true;
 

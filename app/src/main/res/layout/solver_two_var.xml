@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        tools:context="com.wordpress.httpspandareaktor.mekanism.solvers.physicsAccelerationSolver1">
+
+        <ImageView
+            android:id="@+id/twoVarImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/phy1" />
+
+        <TextView
+            android:id="@+id/twoVarDescriptor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="var descriptions" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="@color/lightWorld" />
+
+        <!--Layout containing the input follow-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/twoVarSymbolA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="symA ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/twoVarFieldA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/twoVarUnitsA"
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="units" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/twoVarSymbolB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="symB = "
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/twoVarFieldB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/twoVarUnitsB"
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="units" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/lightWorld" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/twoVarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/darkerWorld"
+            android:text="Calculate"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>

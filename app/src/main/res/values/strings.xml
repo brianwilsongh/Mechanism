@@ -47,9 +47,9 @@
     <string name="greek_pi">π</string>
 
     <!-- strings for physics equation subject selection -->
-    <string name="physics_selection_motion">Kinematics/Motion</string>
-    <string name="physics_selection_force">Forces</string>
-    <string name="physics_selection_mechanics">Mechanics</string>
+    <string name="physics_menu_1">Mechanics I</string>
+    <string name="physics_menu_2">Mechanics II</string>
+    <string name="physics_menu_3">Mechanics III</string>
 
     <!-- strings for facebook sdk -->
     <string name="facebook_app_id">1830996480511287</string>
