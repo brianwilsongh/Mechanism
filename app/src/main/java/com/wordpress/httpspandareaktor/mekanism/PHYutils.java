@@ -41,6 +41,10 @@ public class PHYutils {
     public static Spanned PHYvarSymAverageVelocity = fromHtml("<b><sup>v</sup><small>average</small></b>");
     public static Spanned PHYvarUnitAverageVelocity = fromHtml("meters/second");
 
+    public static Spanned PHYvarDescVelocity = fromHtml("<br><b>v</b> : velocity, the speed of an object represented as a vector that represents both magnitude and direction</br>");
+    public static Spanned PHYvarSymVelocity = fromHtml("<b>v</b>");
+    public static Spanned PHYvarUnitVelocity = fromHtml("meters/second");
+
     public static Spanned PHYvarDescDeltaVelocity = fromHtml("<br><b>Δv</b> : change in velocity, difference between final and initial values</br>");
     public static Spanned PHYvarSymDeltaVelocity = fromHtml("<b>Δv</b>");
     public static Spanned PHYvarUnitDeltaVelocity = fromHtml("meters/second");
@@ -69,9 +73,13 @@ public class PHYutils {
     public static Spanned PHYvarSymForce = fromHtml("<b>F</b>");
     public static Spanned PHYvarUnitForce = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
 
-    public static Spanned PHYvarDescForceFriction = fromHtml("<br><b>F<sub><small>f</small></sub></b> : force, an interaction that has the potential to change the motion of an object</br>");
-    public static Spanned PHYvarSymForceFriction = fromHtml("<b>F<sub><small>f</small></sub></b>");
-    public static Spanned PHyvarUnitForceFriction = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+    public static Spanned PHYvarDescForceFriction = fromHtml("<br><b>F<sub><small>f</small></sub></b> : a force vector that opposes motion</br>");
+    public static Spanned PHYvarSymForceFriction = fromHtml("<b><sup>F</sup><small>f</small></b>");
+    public static Spanned PHYvarUnitForceFriction = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+
+    public static Spanned PHYvarDescForceNormal = fromHtml("<br><b>F<sub><small>N</small></sub></b> : normal force describes the force - perpendicular to the surface an object is resting on - exerted by the surface on an object to counteract weight</br>");
+    public static Spanned PHYvarSymForceNormal = fromHtml("<b><sup>F</sup><small>N</small></b>");
+    public static Spanned PHYvarUnitForceNormal = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
 
     public static Spanned PHYvarDescWeight = fromHtml("<br><b>W</b> : weight, a term used to describe the force exerted by gravity" +
             " on any object on earth's surface");
@@ -79,8 +87,26 @@ public class PHYutils {
     public static Spanned PHYvarUnitWeight = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
 
     public static Spanned PHYvarDescForceGravity = fromHtml("<br><b>F<sub><small>g</small></sub></b> : force caused by the influence of gravity</br>");
-    public static Spanned PHYvarSymForceGravity = fromHtml("<b>F<sub><small>g</small></sub></b>");
+    public static Spanned PHYvarSymForceGravity = fromHtml("<b><sup>F<sup><small>g</small></b>");
     public static Spanned PHYvarUnitForceGravity = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+
+    public static Spanned PHYvarDescCentripetalAcceleration = fromHtml("<br><b><sup>a</sup><small>c</small></b> : acceleration of an object on a curved path, orthogonal to motion of object and directed towards the instantaneous center fo the curvature of the path</br>");
+    public static Spanned PHYvarSymCentripetalAcceleration = fromHtml("<b><sup>a</sup><small>c</small></b>");
+    public static Spanned PHYvarUnitCentripetalAcceleration = fromHtml("meters/second<sup><small>2</small></sup>");
+
+    public static Spanned PHYvarDescRadius = fromHtml("<br><b>r</b> : the distance between the center of a circle and its perimeter</br>");
+    public static Spanned PHYvarSymRadius = fromHtml("<b>r</b>");
+    public static Spanned PHYvarUnitRadius = fromHtml("meters");
+
+    public static Spanned PHYvarDescCoefficientFriction = fromHtml("<br><b>μ</b> : coefficient of static friction, multiplier used to determine static (μ<sub><small>s</small></sub>) or kinetic (μ<sub><small>k</small></sub>) friction</br>");
+    public static Spanned PHYvarSymCoefficientFriction = fromHtml("<b>μ</b>");
+    public static Spanned PHYvarUnitCoefficientFriction = fromHtml("");
+
+    public static Spanned PHYvarDescMomentum = fromHtml("<br><b>p</b> : momentum, a measure of the amount of movement of an object, found by multiplying mass by weight");
+    public static Spanned PHYvarSymMomentum = fromHtml("<b>p</b>");
+    public static Spanned PHYvarUnitMomentum = fromHtml("kilograms x meters/second");
+
+
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b><sup>m1</sup></b>");
@@ -96,6 +122,7 @@ public class PHYutils {
 
     public static double PHYconstantValUniversalGravitation = 0.0000000000667408;
     public static Spanned PHYcsontantDescUniversalGravitation = fromHtml("<br><b>G</b> : symbol used to represent the universal gravitational constant, used to calculate force in a gravitational field</br>");
+
 
 
 
@@ -161,6 +188,6 @@ public class PHYutils {
 
     public static boolean isNumeric(String str)
     {
-        return str.matches("\\d*.\\d*(E)?(-)?\\d*");  //use RegEx to match a number with optional '-' and decimal.
+        return str.matches("(-)?\\d*.\\d*(-)?(E)?\\d*");  //use RegEx to match, can handle SciNo numbers as well
     }
 }

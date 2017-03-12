@@ -28,18 +28,12 @@ public class PhysicsEquations extends AppCompatActivity {
     ListView equationList;
 
     //instantiate all the individual equation objects here
-    Equation PHY1;
-    Equation PHY2;
-    Equation PHY3;
-    Equation PHY4;
-    Equation PHY5;
-    Equation PHY6;
-    Equation PHY7;
-    Equation PHY8;
-    Equation PHY9;
-    Equation PHY10;
-    Equation PHY11;
-    Equation PHY12;
+    Equation PHY1;    Equation PHY2;    Equation PHY3;    Equation PHY4;
+    Equation PHY5;    Equation PHY6;    Equation PHY7;    Equation PHY8;
+    Equation PHY9;    Equation PHY10;    Equation PHY11;    Equation PHY12;
+    Equation PHY13;
+    Equation PHY14;
+    Equation PHY15;
 
 
     // from stack overflow, how to super/subscript:
@@ -68,6 +62,9 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY10 = new Equation("PHY10", ThreeVar.class, R.drawable.phy10); //newton's second
         PHY11 = new Equation("PHY11", TwoVar.class, R.drawable.phy11); //weight
         PHY12 = new Equation("PHY12", FourVar.class, R.drawable.phy12); //universal gravitation
+        PHY13 = new Equation("PHY13", ThreeVar.class, R.drawable.phy13); //centripetal accel
+        PHY14 = new Equation("PHY14", ThreeVar.class, R.drawable.phy14); //force of friction
+        PHY15 = new Equation("PHY15", ThreeVar.class, R.drawable.phy15); //momentum definition
 
         //create and set up list view, adapters
         equationList = (ListView) findViewById(R.id.physics_list);
@@ -124,6 +121,9 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(PHY10);
         physicsEquationList.add(PHY11);
         physicsEquationList.add(PHY12);
+        physicsEquationList.add(PHY13);
+        physicsEquationList.add(PHY14);
+        physicsEquationList.add(PHY15);
 
         equationList.setAdapter(equationAdapter);
     }

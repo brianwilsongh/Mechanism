@@ -60,7 +60,7 @@
                     android:layout_weight="3"
                     android:gravity="center"
                     android:hint="unknown"
-                    android:inputType="numberDecimal"
+                    android:inputType="numberDecimal|numberSigned"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
@@ -93,7 +93,7 @@
                     android:layout_weight="3"
                     android:gravity="center"
                     android:hint="unknown"
-                    android:inputType="numberDecimal"
+                    android:inputType="numberDecimal|numberSigned"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
@@ -127,7 +127,7 @@
                     android:layout_weight="4"
                     android:gravity="center"
                     android:hint="unknown"
-                    android:inputType="numberDecimal"
+                    android:inputType="numberDecimal|numberSigned"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
