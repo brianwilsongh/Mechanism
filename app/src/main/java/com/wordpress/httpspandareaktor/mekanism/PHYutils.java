@@ -49,6 +49,10 @@ public class PHYutils {
     public static Spanned PHYvarSymDeltaVelocity = fromHtml("<b>Δv</b>");
     public static Spanned PHYvarUnitDeltaVelocity = fromHtml("meters/second");
 
+    public static Spanned PHYvarDescDeltaTime = fromHtml("<br><b>Δt</b> : change in time, specifically referencing the difference between final and initial time</br>");
+    public static Spanned PHYvarSymDeltaTime = fromHtml("<b>Δt</b>");
+    public static Spanned PHyvarUnitDeltaTime = fromHtml("seconds");
+
     public static Spanned PHYvarDescInitialVelocity = fromHtml("<br><b>v₀</b> or <b>v<sub><small>initial</small></sub></b> : velocity/speed for object at time=0 (beginning)</br>");
     public static Spanned PHYvarSymInitialVelocity = fromHtml("<b>v₀</b>");
     public static Spanned PHYvarUnitInitialVelocity = fromHtml("meters/second");
@@ -71,24 +75,24 @@ public class PHYutils {
 
     public static Spanned PHYvarDescForce = fromHtml("<br><b>F</b> : force, an interaction that has the potential to change the motion of an object</br>");
     public static Spanned PHYvarSymForce = fromHtml("<b>F</b>");
-    public static Spanned PHYvarUnitForce = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+    public static Spanned PHYvarUnitForce = fromHtml("Newtons");
 
     public static Spanned PHYvarDescForceFriction = fromHtml("<br><b>F<sub><small>f</small></sub></b> : a force vector that opposes motion</br>");
-    public static Spanned PHYvarSymForceFriction = fromHtml("<b><sup>F</sup><small>f</small></b>");
-    public static Spanned PHYvarUnitForceFriction = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+    public static Spanned PHYvarSymForceFriction = fromHtml("<b>F<small>f</small></b>");
+    public static Spanned PHYvarUnitForceFriction = fromHtml("Newtons");
 
     public static Spanned PHYvarDescForceNormal = fromHtml("<br><b>F<sub><small>N</small></sub></b> : normal force describes the force - perpendicular to the surface an object is resting on - exerted by the surface on an object to counteract weight</br>");
-    public static Spanned PHYvarSymForceNormal = fromHtml("<b><sup>F</sup><small>N</small></b>");
-    public static Spanned PHYvarUnitForceNormal = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+    public static Spanned PHYvarSymForceNormal = fromHtml("<b>F<small>N</small></b>");
+    public static Spanned PHYvarUnitForceNormal = fromHtml("Newtons");
 
     public static Spanned PHYvarDescWeight = fromHtml("<br><b>W</b> : weight, a term used to describe the force exerted by gravity" +
             " on any object on earth's surface");
     public static Spanned PHYvarSymWeight = fromHtml("<b>W</b>");
-    public static Spanned PHYvarUnitWeight = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+    public static Spanned PHYvarUnitWeight = fromHtml("Newtons");
 
     public static Spanned PHYvarDescForceGravity = fromHtml("<br><b>F<sub><small>g</small></sub></b> : force caused by the influence of gravity</br>");
-    public static Spanned PHYvarSymForceGravity = fromHtml("<b><sup>F<sup><small>g</small></b>");
-    public static Spanned PHYvarUnitForceGravity = fromHtml("kilograms x meters/second<sup><small>2</small></sup>");
+    public static Spanned PHYvarSymForceGravity = fromHtml("<b>F<small>g</small></b>");
+    public static Spanned PHYvarUnitForceGravity = fromHtml("Newtons");
 
     public static Spanned PHYvarDescCentripetalAcceleration = fromHtml("<br><b><sup>a</sup><small>c</small></b> : acceleration of an object on a curved path, orthogonal to motion of object and directed towards the instantaneous center fo the curvature of the path</br>");
     public static Spanned PHYvarSymCentripetalAcceleration = fromHtml("<b><sup>a</sup><small>c</small></b>");
@@ -104,13 +108,24 @@ public class PHYutils {
 
     public static Spanned PHYvarDescMomentum = fromHtml("<br><b>p</b> : momentum, a measure of the amount of movement of an object, found by multiplying mass by weight");
     public static Spanned PHYvarSymMomentum = fromHtml("<b>p</b>");
-    public static Spanned PHYvarUnitMomentum = fromHtml("kilograms x meters/second");
+    public static Spanned PHYvarUnitMomentum = fromHtml("Newtons");
 
+    public static Spanned PHYvarDescImpulse = fromHtml("<br><b>J</b> : impulse, vector quantity defined as the change in momentum. Equivalent to the product of average force and the time interval during which the force acts.</br>");
+    public static Spanned PHYvarSymImpulse = fromHtml("<b>J</b>");
+    public static Spanned PHYvarUnitImpulse = fromHtml("Newton-seconds");
+
+    public static Spanned PHYvarDescWork = fromHtml("<br><b>W</b> : work, the force that exerted on an object that results in its movement</br>");
+    public static Spanned PHYvarSymWork = fromHtml("<b>W</b>");
+    public static Spanned PHYvarUnitWork = fromHtml("Newton-meters");
+
+    public static Spanned PHYvarDescTheta = fromHtml("<br><b>θ</b> : theta, a symbol used to denote the degrees of an angle between two lines or vectors</br>");
+    public static Spanned PHYvarSymTheta = fromHtml("<b>θ</b>");
+    public static Spanned PHYvarUnitTheta = fromHtml("degrees");
 
 
     //following are special m1 and m2 symbols for universal gravitation equation
-    public static Spanned PHYvarSymMass1 = fromHtml("<b><sup>m1</sup></b>");
-    public static Spanned PHYvarSymMass2 = fromHtml("<b><sup>m2</sup></b>");
+    public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");
+    public static Spanned PHYvarSymMass2 = fromHtml("<b>m<small>2</small></b>");
 
 
     // CONSTANTS

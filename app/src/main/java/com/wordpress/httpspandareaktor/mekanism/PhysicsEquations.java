@@ -34,6 +34,9 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY13;
     Equation PHY14;
     Equation PHY15;
+    Equation PHY16;
+    Equation PHY17;
+    Equation PHY18;
 
 
     // from stack overflow, how to super/subscript:
@@ -65,6 +68,10 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY13 = new Equation("PHY13", ThreeVar.class, R.drawable.phy13); //centripetal accel
         PHY14 = new Equation("PHY14", ThreeVar.class, R.drawable.phy14); //force of friction
         PHY15 = new Equation("PHY15", ThreeVar.class, R.drawable.phy15); //momentum definition
+        PHY16 = new Equation("PHY16", ThreeVar.class, R.drawable.phy16); //impulse-momentum 1
+        PHY17 = new Equation("PHY17", ThreeVar.class, R.drawable.phy17); //impulse-momentum 2
+        PHY18 = new Equation("PHY18", FourVar.class, R.drawable.phy18); //work definition with costheta
+
 
         //create and set up list view, adapters
         equationList = (ListView) findViewById(R.id.physics_list);
@@ -124,6 +131,9 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(PHY13);
         physicsEquationList.add(PHY14);
         physicsEquationList.add(PHY15);
+        physicsEquationList.add(PHY16);
+        physicsEquationList.add(PHY17);
+        physicsEquationList.add(PHY18);
 
         equationList.setAdapter(equationAdapter);
     }

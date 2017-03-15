@@ -21,10 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- launchMode changed from standard to singleTop such that onCreate not called when returning -->
         <activity
             android:name=".PhysicsEquations"
             android:label="Physics Equations"
             android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme"/>
 
         <!--SOLVERS manifestations below -->
