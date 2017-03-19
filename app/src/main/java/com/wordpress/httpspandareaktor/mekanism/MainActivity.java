@@ -115,4 +115,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PhysicsEquations.class);
         startActivity(intent);
     }
+
+    public void startMath(View view) {
+        Intent intent = new Intent(this, MathEquations.class);
+        startActivity(intent);
+    }
 }

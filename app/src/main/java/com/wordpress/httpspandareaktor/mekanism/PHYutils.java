@@ -122,6 +122,10 @@ public class PHYutils {
     public static Spanned PHYvarSymTheta = fromHtml("<b>θ</b>");
     public static Spanned PHYvarUnitTheta = fromHtml("degrees");
 
+    public static Spanned PHYvarDescKineticEnergy = fromHtml("<br><b>KE</b> : kinetic energy, the amount of energy stored in the movement of an object</br>");
+    public static Spanned PHYvarSymKineticEnergy = fromHtml("<b>KE</b>");
+    public static Spanned PHYvarUnitKineticEnergy = fromHtml("Joules");
+
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");
@@ -138,21 +142,6 @@ public class PHYutils {
     public static double PHYconstantValUniversalGravitation = 0.0000000000667408;
     public static Spanned PHYcsontantDescUniversalGravitation = fromHtml("<br><b>G</b> : symbol used to represent the universal gravitational constant, used to calculate force in a gravitational field</br>");
 
-
-
-
-
-
-
-    public static final Spanned displacement = fromHtml("<br>d = displacement</br>" +
-            "<br>x<sub><small>t</small></sub> = position at time=t, or x<sub><small>final</small></sub></br>" +
-            "<br>x<sub><small>0</small></sub> = initial position, position at time = 0");
-
-    public static final Spanned constantVelocity = fromHtml("<br>v<sub><small>constant</small></sub> = constant velocity</br>" +
-            "<br>Δd = positional change</br><br>Δt = change in time</br>");
-
-    public static final Spanned constantAcceleration = fromHtml("<br>a<sub><small>constant</small></sub> = constant acceleration</br>" +
-            "<br>Δv = change in velocity</br><br>Δt = change in time</br>");
 
 
     //static utility methods go in here to help the physics equations

@@ -16,6 +16,7 @@
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="-80dp"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:orientation="vertical">
@@ -51,16 +52,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="-60dp">
 
-            <View
-                android:layout_width="268dp"
-                android:layout_height="match_parent" />
 
             <ImageView
                 android:id="@+id/gearLogo2"
                 android:layout_width="230dp"
                 android:layout_height="230dp"
+                android:layout_marginLeft="265dp"
                 android:alpha="0.1"
                 android:src="@drawable/pinion" />
         </LinearLayout>
@@ -72,7 +72,7 @@
             android:layout_height="160dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:alpha="0.5"
+            android:alpha="0.3"
             android:src="@drawable/pinion" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -113,25 +113,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:alpha="0.4"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:maxLines="1"
+                android:onClick="startPhysics"
                 android:padding="5dp"
-                android:text="General"
+                android:text="Physics"
                 android:textSize="20sp" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:alpha="0.4"
-                android:maxLines="1"
-                android:padding="5dp"
-                android:text="Finance"
-                android:textSize="20sp" />
+
 
         </LinearLayout>
 
@@ -139,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -147,24 +138,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:maxLines="1"
-                android:onClick="startPhysics"
-                android:padding="5dp"
-                android:text="Physics"
-                android:textSize="20sp" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:alpha="0.4"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:maxLines="1"
                 android:padding="5dp"
-                android:text="Statistics"
+                android:onClick="startMath"
+                android:text="Math"
                 android:textSize="20sp" />
 
 

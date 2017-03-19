@@ -2,7 +2,7 @@
     <!--general information strings -->
     <string name="app_name">MΞKANISM</string>
     <string name="app_description">Mekanism is an application built to solve mathematical equations for you.</string>
-    <string name="version_number">BETA 0.1</string>
+    <string name="version_number">BETA 0.2</string>
 
     <!--strings to describe what variables are-->
     <string name="distance_desc">d = displacement of the object</string>

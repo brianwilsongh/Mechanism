@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        tools:context="com.wordpress.httpspandareaktor.mekanism.solvers.physicsAccelerationSolver1">
+
+        <ImageView
+            android:id="@+id/triangleImage"
+            android:layout_width="match_parent"
+            android:layout_height="177dp"
+            android:src="@drawable/mat_abc_triangle" />
+
+        <TextView
+            android:id="@+id/triangleDescriptor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="solve missing sides or angles of the triangle with inputs " />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="@color/lightWorld" />
+
+        <!--Layout containing the input follow-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="∠A ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/triangleDegreesA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="degrees" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="∠B ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/triangleDegreesB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="degrees" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="∠C ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/triangleDegreesC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="degrees" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="a ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/triangleSideA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:text="units" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="b ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/triangleSideB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:text="units" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="c ="
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBurntOJ" />
+
+                <EditText
+                    android:id="@+id/triangleSideC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:hint="unknown"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    style="@style/unitDisplayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:text="units" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/lightWorld" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/triangleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/darkerWorld"
+            android:text="Calculate"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>

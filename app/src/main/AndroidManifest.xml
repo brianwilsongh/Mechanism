@@ -30,6 +30,12 @@
             android:launchMode="singleTop"
             android:theme="@style/AppTheme"/>
 
+        <activity android:name=".MathEquations"
+            android:label="Math Equations"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme"/>
+
         <!--SOLVERS manifestations below -->
         <activity android:name = ".solvers.TwoVar"
             android:parentActivityName=".PhysicsEquations"
