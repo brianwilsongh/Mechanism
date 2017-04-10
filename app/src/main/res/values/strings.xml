@@ -4,6 +4,10 @@
     <string name="app_description">Mekanism is an application built to solve mathematical equations for you.</string>
     <string name="version_number">BETA 0.2</string>
 
+    <!--firebase stuff -->
+    <string name="banner_ad_unit_id">ca-app-pub-2394697813059366/7384267214</string>
+
+
     <!--strings to describe what variables are-->
     <string name="distance_desc">d = displacement of the object</string>
     <string name="init_displacement_desc">d₀ = initial distance, or distance at time=0</string>

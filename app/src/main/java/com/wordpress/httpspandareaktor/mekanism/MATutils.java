@@ -30,7 +30,7 @@ public class MATutils {
     public static Spanned MATvarUnitsX = fromHtml("units");
 
     public static Spanned MATvarDescB = fromHtml("<br><b>b</b> : the y-intercept of the function, the value of y when x=0</br>");
-    public static Spanned MATvarSymB = fromHtml("<b>y</b>");
+    public static Spanned MATvarSymB = fromHtml("<b>b</b>");
     public static Spanned MATvarUnitsB = fromHtml("units");
 
 

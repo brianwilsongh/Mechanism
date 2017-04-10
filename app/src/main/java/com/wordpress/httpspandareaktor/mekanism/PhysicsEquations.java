@@ -1,5 +1,7 @@
 package com.wordpress.httpspandareaktor.mekanism;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

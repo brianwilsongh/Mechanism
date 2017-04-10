@@ -34,11 +34,11 @@ public class PHY2 {
     public String solveMissing(String arrayCode, double firstVar, double secondVar){
         switch (arrayCode) {
             case "011":
-                return  String.valueOf(firstVar - secondVar);
+                return  String.valueOf(firstVar / secondVar);
             case "101":
-                return String.valueOf(firstVar + secondVar);
+                return String.valueOf(firstVar * secondVar);
             case "110":
-                return String.valueOf(secondVar - firstVar);
+                return String.valueOf(secondVar / firstVar);
             default:
                 return "error in solution method";
 

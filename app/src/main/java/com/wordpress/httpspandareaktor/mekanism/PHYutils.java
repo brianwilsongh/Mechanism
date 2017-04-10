@@ -57,8 +57,8 @@ public class PHYutils {
     public static Spanned PHYvarSymInitialVelocity = fromHtml("<b>v₀</b>");
     public static Spanned PHYvarUnitInitialVelocity = fromHtml("meters/second");
 
-    public static Spanned PHYvarDescFinalVelocity = fromHtml("<br><b>vₜ</b> or <b>x<sub><small>final</small></sub></b> : velocity/speed for object at time=t (end)</br>");
-    public static Spanned PHYvarSymFinalVelocity = fromHtml("<b>vₜ</b>");
+    public static Spanned PHYvarDescFinalVelocity = fromHtml("<br><b>v<sub><small>t</small></sub></b> or <b>x<sub><small>final</small></sub></b> : velocity/speed for object at time=t (end)</br>");
+    public static Spanned PHYvarSymFinalVelocity = fromHtml("<b>v<sub><small>t</small></sub></b>");
     public static Spanned PHYvarUnitFinalVelocity = fromHtml("meters/second");
 
     public static Spanned PHYvarDescAverageAcceleration = fromHtml("<br><b>a<sub><small>average</small></sub></b> or <b>a</b>: averaged change in velocity/speed for object from time=0 to time=t</br>");
