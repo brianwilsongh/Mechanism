@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#ce4d06</color>
-    <color name="colorBurntOJ">#ce4d06</color>
-    <color name="bloodRedPhysics">#9c0000</color>
-    <color name="portalBlueMath">#434465</color>
+    <color name="colorPrimaryDark">#233237</color>
+    <color name="colorAccent">#984B43</color>
+
     <!-- real burnt oj is ce4d06 -->
     <color name="darkWorld">#5c5b58</color>
     <color name="darkerWorld">#272624</color>
     <color name="lightWorld">#cbd1d8</color>
     <color name="fadeText">#a7a7a7</color>
+
+    <!--new theme colors -->
+    <color name="deepBlue">#18121E</color>
+    <color name="gunMetal">#233237</color>
+    <color name="gunMetalLight">#52707a</color>
+    <color name="rust">#984B43</color>
+    <color name="lightRust">#c17770</color>
+    <color name="sun">#EAC67A</color>
+
 </resources>

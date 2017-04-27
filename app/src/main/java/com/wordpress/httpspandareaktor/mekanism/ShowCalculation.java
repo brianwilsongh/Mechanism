@@ -32,7 +32,6 @@ public class ShowCalculation extends AppCompatActivity {
     private String answerUnits;
     private String answerSym;
     private String answerVal;
-    private String answerVal2;
     private String shareString;
     private String subjectCode;
 
@@ -67,17 +66,15 @@ public class ShowCalculation extends AppCompatActivity {
 
         TextView resultTypeText = (TextView) findViewById(R.id.result_type);
         TextView resultValueText = (TextView) findViewById(R.id.result_value);
-        TextView resultValueText2 = (TextView) findViewById(R.id.result_value2);
         TextView rootButton = (TextView) findViewById(R.id.returnRootButton);
 
 
-        Log.v("ShowCalculation", "retrieved: " + answerUnits + answerVal + answerVal2);
+        Log.v("ShowCalculation", "retrieved: " + answerUnits + answerVal);
 
         resultTypeText.setText(answerUnits);
         resultValueText.setText(answerSym);
         resultValueText.setText(answerSym);
         resultValueText.append(answerVal);
-        resultValueText2.setText(answerVal2);
         rootButton.setText("Return to " + subjectCode);
     }
 

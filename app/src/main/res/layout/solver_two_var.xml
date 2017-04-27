@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:text="symA ="
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:textColor="@color/colorBurntOJ" />
+                    android:textColor="@color/rust" />
 
                 <EditText
                     android:id="@+id/twoVarFieldA"
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="symB = "
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:textColor="@color/colorBurntOJ" />
+                    android:textColor="@color/rust" />
 
                 <EditText
                     android:id="@+id/twoVarFieldB"
@@ -124,7 +124,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
-            android:background="@color/darkerWorld"
+            android:background="@color/gunMetal"
             android:text="Calculate"
             android:textColor="#FFFFFF"/>
 

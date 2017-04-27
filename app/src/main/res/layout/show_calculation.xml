@@ -1,108 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-
-        <TextView
-            android:id="@+id/result_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:textAppearance="?android:textAppearanceLarge"
-            tools:text="placeholder" />
-
-        <TextView
-            android:id="@+id/result_type"
-            style="@style/unitDisplayText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:maxLines="1"
-            android:textAppearance="?android:textAppearanceLarge"
-            tools:text="placeholder" />
-
-
-        <TextView
-            android:id="@+id/result_value2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:textAppearance="?android:textAppearanceLarge"
-            tools:text="placeholder" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:onClick="sendSMS"
-            android:text="Text your result to a friend"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/colorBurntOJ" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:onClick="sendEmail"
-            android:text="Email your result to a friend"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/colorBurntOJ" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:background="@color/gunMetal"
+            android:orientation="vertical">
 
-            <Button
-                android:layout_width="0dp"
+
+            <TextView
+                android:id="@+id/result_value"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="#3B5998"
-                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_margin="25dp"
+                android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#FFFFFF"
+                tools:text="placeholder" />
+
+            <TextView
+                android:id="@+id/result_type"
+                style="@style/unitDisplayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:maxLines="1"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF"
+                tools:text="placeholder" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/lightRust"
+                android:onClick="sendSMS"
+                android:text="Text your result to a friend"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/sun"
+                android:onClick="sendEmail"
+                android:text="Email your result to a friend"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF" />
+
+
+            <Button
                 android:id="@+id/shareButtonFB"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="#3B5998"
                 android:onClick="shareFB"
-                android:text="Share Mekanism on facebook" />
+                android:text="Share Mekanism on facebook"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@color/gunMetalLight">
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
                 android:id="@+id/returnRootButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:background="@color/gunMetal"
                 android:onClick="returnRoot"
-                android:text="Return to Physics" />
+                android:text="Return to Physics"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:background="@color/gunMetal"
                 android:onClick="returnMain"
-                android:text="RESET MEKANISM" />
+                android:text="RESET MEKANISM"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
-
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

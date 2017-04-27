@@ -32,6 +32,7 @@
             android:id="@+id/equation_desc_general"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/gunMetalLight"
             android:gravity="center"
             android:text="@string/app_name"
             />
@@ -55,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="4"
-                android:textColor="@color/colorBurntOJ"
+                android:textColor="@color/rust"
                 android:textSize="23sp" />
 
             <TextView
@@ -63,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="variables"
+                android:textColor="@color/gunMetalLight"
                 android:textSize="12sp" />
         </LinearLayout>
 
