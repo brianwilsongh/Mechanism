@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/generatorDisplayQuestion"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="THIS IS FILLER"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/gunMetalLight"
+        android:padding="10dp">
+        <!--HEADER SECTION -->
 
-    <TextView
-        android:id="@+id/generatorDisplayAnswers"
+        <TextView
+            android:id="@+id/generatorCode"
+            android:text="T4PHY1"
+            android:alpha=".7"
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/generatorDifficulty"
+            android:alpha=".7"
+            android:text="Difficulty: Tier 4"
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="THIS SHOULD STORE THE ANSWER"/>
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/generatorDisplayQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="THIS IS FILLER" />
+
+        <Button
+            android:id="@+id/generatorRevealButton"
+            android:onClick="displayAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Reveal Answer?" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/generatorDisplayAnswers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THIS SHOULD STORE THE ANSWER" />
+
+    </LinearLayout>
 
 </LinearLayout>

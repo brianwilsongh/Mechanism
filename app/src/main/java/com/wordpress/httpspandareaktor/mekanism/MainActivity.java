@@ -131,4 +131,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MathEquations.class);
         startActivity(intent);
     }
+
+    public void startGenerator(View view) {
+        Intent intent = new Intent(this, Generator.class);
+        startActivity(intent);
+    }
 }

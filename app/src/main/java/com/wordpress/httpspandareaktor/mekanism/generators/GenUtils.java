@@ -52,7 +52,7 @@ public class GenUtils {
 
     public static String normalObject(){
         String[] objects = new String[]{"dog", "cat", "hamster", "bird", "box", "human", "car",
-                "sailboat", "bike", "moose", "mouse", "block"};
+                "sailboat", "bike", "moose", "mouse", "block", "raccoon"};
         Random r = new Random();
         int idx = r.nextInt(objects.length);
         return objects[idx];
