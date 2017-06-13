@@ -14,7 +14,7 @@ public class PHY1 {
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
 
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
-    public final String descriptionGeneral = "Formally defines displacement as the difference between" +
+    public static final String descriptionGeneral = "Formally defines displacement as the difference between" +
             " final and initial position";
 
     //descriptorText contains all the variables used and their descriptions
@@ -31,7 +31,7 @@ public class PHY1 {
     public Spanned unitValB = PHYutils.PHYvarUnitFinalPosition;
     public Spanned unitValC = PHYutils.PHYvarUnitInitialPosition;
 
-    public String solveMissing(String arrayCode, double firstVar, double secondVar){
+    public static String solveMissing(String arrayCode, double firstVar, double secondVar){
         switch (arrayCode) {
             case "011":
                 return  String.valueOf(firstVar - secondVar);

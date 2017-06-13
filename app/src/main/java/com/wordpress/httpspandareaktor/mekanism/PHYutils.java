@@ -135,7 +135,7 @@ public class PHYutils {
     // CONSTANTS
 
     public static double PHYconstantValGravAccelEarth = 9.807;
-    public static Spanned PHYconstantDescGravAccelEarth = fromHtml("<br><b>g</b> : symbol used to represent the gravitational acceleration on earth, equal to ~9.8 m/s<sup>2</sup></br>");
+    public static Spanned PHYconstantDescGravAccelEarth = fromHtml("<br><b>g/G</b> : symbol used to represent the gravitational acceleration on earth, equal to ~9.8 m/s<sup>2</sup></br>");
     public static Spanned PHYconstantSymGravAccelEarth = fromHtml("<b>g</b>");
     public static Spanned PHYconstantUnitGravAccelEarth = fromHtml("meters/second<sup><small>2</small></sup>");
 

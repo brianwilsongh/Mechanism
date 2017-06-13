@@ -13,7 +13,7 @@ public class PHY11 {
 
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
     public final String descriptionGeneral = "Equation that applies Newton's Second Law to weight, " +
-            "assuming gravitational acceleration occurring on Earth";
+            PHYutils.PHYconstantDescGravAccelEarth;
 
     //descriptorText contains all the variables used and their descriptions
     public final Spanned[] descriptorArray = {PHYutils.PHYvarDescWeight,
