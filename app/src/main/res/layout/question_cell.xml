@@ -9,21 +9,29 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:background="@color/gunMetalLight"
+        android:background="@color/gunMetal"
         android:padding="10dp">
         <!--HEADER SECTION -->
 
         <TextView
             android:id="@+id/generatorCode"
-            android:text="T4PHY1"
-            android:alpha=".7"
+            android:text="For testing purposes"
+            android:alpha=".8"
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/generatorSubject"
+            android:text="Physics"
+            android:alpha=".8"
             android:textColor="#FFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/generatorDifficulty"
-            android:alpha=".7"
+            android:alpha=".8"
             android:text="Difficulty: Tier 4"
             android:textColor="#FFF"
             android:layout_width="match_parent"
@@ -32,10 +40,13 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_weight="5">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -45,6 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:text="THIS IS FILLER" />
+
+        <Button
+            android:id="@+id/generatorHintButton"
+            android:onClick="displayHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Reveal Hint?" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/generatorDisplayHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/generatorRevealButton"
@@ -62,5 +87,7 @@
             android:text="THIS SHOULD STORE THE ANSWER" />
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

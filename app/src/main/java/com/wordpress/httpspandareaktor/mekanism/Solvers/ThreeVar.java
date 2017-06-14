@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.math.*;
 
 import com.wordpress.httpspandareaktor.mekanism.PHYutils;
@@ -32,7 +33,7 @@ import static java.lang.Class.forName;
  * Created by Brian on 2/28/2017.
  */
 
-public class ThreeVar extends AppCompatActivity{
+public class ThreeVar extends AppCompatActivity {
     /* This is a generic THREE variable solver object, meant to fetch user input (2 fields) from the matching
     layout file and send it to the appropriate [SUB][CODE] equation object along with solver code. Will receive the
     return values and then send to the solution page.
@@ -82,7 +83,6 @@ public class ThreeVar extends AppCompatActivity{
     String subjectCode;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,27 +115,34 @@ public class ThreeVar extends AppCompatActivity{
         //set up the views given data from the class and other stuff
         int newImageId = (i.getIntExtra("imageResourceId", 0));
         if (newImageId != 0) {
-        equationImage.setImageResource(newImageId); }
+            equationImage.setImageResource(newImageId);
+        }
 
         //set on click listener for the button
         mMediaPlayer = MediaPlayer.create(this, R.raw.electron_hi);
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {attemptSolve(); } catch (Exception e) {e.printStackTrace();}
+                try {
+                    attemptSolve();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        try {setClassInput(); } catch (Exception e) {e.printStackTrace();}
-
+        try {
+            setClassInput();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-
+    }
 
 
     private void attemptSolve() throws Exception {
         //method that is called on Calculate button click
-        if (validateInput()){
+        if (validateInput()) {
             //if input is good, play the sound and figure out stuff for the intent
             mMediaPlayer.start();
 
@@ -151,7 +158,7 @@ public class ThreeVar extends AppCompatActivity{
             resultVal = (String) solveMissing.invoke(temp, arrayCode, solveMethodParam1, solveMethodParam2);
 
             //if the resultVal is not numeric, something went wrong so throw the toast and exit
-            if (!PHYutils.isNumeric(resultVal)){
+            if (!PHYutils.isNumeric(resultVal)) {
                 Toast.makeText(this, "ERROR: failed to calculate given parameters, please check values!", Toast.LENGTH_LONG).show();
                 return;
             }
@@ -165,7 +172,7 @@ public class ThreeVar extends AppCompatActivity{
             i.putExtra("subjectCode", subjectCode);
             // send extra as a string
             i.putExtra("eqnType", "Physics");
-            Log.v("attemptSolve method", "sent "  + resultType + " " + resultVal + " sharestring: " + shareString);
+            Log.v("attemptSolve method", "sent " + resultType + " " + resultVal + " sharestring: " + shareString);
 
             //reset that array in case they want to go back later
             arrayCode = "";
@@ -182,17 +189,23 @@ public class ThreeVar extends AppCompatActivity{
         shareString = "(" + getString(R.string.app_name) + " - " + subjectCode + ") -- Given variables ";
 
         //not-blank fields are mapped to the presenceArray, build a string out of the presence array
-        if (!fieldA.getText().toString().equals("")){
+        if (!fieldA.getText().toString().equals("")) {
             arrayCode += "1";
-        } else { arrayCode += "0"; }
+        } else {
+            arrayCode += "0";
+        }
 
-        if (!fieldB.getText().toString().equals("")){
+        if (!fieldB.getText().toString().equals("")) {
             arrayCode += "1";
-        } else { arrayCode += "0"; }
+        } else {
+            arrayCode += "0";
+        }
 
-        if (!fieldC.getText().toString().equals("")){
+        if (!fieldC.getText().toString().equals("")) {
             arrayCode += "1";
-        } else { arrayCode += "0"; }
+        } else {
+            arrayCode += "0";
+        }
 
         Log.v("ThreeVar.validateInput", "I think the code is..." + arrayCode);
 
@@ -221,7 +234,7 @@ public class ThreeVar extends AppCompatActivity{
                 shareString += symbolA.getText() + "=" + solveMethodParam1 + " & ";
                 shareString += symbolB.getText() + "=" + solveMethodParam2 + " ; ";
                 resultType = unitsC.getText().toString();
-                symSolution  = symbolC.getText().toString();
+                symSolution = symbolC.getText().toString();
                 shareString += symSolution + "=";
                 return true;
             default:
@@ -233,7 +246,7 @@ public class ThreeVar extends AppCompatActivity{
 
     }
 
-    public void setSymbolsAndUnits(Spanned symA, Spanned symB, Spanned symC, Spanned unitA, Spanned unitB, Spanned unitC){
+    public void setSymbolsAndUnits(Spanned symA, Spanned symB, Spanned symC, Spanned unitA, Spanned unitB, Spanned unitC) {
 
         //retrieve appropriate strings with resource name string by getting resources and finding
         //getIdentifier takes (String resourceName, String resourceType, String package)
@@ -275,11 +288,11 @@ public class ThreeVar extends AppCompatActivity{
         Spanned[] descriptorArray = (Spanned[]) descriptor.get(temp);
         equationDescriptor.setText(null);
         //the iterator will append the variables one at a time, had issue concatenating chars while retaining style
-        for (int i = 0; i < descriptorArray.length; i ++){
+        for (int i = 0; i < descriptorArray.length; i++) {
             equationDescriptor.append(descriptorArray[i]);
         }
 
-        }
+    }
 
 
 }

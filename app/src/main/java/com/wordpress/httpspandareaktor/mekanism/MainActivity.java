@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startGenerator(View view) {
-        Intent intent = new Intent(this, Generator.class);
+    public void startQuestionCell(View view) {
+        Intent intent = new Intent(this, QuestionCell.class);
         startActivity(intent);
     }
 }

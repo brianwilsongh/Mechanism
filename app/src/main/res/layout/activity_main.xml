@@ -194,7 +194,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="startGenerator"
+                    android:onClick="startQuestionCell"
                     android:layout_gravity="center"
                     android:background="@color/rust"
                     android:drawableLeft="@mipmap/ic_group_work_white_24dp"
