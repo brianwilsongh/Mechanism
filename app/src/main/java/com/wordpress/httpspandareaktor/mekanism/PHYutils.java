@@ -49,7 +49,7 @@ public class PHYutils {
     public static Spanned PHYvarSymDeltaVelocity = fromHtml("<b>Δv</b>");
     public static Spanned PHYvarUnitDeltaVelocity = fromHtml("meters/second");
 
-    public static Spanned PHYvarDescDeltaTime = fromHtml("<br><b>Δt</b> : change in time, specifically referencing the difference between final and initial time</br>");
+    public static Spanned PHYvarDescDeltaTime = fromHtml("<br><b>Δt</b> : change in time</br>");
     public static Spanned PHYvarSymDeltaTime = fromHtml("<b>Δt</b>");
     public static Spanned PHyvarUnitDeltaTime = fromHtml("seconds");
 
@@ -126,6 +126,13 @@ public class PHYutils {
     public static Spanned PHYvarSymKineticEnergy = fromHtml("<b>KE</b>");
     public static Spanned PHYvarUnitKineticEnergy = fromHtml("Joules");
 
+    public static Spanned PHYvarDescAngularVelocity = fromHtml("<br><b>ω</b> : angular velocity, the ratio of the angle traversed to the time it takes to traverse the angle</br>");
+    public static Spanned PHYvarSymAngularVelocity = fromHtml("<b>ω</b>");
+    public static Spanned PHYvarUnitAngularVelocity = fromHtml("radians/sec");
+
+    public static Spanned PHYvarDescDeltaTheta = fromHtml("<br><b>Δθ</b> : represents the change in an angle theta</br>");
+    public static Spanned PHYvarSymDeltaTheta = fromHtml("<b>Δθ</b>");
+    public static Spanned PHYvarUnitDeltaTheta = fromHtml("degrees");
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");

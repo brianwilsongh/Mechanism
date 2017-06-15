@@ -82,4 +82,6 @@ public class MATutils {
     {
         return str.matches("(-)?\\d*.\\d*(-)?(E)?\\d*");  //use RegEx to match, can handle SciNo numbers as well
     }
+
+
 }
