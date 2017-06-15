@@ -19,4 +19,9 @@
         android:id="@+id/physics_select_3"
         android:title="@string/physics_menu_3"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/physics_select_4"
+        android:title="@string/physics_menu_4"
+        app:showAsAction="never" />
 </menu>

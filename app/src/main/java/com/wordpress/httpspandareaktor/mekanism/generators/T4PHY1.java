@@ -32,6 +32,7 @@ public class T4PHY1 implements Generator {
     public T4PHY1(){
         //generate a random code for the 3-var PHY1
         String randomizedPHY1 = GenUtils.generateRandomCode(3);
+        //store the unit of the answer manually here
         trueAnswerUnit = PHYutils.PHYvarUnitDistance.toString();
         switch (randomizedPHY1) {
             case "011":
@@ -91,7 +92,7 @@ public class T4PHY1 implements Generator {
 
     @Override
     public String getTrueAnswer() {
-        return String.valueOf(trueAnswer);
+        return String.valueOf(trueAnswer) + trueAnswerUnit;
     }
 
     @Override

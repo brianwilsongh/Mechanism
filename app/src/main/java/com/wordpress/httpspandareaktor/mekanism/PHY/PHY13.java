@@ -13,8 +13,7 @@ public class PHY13 {
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
 
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
-    public final String descriptionGeneral = "Formally defines displacement as the difference between" +
-            " final and initial position";
+    public final String descriptionGeneral = "Equation to determine the magnitude of centripetal acceleration";
 
     //descriptorText contains all the variables used and their descriptions
     public final Spanned[] descriptorArray = {PHYutils.PHYvarDescCentripetalAcceleration,

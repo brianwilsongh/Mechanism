@@ -64,7 +64,7 @@ public class QuestionCell extends AppCompatActivity {
             Log.v("object", " formatted/trueanswer: " + g.getFormattedQuestion() + g.getTrueAnswer());
 
             //this is the code, ie "T4PHY1" for testing
-            displayCode.setText(g.getClass().getName());
+            displayCode.setText(g.getClass().getSimpleName());
 
             //this uses Generator abstract methods to get question and answer strings, set to TextViews
             displayQuestion.setText(g.getFormattedQuestion());

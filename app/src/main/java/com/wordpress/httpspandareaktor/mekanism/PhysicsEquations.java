@@ -65,10 +65,11 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY8 = new Equation("PHY8", FourVar.class, R.drawable.phy8); //kin equation
         PHY9 = new Equation("PHY9", ThreeVar.class, R.drawable.phy9); //alt definition avg velo
 
+        PHY13 = new Equation("PHY13", ThreeVar.class, R.drawable.phy13); //centripetal accel
+
         PHY10 = new Equation("PHY10", ThreeVar.class, R.drawable.phy10); //newton's second
         PHY11 = new Equation("PHY11", TwoVar.class, R.drawable.phy11); //weight
         PHY12 = new Equation("PHY12", FourVar.class, R.drawable.phy12); //universal gravitation
-        PHY13 = new Equation("PHY13", ThreeVar.class, R.drawable.phy13); //centripetal accel
         PHY14 = new Equation("PHY14", ThreeVar.class, R.drawable.phy14); //force of friction
         PHY15 = new Equation("PHY15", ThreeVar.class, R.drawable.phy15); //momentum definition
         PHY16 = new Equation("PHY16", ThreeVar.class, R.drawable.phy16); //impulse-momentum 1
@@ -109,7 +110,7 @@ public class PhysicsEquations extends AppCompatActivity {
 
     }
 
-    //method to rearrange the list for motion equations
+    //first list arrangement, motion equations
     public void arrangeList1 (){
         //list that contains motion
         physicsEquationList.clear();
@@ -127,14 +128,24 @@ public class PhysicsEquations extends AppCompatActivity {
 
     }
 
-    //method to rearrange the list to show gravity equations only
+    //second list, contains circular motion equations
     public void arrangeList2 () {
+        physicsEquationList.clear();
+
+        physicsEquationList.add(PHY13);
+
+
+        equationList.setAdapter(equationAdapter);
+    }
+
+    //third arrangelist func
+    public void arrangeList3 () {
         physicsEquationList.clear();
         physicsEquationList.add(PHY10);
         physicsEquationList.add(PHY11);
         physicsEquationList.add(PHY12);
-        physicsEquationList.add(PHY13);
         physicsEquationList.add(PHY14);
+
         physicsEquationList.add(PHY15);
         physicsEquationList.add(PHY16);
         physicsEquationList.add(PHY17);
@@ -143,8 +154,8 @@ public class PhysicsEquations extends AppCompatActivity {
         equationList.setAdapter(equationAdapter);
     }
 
-    //third arrangelist func
-    public void arrangeList3 () {
+    //fourth arrangelist func
+    public void arrangeList4 () {
         physicsEquationList.clear();
         physicsEquationList.add(PHY19);
 
@@ -175,6 +186,10 @@ public class PhysicsEquations extends AppCompatActivity {
 
             case R.id.physics_select_3:
                 arrangeList3();
+                return true;
+
+            case R.id.physics_select_4:
+                arrangeList4();
                 return true;
 
         }
