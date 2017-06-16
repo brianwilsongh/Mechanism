@@ -34,7 +34,7 @@ public class PHYutils {
     public static Spanned PHYvarUnitInitialPosition = fromHtml("meters");
 
     public static Spanned PHYvarDescFinalPosition = fromHtml("<br><b>xₜ</b> or <b>x<sub><small>final</small></sub></b> : final position, or position at time=t</br>");
-    public static Spanned PHYvarSymFinalPosition = fromHtml("<b>xₜ</b>");
+    public static Spanned PHYvarSymFinalPosition = fromHtml("<b>x<sub><small>final</small></sub></b>");
     public static Spanned PHYvarUnitFinalPosition = fromHtml("meters");
 
     public static Spanned PHYvarDescAverageVelocity = fromHtml("<br><b>v<sub><small>average</small></sub></b> or <b>v</b> : averaged velocity/speed for object from time=0 to time=t</br>");
@@ -133,6 +133,10 @@ public class PHYutils {
     public static Spanned PHYvarDescDeltaTheta = fromHtml("<br><b>Δθ</b> : represents the change in an angle theta</br>");
     public static Spanned PHYvarSymDeltaTheta = fromHtml("<b>Δθ</b>");
     public static Spanned PHYvarUnitDeltaTheta = fromHtml("degrees");
+
+    public static Spanned PHYvarDescCentripetalForce = fromHtml("<br><b><sup>F</sup><small>c</small></b> : centripetal force, directed towards the center of a circle representing the object's path of motion</br>");
+    public static Spanned PHYvarSymCentripetalForce = fromHtml("<b><sup>F</sup><small>c</small></b>");
+    public static Spanned PHYvarUnitCentripetalForce = fromHtml("Newtons");
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");

@@ -40,6 +40,8 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY18;
     Equation PHY19;
     Equation PHY20;
+    Equation PHY21;
+    Equation PHY22;
 
 
     // from stack overflow, how to super/subscript:
@@ -65,8 +67,10 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY8 = new Equation("PHY8", FourVar.class, R.drawable.phy8); //kin equation
         PHY9 = new Equation("PHY9", ThreeVar.class, R.drawable.phy9); //alt definition avg velo
 
-        PHY13 = new Equation("PHY13", ThreeVar.class, R.drawable.phy13); //centripetal accel
         PHY20 = new Equation("PHY20", ThreeVar.class, R.drawable.phy20); //angular velocity
+        PHY21 = new Equation("PHY21", ThreeVar.class, R.drawable.phy21); //velocity from angular velocity
+        PHY13 = new Equation("PHY13", ThreeVar.class, R.drawable.phy13); //centripetal accel
+        PHY22 = new Equation("PHY22", FourVar.class, R.drawable.phy22); //centripetal force
 
         PHY10 = new Equation("PHY10", ThreeVar.class, R.drawable.phy10); //newton's second
         PHY11 = new Equation("PHY11", TwoVar.class, R.drawable.phy11); //weight
@@ -133,8 +137,10 @@ public class PhysicsEquations extends AppCompatActivity {
     public void arrangeList2 () {
         physicsEquationList.clear();
 
-        physicsEquationList.add(PHY13);
         physicsEquationList.add(PHY20);
+        physicsEquationList.add(PHY21);
+        physicsEquationList.add(PHY13);
+        physicsEquationList.add(PHY22);
 
 
         equationList.setAdapter(equationAdapter);

@@ -59,9 +59,7 @@ public class QuestionCell extends AppCompatActivity {
 
     public void setQuestion(){
         try {
-            Generator g = retrieveGenerator("T4", "PHY2");
-            Log.v("Generator", "new instance of T4PHY2:" + g.toString());
-            Log.v("object", " formatted/trueanswer: " + g.getFormattedQuestion() + g.getTrueAnswer());
+            Generator g = retrieveGenerator("T4", "PHY3");
 
             //this is the code, ie "T4PHY1" for testing
             displayCode.setText(g.getClass().getSimpleName());

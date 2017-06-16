@@ -8,7 +8,7 @@ import com.wordpress.httpspandareaktor.mekanism.PHYutils;
  */
 
 public class T4PHY2 implements Generator {
-    //this is a tier 4 generator applying PHY1
+    //this is a tier 4 generator applying the PHY2 equation
     public static byte tier = 4;
     public static boolean image = false;
 
@@ -35,13 +35,13 @@ public class T4PHY2 implements Generator {
                 break;
             case "101":
                 //displacement and initial
-                firstVar = GenUtils.generateRandomInRange(1, 50);
+                firstVar = GenUtils.generateRandomInRange(1, 20);
                 secondVar = GenUtils.generateRandomInRange(1, 50);
                 trueAnswerUnit = PHYutils.PHYvarUnitDistance.toString();
                 break;
             case "110":
                 //displacement and final
-                firstVar = GenUtils.generateRandomInRange(1, 50);
+                firstVar = GenUtils.generateRandomInRange(1, 20);
                 secondVar = GenUtils.generateRandomInRange(1, 50);
                 trueAnswerUnit = PHYutils.PHYvarUnitTime.toString();
                 break;

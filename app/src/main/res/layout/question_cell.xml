@@ -88,6 +88,9 @@
             android:id="@+id/generatorDisplayAnswers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textColor="@color/rust"
             android:text="THIS SHOULD STORE THE ANSWER" />
 
     </LinearLayout>
