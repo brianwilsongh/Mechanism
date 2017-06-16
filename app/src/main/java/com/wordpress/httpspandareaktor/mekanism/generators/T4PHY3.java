@@ -24,32 +24,29 @@ public class T4PHY3 implements Generator {
 
     public T4PHY3(){
     //generate a random code for the 3-var PHY1
-    String randomizedPHY1 = GenUtils.generateRandomCode(3);
+    String randomizedPHY3 = GenUtils.generateRandomCode(3);
     //store the unit of the answer manually here
-        switch (randomizedPHY1) {
+        switch (randomizedPHY3) {
         case "011":
-            //make final position and initial position, not displacement
             firstVar = GenUtils.generateRandomInRange(1, 50);
             secondVar = GenUtils.generateRandomInRange(1, 50);
             trueAnswerUnit = PHYutils.PHYvarUnitAverageAcceleration.toString();
             break;
         case "101":
-            //displacement and initial
             firstVar = GenUtils.generateRandomInRange(1, 20);
             secondVar = GenUtils.generateRandomInRange(1, 50);
             trueAnswerUnit = PHYutils.PHYvarUnitVelocity.toString();
             break;
         case "110":
-            //displacement and final
             firstVar = GenUtils.generateRandomInRange(1, 20);
             secondVar = GenUtils.generateRandomInRange(1, 50);
             trueAnswerUnit = PHYutils.PHYvarUnitTime.toString();
             break;
     }
     //call buildQuestionString after the randomized vars have been created
-    buildQuestionString(randomizedPHY1);
+    buildQuestionString(randomizedPHY3);
 
-    trueAnswer = Double.parseDouble(PHY3.solveMissing(randomizedPHY1, firstVar, secondVar));
+    trueAnswer = Double.parseDouble(PHY3.solveMissing(randomizedPHY3, firstVar, secondVar));
 
 
 }

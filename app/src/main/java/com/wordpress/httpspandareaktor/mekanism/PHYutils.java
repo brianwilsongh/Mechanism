@@ -170,7 +170,7 @@ public class PHYutils {
         return result;
     }
 
-    //quadratic equation solver for PHY4, returns the positive only because it's time
+    //quadratic equation solver built for PHY4, returns the positive only because it's time
     public static double PHY4quadratic(double a, double v, double d) {
         Log.v("PHYutils", " recieved a, v, d : " + a + ", " + v + ", " + d);
         double A = 0.5 * a;
