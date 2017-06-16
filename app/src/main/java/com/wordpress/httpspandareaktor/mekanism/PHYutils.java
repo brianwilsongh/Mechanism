@@ -128,7 +128,7 @@ public class PHYutils {
 
     public static Spanned PHYvarDescAngularVelocity = fromHtml("<br><b>ω</b> : angular velocity, the ratio of the angle traversed to the time it takes to traverse the angle</br>");
     public static Spanned PHYvarSymAngularVelocity = fromHtml("<b>ω</b>");
-    public static Spanned PHYvarUnitAngularVelocity = fromHtml("radians/sec");
+    public static Spanned PHYvarUnitAngularVelocity = fromHtml("radians/second");
 
     public static Spanned PHYvarDescDeltaTheta = fromHtml("<br><b>Δθ</b> : represents the change in an angle theta</br>");
     public static Spanned PHYvarSymDeltaTheta = fromHtml("<b>Δθ</b>");
@@ -138,6 +138,11 @@ public class PHYutils {
     public static Spanned PHYvarSymCentripetalForce = fromHtml("<b><sup>F</sup><small>c</small></b>");
     public static Spanned PHYvarUnitCentripetalForce = fromHtml("Newtons");
 
+    public static Spanned PHYvarDescGravField = fromHtml("<br><b><sup>g(r)</sup></b> : strength of a gravitational field as a function g with radius r as the input</br>");
+    public static Spanned PHYvarSymGravField = fromHtml("<b>g(r)</b>");
+    public static Spanned PHYvarUnitGravField = fromHtml("Newtons/kilogram");
+
+
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");
     public static Spanned PHYvarSymMass2 = fromHtml("<b>m<small>2</small></b>");
@@ -146,12 +151,12 @@ public class PHYutils {
     // CONSTANTS
 
     public static double PHYconstantValGravAccelEarth = 9.807;
-    public static Spanned PHYconstantDescGravAccelEarth = fromHtml("<br><b>g/G</b> : symbol used to represent the gravitational acceleration on earth, equal to ~9.8 m/s<sup>2</sup></br>");
+    public static Spanned PHYconstantDescGravAccelEarth = fromHtml("<br><b>g</b> : symbol used to represent the gravitational acceleration on earth, equal to ~9.8 m/s<sup>2</sup></br>");
     public static Spanned PHYconstantSymGravAccelEarth = fromHtml("<b>g</b>");
     public static Spanned PHYconstantUnitGravAccelEarth = fromHtml("meters/second<sup><small>2</small></sup>");
 
     public static double PHYconstantValUniversalGravitation = 0.0000000000667408;
-    public static Spanned PHYcsontantDescUniversalGravitation = fromHtml("<br><b>G</b> : symbol used to represent the universal gravitational constant, used to calculate force in a gravitational field</br>");
+    public static Spanned PHYconstantDescUniversalGravitation = fromHtml("<br><b>G</b> : symbol used to represent the universal gravitational constant, used to calculate force in a gravitational field</br>");
 
 
 

@@ -15,7 +15,7 @@ public class PHY12 {
 
     public final String descriptionGeneral = "Equation of universal gravitation. Relates the masses " +
             "and distances between the centers of two objects to the force of the gravitational pull. " +
-            PHYutils.PHYconstantDescGravAccelEarth;
+            PHYutils.PHYconstantDescUniversalGravitation;
 
     //descriptorText contains all the variables used and their descriptions
     public final Spanned[] descriptorArray = {PHYutils.PHYvarDescForceGravity,

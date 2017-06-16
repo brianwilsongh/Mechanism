@@ -42,6 +42,7 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY20;
     Equation PHY21;
     Equation PHY22;
+    Equation PHY23;
 
 
     // from stack overflow, how to super/subscript:
@@ -82,6 +83,7 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY18 = new Equation("PHY18", FourVar.class, R.drawable.phy18); //work definition with costheta
 
         PHY19 = new Equation("PHY19", ThreeVar.class, R.drawable.phy19); //kinetic energy equation
+        PHY23 = new Equation("PHY23", ThreeVar.class, R.drawable.phy23); //gravitational field
 
 
         //create and set up list view, adapters
@@ -151,9 +153,7 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.clear();
         physicsEquationList.add(PHY10);
         physicsEquationList.add(PHY11);
-        physicsEquationList.add(PHY12);
         physicsEquationList.add(PHY14);
-
         physicsEquationList.add(PHY15);
         physicsEquationList.add(PHY16);
         physicsEquationList.add(PHY17);
@@ -170,6 +170,16 @@ public class PhysicsEquations extends AppCompatActivity {
         equationList.setAdapter(equationAdapter);
     }
 
+    //fourth arrangelist func
+    public void arrangeList5 () {
+        physicsEquationList.clear();
+
+        physicsEquationList.add(PHY12);
+        physicsEquationList.add(PHY23);
+
+
+        equationList.setAdapter(equationAdapter);
+    }
 
 
     // this override will handle what happens after the options menu is created on the bar
@@ -198,6 +208,10 @@ public class PhysicsEquations extends AppCompatActivity {
 
             case R.id.physics_select_4:
                 arrangeList4();
+                return true;
+
+            case R.id.physics_select_5:
+                arrangeList5();
                 return true;
 
         }
