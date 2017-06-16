@@ -287,10 +287,11 @@ public class FourVar extends AppCompatActivity {
 
         //retrieve appropriate strings with resource name string by getting resources and finding
         //getIdentifier takes (String resourceName, String resourceType, String package)
-        symbolA.setText(symA);
-        symbolB.setText(symB);
-        symbolC.setText(symC);
-        symbolD.setText(symD);
+        //setting buffertype.spannable allows TextView to properly calculate the line height
+        symbolA.setText(symA, TextView.BufferType.SPANNABLE);
+        symbolB.setText(symB, TextView.BufferType.SPANNABLE);
+        symbolC.setText(symC, TextView.BufferType.SPANNABLE);
+        symbolD.setText(symD, TextView.BufferType.SPANNABLE);
 
         unitsA.setText(unitA);
         unitsB.setText(unitB);
