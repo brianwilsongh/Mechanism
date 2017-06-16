@@ -35,6 +35,7 @@ public class GenUtils {
     }
 
     public static Double generateRandomInRange(int floor, int ceil){
+        //will not hit the ceiling #
         Random random = new Random();
         int n = floor + random.nextInt(ceil + floor * -1);
         return Double.parseDouble(String.valueOf(n));

@@ -1,5 +1,6 @@
 package com.wordpress.httpspandareaktor.mekanism;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -53,13 +54,14 @@ public class QuestionCell extends AppCompatActivity {
         displayAnswers = (TextView) findViewById(R.id.generatorDisplayAnswers);
 
         //set the question and solution using a Generator object
-        setQuestion();
+//        setQuestion();
+        tapGenerator("T4", "PHY", "3");
 
     }
 
     public void setQuestion(){
         try {
-            Generator g = retrieveGenerator("T4", "PHY3");
+            Generator g = retrieveGenerator("T4", "PHY", "3");
 
             //this is the code, ie "T4PHY1" for testing
             displayCode.setText(g.getClass().getSimpleName());
@@ -76,11 +78,33 @@ public class QuestionCell extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+
+    public void tapGenerator(String arg, String arg2, String arg3){
+        //TESTING PURPOSES ONLY
+        try {
+            Generator g = retrieveGenerator(arg, arg2, arg3);
+
+            //this is the code, ie "T4PHY1" for testing
+            displayCode.setText(g.getClass().getSimpleName());
+
+            //this uses Generator abstract methods to get question and answer strings, set to TextViews
+            displayQuestion.setText(g.getFormattedQuestion());
+            displayAnswers.setText(String.valueOf(g.getTrueAnswer()));
+
+            //get the image Id of the "hint" image
+            hintImageId = g.getHint();
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     public void displayAnswer(View view){
         revealButton.setVisibility(View.GONE);
+        hintButton.setVisibility(View.GONE);
         displayAnswers.setVisibility(View.VISIBLE);
     }
 
@@ -92,9 +116,13 @@ public class QuestionCell extends AppCompatActivity {
         hintButton.setVisibility(View.GONE);
     }
 
-    public Generator retrieveGenerator(String tier, String subject) throws Exception{
+    public void regenerate(View view){
+        this.recreate();
+    }
+
+    public Generator retrieveGenerator(String tier, String subject, String num) throws Exception{
         //retrieves the specific equation class based on equationCode, sets views with appropriate values
-        Class generatorClass = Class.forName("com.wordpress.httpspandareaktor.mekanism.generators." + tier + subject);
+        Class generatorClass = Class.forName("com.wordpress.httpspandareaktor.mekanism.generators." + tier + subject + num);
         Log.v("QuestionCell", " just fetched Generator: " + generatorClass.getCanonicalName());
         return (Generator) generatorClass.newInstance();
     }

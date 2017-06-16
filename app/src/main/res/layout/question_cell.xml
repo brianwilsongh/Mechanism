@@ -7,35 +7,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
+        android:layout_weight="2"
         android:background="@color/gunMetal"
+        android:orientation="vertical"
         android:padding="10dp">
         <!--HEADER SECTION -->
 
         <TextView
             android:id="@+id/generatorCode"
-            android:text="For testing purposes"
-            android:alpha=".8"
-            android:textColor="#FFF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:alpha=".8"
+            android:text="For testing purposes"
+            android:textColor="#FFF" />
 
         <TextView
             android:id="@+id/generatorSubject"
-            android:text="Physics"
-            android:alpha=".8"
-            android:textColor="#FFF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:alpha=".8"
+            android:text="Physics"
+            android:textColor="#FFF" />
 
         <TextView
             android:id="@+id/generatorDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:alpha=".8"
             android:text="Difficulty: Tier 4"
-            android:textColor="#FFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:textColor="#FFF" />
 
     </LinearLayout>
 
@@ -43,58 +43,82 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_weight="7">
 
-        <TextView
-            android:id="@+id/generatorDisplayQuestion"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="THIS IS FILLER" />
+            android:orientation="vertical"
+            android:padding="15dp">
 
-        <Button
-            android:id="@+id/generatorHintButton"
-            android:onClick="displayHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Reveal Hint?" />
+            <TextView
+                android:id="@+id/generatorDisplayQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="THIS IS FILLER"
+                android:textColor="#000000" />
 
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/generatorDisplayHint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/generatorHintButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_margin="25dp"
+                android:alpha=".6"
+                android:onClick="displayHint"
+                android:text="Hint?" />
 
-        <Button
-            android:id="@+id/generatorRevealButton"
-            android:onClick="displayAnswer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Reveal Answer?" />
+            <ImageView
+                android:id="@+id/generatorDisplayHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
 
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/generatorDisplayAnswers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:textColor="@color/rust"
-            android:text="THIS SHOULD STORE THE ANSWER" />
+            <Button
+                android:id="@+id/generatorRevealButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_margin="25dp"
+                android:background="@color/gunMetal"
+                android:onClick="displayAnswer"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Show Answer"
+                android:textColor="#FFFFFF" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/generatorDisplayAnswers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:text="THIS SHOULD STORE THE ANSWER"
+                android:textColor="@color/rust"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/lightRust"
+            android:onClick="regenerate"
+
+            android:text="New"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -18,4 +18,10 @@
     <color name="lightRust">#c17770</color>
     <color name="sun">#EAC67A</color>
 
+    <!--tier selector -->
+    <color name="tier1">#990000</color>
+    <color name="tier2">#ff6600</color>
+    <color name="tier3">#cc9900</color>
+    <color name="tier4">#669900</color>
+
 </resources>
