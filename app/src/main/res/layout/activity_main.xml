@@ -36,7 +36,7 @@
                     android:layout_height="290dp"
                     android:layout_gravity="center"
                     android:alpha="0.1"
-                    android:src="@drawable/pinion" />
+                    android:src="@drawable/pinion3" />
             </LinearLayout>
 
             <LinearLayout
@@ -63,7 +63,7 @@
                 android:layout_height="230dp"
                 android:layout_marginLeft="272dp"
                 android:alpha="0.1"
-                android:src="@drawable/pinion" />
+                android:src="@drawable/pinion2" />
         </LinearLayout>
 
 
