@@ -86,7 +86,7 @@ public class PhysicsEquations extends AppCompatActivity {
 
         PHY19 = new Equation("PHY19", ThreeVar.class, R.drawable.phy19); //kinetic energy equation
         PHY23 = new Equation("PHY23", ThreeVar.class, R.drawable.phy23); //gravitational field
-        PHY24 = new Equation("PHY24", ThreeVar.class, R.drawable.phy24); //grav potential energy
+        PHY24 = new Equation("PHY24", FourVar.class, R.drawable.phy24); //grav potential energy
         PHY25 = new Equation("PHY25", ThreeVar.class, R.drawable.phy25); //Hooke's Law
 
 
