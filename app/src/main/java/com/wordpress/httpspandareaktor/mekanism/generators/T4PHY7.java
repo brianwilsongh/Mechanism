@@ -8,7 +8,7 @@ import com.wordpress.httpspandareaktor.mekanism.PHYutils;
  */
 
 public class T4PHY7 implements Generator {
-    //this is a tier 4 generator applying the PHY6 equation
+    //this is a tier 4 generator applying the PHY7 equation
     public static byte tier = 4;
     public static boolean image = false;
 

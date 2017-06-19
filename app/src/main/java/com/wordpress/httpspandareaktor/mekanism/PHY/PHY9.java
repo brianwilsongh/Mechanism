@@ -12,8 +12,7 @@ public class PHY9 {
 //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
 
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
-    public final String descriptionGeneral = "A derived equation of motion relating displacement, " +
-            "final velocity, initial velocity, and time.";
+    public final String descriptionGeneral = "An equation defining the average velocity between an initial and final velocity";
 
     //descriptorText contains all the variables used and their descriptions
     public final Spanned[] descriptorArray = {PHYutils.PHYvarDescAverageVelocity,
@@ -30,7 +29,7 @@ public class PHY9 {
     public Spanned unitValB = PHYutils.PHYvarUnitFinalVelocity;
     public Spanned unitValC = PHYutils.PHYvarUnitInitialVelocity;
 
-    public String solveMissing(String arrayCode, double param1, double param2){
+    public static String solveMissing(String arrayCode, double param1, double param2){
         switch (arrayCode) {
             case "011":
                 return  String.valueOf((param1 + param2) / 2);
