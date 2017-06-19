@@ -9,7 +9,7 @@ import com.wordpress.httpspandareaktor.mekanism.PHYutils;
  */
 
 public class T4PHY5 implements Generator {
-    //this is a tier 4 generator applying the PHY3 equation
+    //this is a tier 4 generator applying the PHY5 equation
     public static byte tier = 4;
     public static boolean image = false;
 

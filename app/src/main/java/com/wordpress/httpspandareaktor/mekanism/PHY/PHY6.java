@@ -34,7 +34,7 @@ public class PHY6 {
     public Spanned unitValD = PHYutils.PHYvarUnitDisplacement;
 
         //TODO: find a way to prevent user from creating negative for sqrt func
-    public String solveMissing(String arrayCode, double param1, double param2, double param3){
+    public static String solveMissing(String arrayCode, double param1, double param2, double param3){
         switch (arrayCode) {
             case "0111":
                 return  String.valueOf(Math.sqrt(Math.pow(param1, 2) + (2 * param2 * param3)));
