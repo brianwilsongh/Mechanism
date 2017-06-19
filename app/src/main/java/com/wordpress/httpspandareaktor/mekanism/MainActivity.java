@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             animSlide = new TranslateAnimation(boxWidth, -boxWidth, randomHeight / 4, randomHeight / 4);
         }
         //generate a random duration for the animation
-        int randomDuration = GenUtils.generateRandomInRange(7, 10).intValue();
+        int randomDuration = GenUtils.generateRandomInRange(9, 12).intValue();
         animSlide.setDuration(randomDuration * 1000);
 
 
