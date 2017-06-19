@@ -33,7 +33,7 @@ public class PHY8 {
     public Spanned unitValC = PHYutils.PHYvarUnitInitialVelocity;
     public Spanned unitValD = PHYutils.PHYvarUnitTime;
 
-    public String solveMissing(String arrayCode, double param1, double param2, double param3){
+    public static String solveMissing(String arrayCode, double param1, double param2, double param3){
         switch (arrayCode) {
             case "0111":
                 return  String.valueOf((0.5)*(param1 + param2) * param3);
