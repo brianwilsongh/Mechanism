@@ -13,21 +13,21 @@ public class PHY23 {
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
 
-    public final String descriptionGeneral = "Equation to determine strength of a gravitational field in 3D space " +
-            "given a certain distance from the center" + PHYutils.PHYconstantDescUniversalGravitation;
+    public final String descriptionGeneral = "Equation to determine the strength of a gravitational field given" +
+            " radius r, the linear distance from the center of the field" + PHYutils.PHYconstantDescUniversalGravitation;
 
     //descriptorText contains all the variables used and their descriptions
-    public final Spanned[] descriptorArray = {PHYutils.PHYvarDescGravField,
+    public final Spanned[] descriptorArray = {PHYutils.PHYvarDescGravFieldFunc,
             PHYutils.PHYvarDescMass,
             PHYutils.PHYvarDescRadius};
 
     //set up the solver page with the following
 
-    public Spanned symbolValA = PHYutils.PHYvarSymGravField;
+    public Spanned symbolValA = PHYutils.PHYvarSymGravFieldFunc;
     public Spanned symbolValB = PHYutils.PHYvarSymMass;
     public Spanned symbolValC = PHYutils.PHYvarSymRadius;
 
-    public Spanned unitValA = PHYutils.PHYvarUnitGravField;
+    public Spanned unitValA = PHYutils.PHYvarUnitGravFieldFunc;
     public Spanned unitValB = PHYutils.PHYvarUnitMass;
     public Spanned unitValC = PHYutils.PHYvarUnitRadius;
 

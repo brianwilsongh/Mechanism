@@ -12,26 +12,33 @@ public class PHY11 {
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
 
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
-    public final String descriptionGeneral = "Equation that applies Newton's Second Law to weight, " +
-            PHYutils.PHYconstantDescGravAccelEarth;
+    public final String descriptionGeneral = "Equation to determine weight as a force, where g defaults to the gravitational acceleration on the surface of Earth";
 
     //descriptorText contains all the variables used and their descriptions
     public final Spanned[] descriptorArray = {PHYutils.PHYvarDescWeight,
-            PHYutils.PHYvarDescMass};
+            PHYutils.PHYvarDescMass,
+    PHYutils.PHYvarDescGravField};
 
     //set up the solver page with the following
 
     public Spanned symbolValA = PHYutils.PHYvarSymWeight;
     public Spanned symbolValB = PHYutils.PHYvarSymMass;
+    public Spanned symbolValC = PHYutils.PHYvarSymGravField;
+
     public Spanned unitValA = PHYutils.PHYvarUnitWeight;
     public Spanned unitValB = PHYutils.PHYvarUnitMass;
+    public Spanned unitValC = PHYutils.PHYvarUnitGravField;
 
-    public String solveMissing(String arrayCode, double firstVar){
+    public Double defaultC = 9.807;
+
+    public static String solveMissing(String arrayCode, double firstVar, double secondVar){
         switch (arrayCode) {
-            case "01":
-                return  String.valueOf(firstVar * PHYutils.PHYconstantValGravAccelEarth);
-            case "10":
-                return String.valueOf(firstVar / PHYutils.PHYconstantValGravAccelEarth);
+            case "011":
+                return  String.valueOf(firstVar * secondVar);
+            case "101":
+                return String.valueOf(firstVar / secondVar);
+            case "110":
+                return String.valueOf(firstVar / secondVar);
             default:
                 return "error in solution method";
 
@@ -44,9 +51,10 @@ public class PHY11 {
     //variables for the actual inputs
     double varA;
     double varB;
+    double varC;
 
     //array of the parameters to fill ThreeVar form
-    public Spanned[] resourceArray = {symbolValA, symbolValB, unitValA, unitValB};
+    public Spanned[] resourceArray = {symbolValA, symbolValB, symbolValC, unitValA, unitValB, unitValC};
 
     public PHY11() {
     }

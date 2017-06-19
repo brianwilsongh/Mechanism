@@ -142,9 +142,9 @@ public class PHYutils {
     public static Spanned PHYvarSymCentripetalForce = fromHtml("<b><sup>F</sup><small>c</small></b>");
     public static Spanned PHYvarUnitCentripetalForce = fromHtml("Newtons");
 
-    public static Spanned PHYvarDescGravField = fromHtml("<br><b>g(r)</b> : strength of a gravitational field as a function g with radius r as the input</br>");
-    public static Spanned PHYvarSymGravField = fromHtml("<b>g(r)</b>");
-    public static Spanned PHYvarUnitGravField = fromHtml("Newtons/kilogram");
+    public static Spanned PHYvarDescGravFieldFunc = fromHtml("<br><b>g(r)</b> : strength of a gravitational field as a function g with radius r as input</br>");
+    public static Spanned PHYvarSymGravFieldFunc = fromHtml("<b>g(r)</b>");
+    public static Spanned PHYvarUnitGravFieldFunc = fromHtml("Newtons/kilogram");
 
     public static Spanned PHYvarDescGravPotentialEnergy = fromHtml("<br><b><sup>U</sup><small>g</small></b> : the gravitational potential energy</br>");
     public static Spanned PHYvarSymGravPotentialEnergy = fromHtml("<b><sup>U</sup><small>g</small></b>");
@@ -157,6 +157,11 @@ public class PHYutils {
     public static Spanned PHYvarDescSpringConstant = fromHtml("<br><b>k</b> : spring constant, used to determine the reactionary force of a string based on displacement</br>");
     public static Spanned PHYvarSymSpringConstant = fromHtml("<b>k</b>");
     public static Spanned PHYvarUnitSpringConstant = fromHtml("Newtons/meter");
+
+    public static Spanned PHYvarDescGravField = fromHtml("<br><b>g</b> : gravitational field, also known as acceleration due to gravity (9.8 m/s^2 on surface of Earth)</br>");
+    public static Spanned PHYvarSymGravField = fromHtml("<b>g</b>");
+    public static Spanned PHYvarUnitGravField = fromHtml("Newtons/kilogram or meters/second^2");
+
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");

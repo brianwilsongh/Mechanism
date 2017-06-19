@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
         iv.setImageResource(generatedId);
         byte alphaMultiplier = GenUtils.generateRandomInRange(1, 4).byteValue();
-        iv.setAlpha(0.15f * alphaMultiplier);
+        iv.setAlpha(0.12f * alphaMultiplier);
 
         // Load the animation like this
 //        Animation animSlide = AnimationUtils.loadAnimation(getApplicationContext(),

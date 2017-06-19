@@ -306,6 +306,42 @@ public class FourVar extends AppCompatActivity {
         Log.v("determineSubjectCode", "determined that the subject code is" + subjectCode);
     }
 
+    public void setDefaults(Class equationClass, Object o){
+        //set defaults contained within the equation class into the appropriate fields
+        try {
+            if (equationClass.getDeclaredField("defaultA") != null) {
+                fieldA.setText(String.valueOf(equationClass.getDeclaredField("defaultA").get(o)));
+            }
+        } catch (Exception e){
+            Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
+        }
+
+        try {
+            if (equationClass.getDeclaredField("defaultB") != null) {
+                fieldB.setText(String.valueOf(equationClass.getDeclaredField("defaultB").get(o)));
+            }
+        } catch (Exception e){
+            Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
+        }
+
+        try {
+            if (equationClass.getDeclaredField("defaultC") != null) {
+                fieldC.setText(String.valueOf(equationClass.getDeclaredField("defaultC").get(o)));
+            }
+        } catch (Exception e){
+            Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
+        }
+
+        try {
+            if (equationClass.getDeclaredField("defaultD") != null) {
+                fieldD.setText(String.valueOf(equationClass.getDeclaredField("defaultD").get(o)));
+            }
+        } catch (Exception e){
+            Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
+        }
+
+    }
+
     //retrieve class based on the code string,
     public void setClassInput() throws Exception {
         //retrieves the specific equation class based on equationCode, sets views with appropriate values
@@ -319,6 +355,10 @@ public class FourVar extends AppCompatActivity {
         //create array to store values, get them from Field object, use them
         Spanned[] valuesArray;
         Object temp = equationClass.newInstance();
+
+        //set defaults from this equation
+        setDefaults(equationClass, temp);
+
         valuesArray = (Spanned[]) resourceArray.get(temp);
         Log.v("FourVar.findClass", "found resource array, item count: " + valuesArray.length);
         setSymbolsAndUnits(valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3],

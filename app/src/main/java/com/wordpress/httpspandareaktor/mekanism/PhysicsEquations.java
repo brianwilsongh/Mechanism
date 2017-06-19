@@ -76,7 +76,7 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY22 = new Equation("PHY22", FourVar.class, R.drawable.phy22); //centripetal force
 
         PHY10 = new Equation("PHY10", ThreeVar.class, R.drawable.phy10); //newton's second
-        PHY11 = new Equation("PHY11", TwoVar.class, R.drawable.phy11); //weight
+        PHY11 = new Equation("PHY11", ThreeVar.class, R.drawable.phy11); //weight
         PHY12 = new Equation("PHY12", FourVar.class, R.drawable.phy12); //universal gravitation
         PHY14 = new Equation("PHY14", ThreeVar.class, R.drawable.phy14); //force of friction
         PHY15 = new Equation("PHY15", ThreeVar.class, R.drawable.phy15); //momentum definition
@@ -156,7 +156,6 @@ public class PhysicsEquations extends AppCompatActivity {
     public void arrangeList3 () {
         physicsEquationList.clear();
         physicsEquationList.add(PHY10);
-        physicsEquationList.add(PHY11);
         physicsEquationList.add(PHY14);
         physicsEquationList.add(PHY15);
         physicsEquationList.add(PHY16);
@@ -179,6 +178,7 @@ public class PhysicsEquations extends AppCompatActivity {
     public void arrangeList5 () {
         physicsEquationList.clear();
 
+        physicsEquationList.add(PHY11);
         physicsEquationList.add(PHY24);
         physicsEquationList.add(PHY12);
         physicsEquationList.add(PHY23);
