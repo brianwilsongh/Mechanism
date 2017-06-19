@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     //generate a sleep value
-                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 300;
+                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 250;
                     Thread.sleep(sleepyTime);
                     //send message to handler to cause the animation to happen
                     Message message = Message.obtain();
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //generate a random number to find random drawable from equation images
-        int randomEqnNum = GenUtils.generateRandomInRange(1, 20).intValue();
+        int randomEqnNum = GenUtils.generateRandomInRange(1, 26).intValue();
         //get a drawable resource id based on the random
         int generatedId = getResources().getIdentifier("phy" + randomEqnNum, "drawable", getPackageName());
 
@@ -187,7 +187,8 @@ public class MainActivity extends AppCompatActivity {
         whiteSpace.addView(iv);
 
         iv.setImageResource(generatedId);
-        iv.setAlpha(0.3f);
+        byte alphaMultiplier = GenUtils.generateRandomInRange(1, 4).byteValue();
+        iv.setAlpha(0.15f * alphaMultiplier);
 
         // Load the animation like this
 //        Animation animSlide = AnimationUtils.loadAnimation(getApplicationContext(),

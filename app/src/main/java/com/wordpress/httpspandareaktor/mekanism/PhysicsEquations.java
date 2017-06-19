@@ -44,6 +44,7 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY22;
     Equation PHY23;
     Equation PHY24;
+    Equation PHY25;
 
 
     // from stack overflow, how to super/subscript:
@@ -86,6 +87,7 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY19 = new Equation("PHY19", ThreeVar.class, R.drawable.phy19); //kinetic energy equation
         PHY23 = new Equation("PHY23", ThreeVar.class, R.drawable.phy23); //gravitational field
         PHY24 = new Equation("PHY24", ThreeVar.class, R.drawable.phy24); //grav potential energy
+        PHY25 = new Equation("PHY25", ThreeVar.class, R.drawable.phy25); //Hooke's Law
 
 
         //create and set up list view, adapters
@@ -168,6 +170,7 @@ public class PhysicsEquations extends AppCompatActivity {
     public void arrangeList4 () {
         physicsEquationList.clear();
         physicsEquationList.add(PHY19);
+        physicsEquationList.add(PHY25);
 
         equationList.setAdapter(equationAdapter);
     }

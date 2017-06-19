@@ -108,7 +108,7 @@
                 android:layout_gravity="center_vertical"
                 android:background="@color/gunMetal"
                 android:onClick="returnMain"
-                android:text="RESET MEKANISM"
+                android:text="Main"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

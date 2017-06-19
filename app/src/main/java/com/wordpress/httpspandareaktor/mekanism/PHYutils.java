@@ -25,7 +25,7 @@ public class PHYutils {
     public static Spanned PHYvarSymDistance = fromHtml("<b>d</b>");
     public static Spanned PHYvarUnitDistance = fromHtml("meters");
 
-    public static Spanned PHYvarDescDisplacement = fromHtml("<br><b>d</b> : displacement, change of position of object (also known as Δx)</br>");
+    public static Spanned PHYvarDescDisplacement = fromHtml("<br><b>d</b> or <b>Δx</b>: displacement, change of position of object based on an axis</br>");
     public static Spanned PHYvarSymDisplacement = fromHtml("<b>d</b>");
     public static Spanned PHYvarUnitDisplacement = fromHtml("meters");
 
@@ -153,6 +153,10 @@ public class PHYutils {
     public static Spanned PHYvarDescDeltaGravPotentialEnergy = fromHtml("<br><b><sup>ΔU</sup><small>g</small></b> : the change in gravitational potential energy</br>");
     public static Spanned PHYvarSymDeltaGravPotentialEnergy = fromHtml("<b><sup>ΔU</sup><small>g</small></b>");
     public static Spanned PHYvarUnitDeltaGravPotentialEnergy = fromHtml("Joules");
+
+    public static Spanned PHYvarDescSpringConstant = fromHtml("<br><b>k</b> : spring constant, used to determine the reactionary force of a string based on displacement</br>");
+    public static Spanned PHYvarSymSpringConstant = fromHtml("<b>k</b>");
+    public static Spanned PHYvarUnitSpringConstant = fromHtml("Newtons/meter");
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");
