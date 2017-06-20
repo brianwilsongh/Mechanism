@@ -112,7 +112,7 @@ public class PHYutils {
 
     public static Spanned PHYvarDescMomentum = fromHtml("<br><b>p</b> : momentum, a measure of the amount of movement of an object, found by multiplying mass by weight");
     public static Spanned PHYvarSymMomentum = fromHtml("<b>p</b>");
-    public static Spanned PHYvarUnitMomentum = fromHtml("Newtons");
+    public static Spanned PHYvarUnitMomentum = fromHtml("kilogram-meters/second");
 
     public static Spanned PHYvarDescImpulse = fromHtml("<br><b>J</b> : impulse, vector quantity defined as the change in momentum. Equivalent to the product of average force and the time interval during which the force acts.</br>");
     public static Spanned PHYvarSymImpulse = fromHtml("<b>J</b>");
