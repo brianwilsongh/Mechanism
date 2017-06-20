@@ -30,7 +30,7 @@ public class PHY14 {
     public Spanned unitValB = PHYutils.PHYvarUnitCoefficientFriction;
     public Spanned unitValC = PHYutils.PHYvarUnitForceNormal;
 
-    public String solveMissing(String arrayCode, double param1, double param2){
+    public static String solveMissing(String arrayCode, double param1, double param2){
         switch (arrayCode) {
             case "011":
                 return  String.valueOf(param1 * param2);

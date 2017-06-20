@@ -42,6 +42,12 @@ public class GenUtils {
 
     }
 
+    public static Double truncateDecimals(Double num, int places){
+        int tens = ((Double) Math.pow(10, places)).intValue();
+        return (Math.floor(num * tens) / tens);
+
+    }
+
 
     public static String quantumObject(){
         //EXTREMELY small numbers, should be used in Tier1/2 exclusively

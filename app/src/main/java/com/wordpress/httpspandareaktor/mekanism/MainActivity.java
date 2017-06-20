@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     //generate a sleep value
-                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 250;
+                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 275;
                     Thread.sleep(sleepyTime);
                     //send message to handler to cause the animation to happen
                     Message message = Message.obtain();
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             animSlide = new TranslateAnimation(boxWidth, -boxWidth, randomHeight / 4, randomHeight / 4);
         }
         //generate a random duration for the animation
-        int randomDuration = GenUtils.generateRandomInRange(9, 15).intValue();
+        int randomDuration = GenUtils.generateRandomInRange(9, 17).intValue();
         animSlide.setDuration(randomDuration * 1000);
 
 
