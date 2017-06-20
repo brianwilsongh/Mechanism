@@ -14,7 +14,8 @@ public class PHY12 {
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
 
     public final String descriptionGeneral = "Equation of universal gravitation. Relates the masses " +
-            "and distances between the centers of two objects to the force of the gravitational pull. " +
+            "and distances between the centers of two objects to the force of the gravitational pull towards their " +
+            "common center of mass. " +
             PHYutils.PHYconstantDescUniversalGravitation;
 
     //descriptorText contains all the variables used and their descriptions
@@ -35,7 +36,7 @@ public class PHY12 {
     public Spanned unitValC = PHYutils.PHYvarUnitMass;
     public Spanned unitValD = PHYutils.PHYvarUnitDistance;
 
-    public String solveMissing(String arrayCode, double param1, double param2, double param3) {
+    public static String solveMissing(String arrayCode, double param1, double param2, double param3) {
         Log.v("PHY12.class", " receives: " + param1 + param2 + param3);
         switch (arrayCode) {
             case "0111":
