@@ -1,17 +1,13 @@
 package com.wordpress.httpspandareaktor.mekanism.generators;
 
-import android.text.Spanned;
-
-import com.wordpress.httpspandareaktor.mekanism.PHY.PHY10;
+import com.wordpress.httpspandareaktor.mekanism.PHY.PHY11;
 import com.wordpress.httpspandareaktor.mekanism.PHYutils;
 
 /**
  * Created by brian on 6/19/17.
  */
 
-public class T4PHY10 implements Generator {
-
-
+public class T4PHY11 implements Generator{
     //this is a tier 4 generator applying PHY1
     public static byte tier = 4;
     public static boolean image = false;
@@ -26,15 +22,15 @@ public class T4PHY10 implements Generator {
     public Double falseAnswer;
     public Double falseAnswerTwo;
 
-    public T4PHY10(){
+    public T4PHY11(){
         //generate a random code for the 3-var PHY1
-        String randomizedPHY10 = GenUtils.generateRandomCode(3);
+        String randomizedPHY11 = GenUtils.generateRandomCode(3);
         //store the unit of the answer manually here
-        switch (randomizedPHY10) {
+        switch (randomizedPHY11) {
             case "011":
                 //make final position and initial position, not displacement
                 firstVar = GenUtils.generateRandomInRange(1, 50);
-                secondVar = GenUtils.generateRandomInRange(1, 10);
+                secondVar = GenUtils.generateRandomInRange(1, 20);
                 trueAnswerUnit = PHYutils.PHYvarUnitForce.toString();
                 break;
             case "101":
@@ -47,13 +43,13 @@ public class T4PHY10 implements Generator {
                 //displacement and final
                 firstVar = GenUtils.generateRandomInRange(1, 60);
                 secondVar = GenUtils.generateRandomInRange(1, 30);
-                trueAnswerUnit = PHYutils.PHYvarUnitAverageAcceleration.toString();
+                trueAnswerUnit = PHYutils.PHYvarUnitGravField.toString();
                 break;
         }
         //call buildQuestionString after the randomized vars have been created
-        buildQuestionString(randomizedPHY10);
+        buildQuestionString(randomizedPHY11);
 
-        trueAnswer = Double.parseDouble(PHY10.solveMissing(randomizedPHY10, firstVar, secondVar));
+        trueAnswer = Double.parseDouble(PHY11.solveMissing(randomizedPHY11, firstVar, secondVar));
 
 
     }
@@ -64,17 +60,19 @@ public class T4PHY10 implements Generator {
 
         switch (code){
             case "011":
-                base = "A %s with a mass of %s kilograms accelerating at a rate of %s meters/second^2 has how many newtons of force moving it?";
+                base = "How many newtons of weight will a %s with a mass of %s kilograms have in a gravitational field " +
+                        "of %s newtons/kilogram?";
                 formatted = String.format(base, GenUtils.normalObject(), firstVar, secondVar);
                 break;
             case "101":
-                base = "An object accelerating at a rate of %s meters/second^2, being moved by a force of %s newtons, must have a mass of...";
-                formatted = String.format(base, secondVar, firstVar);
+                base = "An object with a weight of %s newtons experiencing a gravitational acceleration of %s meters/second^2 " +
+                        "must have a mass of...";
+                formatted = String.format(base, firstVar, secondVar);
                 break;
             case "110":
-                base = "If a %s with a mass of %s kilograms is being acted on by a force of %s Newtons, and if there are no " +
-                        "other forces acting on the object, what must its acceleration be?";
-                formatted = String.format(base, GenUtils.normalObject(), secondVar, firstVar);
+                base = "If a %s has a weight of %s newtons, and if you know its mass is %s kilograms, calculate the " +
+                        "strength of the gravitational field.";
+                formatted = String.format(base, GenUtils.normalObject(), firstVar, secondVar);
                 break;
         }
     }
@@ -92,6 +90,6 @@ public class T4PHY10 implements Generator {
     @Override
     public String getHint() {
         //set to "null" if no hint is to be included
-        return "phy10";
+        return "phy11";
     }
 }
