@@ -29,7 +29,7 @@ public class PHY20 {
     public Spanned unitValB = PHYutils.PHYvarUnitDeltaTheta;
     public Spanned unitValC = PHYutils.PHYvarUnitTime;
 
-    public String solveMissing(String arrayCode, double firstVar, double secondVar) {
+    public static String solveMissing(String arrayCode, double firstVar, double secondVar) {
         switch (arrayCode) {
             case "011":
                 return String.valueOf(Math.toRadians(firstVar) / secondVar);
