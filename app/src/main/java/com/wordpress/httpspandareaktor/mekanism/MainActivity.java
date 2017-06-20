@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     //generate a sleep value
-                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 275;
+                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 300;
                     Thread.sleep(sleepyTime);
                     //send message to handler to cause the animation to happen
                     Message message = Message.obtain();
