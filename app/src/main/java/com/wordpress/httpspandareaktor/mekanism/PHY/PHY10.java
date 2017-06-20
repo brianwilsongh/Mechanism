@@ -29,7 +29,7 @@ public class PHY10 {
     public Spanned unitValB = PHYutils.PHYvarUnitMass;
     public Spanned unitValC = PHYutils.PHYvarUnitAverageAcceleration;
 
-    public String solveMissing(String arrayCode, double firstVar, double secondVar){
+    public static String solveMissing(String arrayCode, double firstVar, double secondVar){
         switch (arrayCode) {
             case "011":
                 return  String.valueOf(firstVar * secondVar);

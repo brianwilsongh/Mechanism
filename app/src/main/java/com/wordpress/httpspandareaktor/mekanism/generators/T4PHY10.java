@@ -1,13 +1,15 @@
 package com.wordpress.httpspandareaktor.mekanism.generators;
 
-import com.wordpress.httpspandareaktor.mekanism.PHY.PHY9;
+import android.text.Spanned;
+
+import com.wordpress.httpspandareaktor.mekanism.PHY.PHY10;
 import com.wordpress.httpspandareaktor.mekanism.PHYutils;
 
 /**
  * Created by brian on 6/19/17.
  */
 
-public class T4PHY9 implements Generator{
+public class T4PHY10 implements Generator {
 
 
     //this is a tier 4 generator applying PHY1
@@ -24,34 +26,34 @@ public class T4PHY9 implements Generator{
     public Double falseAnswer;
     public Double falseAnswerTwo;
 
-    public T4PHY9(){
+    public T4PHY10(){
         //generate a random code for the 3-var PHY1
-        String randomizedPHY9 = GenUtils.generateRandomCode(3);
+        String randomizedPHY10 = GenUtils.generateRandomCode(3);
         //store the unit of the answer manually here
-        switch (randomizedPHY9) {
+        switch (randomizedPHY10) {
             case "011":
                 //make final position and initial position, not displacement
-                firstVar = GenUtils.generateRandomInRange(1, 70);
-                secondVar = GenUtils.generateRandomInRange(1, 50);
-                trueAnswerUnit = PHYutils.PHYvarUnitVelocity.toString();
+                firstVar = GenUtils.generateRandomInRange(1, 50);
+                secondVar = GenUtils.generateRandomInRange(1, 10);
+                trueAnswerUnit = PHYutils.PHYvarUnitForce.toString();
                 break;
             case "101":
                 //displacement and initial
                 firstVar = GenUtils.generateRandomInRange(1, 50);
-                secondVar = GenUtils.generateRandomInRange(1, 80);
-                trueAnswerUnit = PHYutils.PHYvarUnitVelocity.toString();
+                secondVar = GenUtils.generateRandomInRange(1, 20);
+                trueAnswerUnit = PHYutils.PHYvarUnitMass.toString();
                 break;
             case "110":
                 //displacement and final
-                firstVar = GenUtils.generateRandomInRange(1, 50);
-                secondVar = GenUtils.generateRandomInRange(1, 50);
-                trueAnswerUnit = PHYutils.PHYvarUnitVelocity.toString();
+                firstVar = GenUtils.generateRandomInRange(1, 60);
+                secondVar = GenUtils.generateRandomInRange(1, 30);
+                trueAnswerUnit = PHYutils.PHYvarUnitAverageAcceleration.toString();
                 break;
         }
         //call buildQuestionString after the randomized vars have been created
-        buildQuestionString(randomizedPHY9);
+        buildQuestionString(randomizedPHY10);
 
-        trueAnswer = Double.parseDouble(PHY9.solveMissing(randomizedPHY9, firstVar, secondVar));
+        trueAnswer = Double.parseDouble(PHY10.solveMissing(randomizedPHY10, firstVar, secondVar));
 
 
     }
@@ -62,17 +64,16 @@ public class T4PHY9 implements Generator{
 
         switch (code){
             case "011":
-                base = "A %s accelerates from %s to %s meters/second in a certain period of time. What was the average velocity during this period?";
-                formatted = String.format(base, GenUtils.normalObject(), secondVar, firstVar);
+                base = "A %s with a mass of %s kilograms accelerating at a rate of %s meters/second^2 has how many newtons of force moving it?";
+                formatted = String.format(base, GenUtils.normalObject(), firstVar, secondVar);
                 break;
             case "101":
-                base = "A %s accelerated from an initial velocity of %s meters/second to an unknown final velocity. " +
-                        "If the average velocity during this period of acceleration was %s, what was the final velocity?";
-                formatted = String.format(base, GenUtils.normalObject(), secondVar, firstVar);
+                base = "An object accelerating at a rate of %s meters/second^2, being moved by a force of %s Newtons, must have a mass of...";
+                formatted = String.format(base, secondVar, firstVar);
                 break;
             case "110":
-                base = "A %s accelerated from an unknown initial velocity to %s meters/second. If the average velocity " +
-                        "during this period of acceleration was %s, what was the initial velocity?";
+                base = "If a %s with a mass of %s kilograms is being acted on by a force of %s Newtons, and if there are no " +
+                        "other forces acting on the object, what must its acceleration be?";
                 formatted = String.format(base, GenUtils.normalObject(), secondVar, firstVar);
                 break;
         }
@@ -91,6 +92,6 @@ public class T4PHY9 implements Generator{
     @Override
     public String getHint() {
         //set to "null" if no hint is to be included
-        return "phy9";
+        return "phy10";
     }
 }
