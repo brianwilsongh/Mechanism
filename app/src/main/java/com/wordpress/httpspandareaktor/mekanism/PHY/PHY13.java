@@ -29,7 +29,7 @@ public class PHY13 {
     public Spanned unitValB = PHYutils.PHYvarUnitVelocity;
     public Spanned unitValC = PHYutils.PHYvarUnitRadius;
 
-    public String solveMissing(String arrayCode, double firstVar, double secondVar){
+    public static String solveMissing(String arrayCode, double firstVar, double secondVar){
         switch (arrayCode) {
             case "011":
                 return  String.valueOf(Math.pow(firstVar, 2) / secondVar);
