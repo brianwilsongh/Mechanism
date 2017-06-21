@@ -49,7 +49,7 @@ public class T4PHY19 implements Generator{
         //call buildQuestionString after the randomized vars have been created
         buildQuestionString(randomizedPHY19);
 
-        trueAnswer = Double.parseDouble(PHY19.solveMissing(randomizedPHY19, firstVar, secondVar));
+        trueAnswer = GenUtils.truncateDecimals(Double.parseDouble(PHY19.solveMissing(randomizedPHY19, firstVar, secondVar)), 5);
 
 
     }

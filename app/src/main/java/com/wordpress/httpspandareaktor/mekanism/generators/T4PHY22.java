@@ -56,7 +56,7 @@ public class T4PHY22 implements Generator{
         //call buildQuestionString after the randomized vars have been created
         buildQuestionString(randomized);
 
-        trueAnswer = Double.parseDouble(PHY22.solveMissing(randomized, firstVar, secondVar, thirdVar));
+        trueAnswer = GenUtils.truncateDecimals(Double.parseDouble(PHY22.solveMissing(randomized, firstVar, secondVar, thirdVar)), 5);
 
 
     }

@@ -2,6 +2,7 @@ package com.wordpress.httpspandareaktor.mekanism.generators;
 
 import android.util.Log;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
@@ -43,9 +44,15 @@ public class GenUtils {
     }
 
     public static Double truncateDecimals(Double num, int places){
-        int tens = ((Double) Math.pow(10, places)).intValue();
-        return (Math.floor(num * tens) / tens);
-
+        //this new truncate method handles exponents as well :)
+        StringBuilder sb = new StringBuilder();
+        sb.append("#.");
+        for (int i = 0; i < places; i++){
+            sb.append("0");
+        }
+        sb.append("E000");
+        DecimalFormat df = new DecimalFormat(sb.toString());
+        return Double.parseDouble(df.format(num));
     }
 
 

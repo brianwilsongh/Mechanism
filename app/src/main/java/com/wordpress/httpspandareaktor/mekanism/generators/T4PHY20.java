@@ -48,7 +48,7 @@ public class T4PHY20 implements Generator {
         //call buildQuestionString after the randomized vars have been created
         buildQuestionString(randomized);
 
-        trueAnswer = Double.parseDouble(PHY20.solveMissing(randomized, firstVar, secondVar));
+        trueAnswer = GenUtils.truncateDecimals(Double.parseDouble(PHY20.solveMissing(randomized, firstVar, secondVar)), 5);
 
 
     }
@@ -63,7 +63,7 @@ public class T4PHY20 implements Generator {
                 formatted = String.format(base, firstVar, secondVar);
                 break;
             case "101":
-                base = "A %s is being spun on a rope at an angular velocity of %s radians/second, undergoing uniform circular " +
+                base = "An object is being spun on a rope at an angular velocity of %s radians/second, undergoing uniform circular " +
                         "motion. How many degrees around the circle will the object cover in %s seconds?";
                 formatted = String.format(base, GenUtils.normalObject(), firstVar, secondVar);
                 break;

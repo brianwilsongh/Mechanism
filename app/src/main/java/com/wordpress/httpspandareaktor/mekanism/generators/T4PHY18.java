@@ -56,7 +56,7 @@ public class T4PHY18 implements Generator {
         //call buildQuestionString after the randomized vars have been created
         buildQuestionString(randomizedPHY18);
 
-        trueAnswer = Double.parseDouble(PHY18.solveMissing(randomizedPHY18, firstVar, secondVar, thirdVar));
+        trueAnswer = GenUtils.truncateDecimals(Double.parseDouble(PHY18.solveMissing(randomizedPHY18, firstVar, secondVar, thirdVar)), 5);
 
     }
 

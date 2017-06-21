@@ -28,7 +28,7 @@ public class T4PHY23 implements Generator {
         switch (randomized) {
             case "011":
                 //make final position and initial position, not displacement
-                firstVar = GenUtils.generateRandomInRange(900000, 9000000);
+                firstVar = GenUtils.truncateDecimals(GenUtils.generateRandomInRange(1E11, 9E12), 3);
                 secondVar = GenUtils.generateRandomInRange(1, 50);
                 trueAnswerUnit = PHYutils.PHYvarUnitGravFieldFunc.toString();
                 break;
@@ -40,15 +40,15 @@ public class T4PHY23 implements Generator {
                 break;
             case "110":
                 //displacement and final
-                firstVar = GenUtils.generateRandomInRange(1, 5);
-                secondVar = GenUtils.generateRandomInRange(900000, 9000000);
+                firstVar = GenUtils.truncateDecimals(GenUtils.generateRandomInRange(0.0, 0.5), 3);
+                secondVar = GenUtils.truncateDecimals(GenUtils.generateRandomInRange(1E11, 9E13), 3);
                 trueAnswerUnit = PHYutils.PHYvarUnitRadius.toString();
                 break;
         }
         //call buildQuestionString after the randomized vars have been created
         buildQuestionString(randomized);
 
-        trueAnswer = Double.parseDouble(PHY23.solveMissing(randomized, firstVar, secondVar));
+        trueAnswer = GenUtils.truncateDecimals(Double.parseDouble(PHY23.solveMissing(randomized, firstVar, secondVar)), 5);
 
 
     }
@@ -69,8 +69,8 @@ public class T4PHY23 implements Generator {
                 formatted = String.format(base, secondVar, GenUtils.randomPlanet(), firstVar);
                 break;
             case "110":
-                base = "You are on a spherical planet named %s and you know that its mass is %s kilograms. If the gravitational field strength " +
-                        "at your exact location is %s newtons/kilogram, how far are you from the center of its core?";
+                base = "You are visiting planet %s and you know that its mass is %s kilograms. If the gravitational field strength " +
+                        "at your exact location is %s newtons/kilogram, how far are you from the exact center?";
                 formatted = String.format(base, GenUtils.randomPlanet(), secondVar, firstVar);
                 break;
         }
