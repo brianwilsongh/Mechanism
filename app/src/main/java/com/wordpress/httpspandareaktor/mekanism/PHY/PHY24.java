@@ -35,7 +35,7 @@ public class PHY24 {
 
     public Double defaultC = 9.807;
 
-    public String solveMissing(String arrayCode, double param1, double param2, double param3) {
+    public static String solveMissing(String arrayCode, double param1, double param2, double param3) {
         Log.v("PHY24.class", " receives: " + param1 + param2 + param3);
         switch (arrayCode) {
             case "0111":
