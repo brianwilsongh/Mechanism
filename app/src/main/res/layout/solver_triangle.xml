@@ -11,7 +11,7 @@
         android:layout_margin="15dp"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
-        tools:context="com.wordpress.httpspandareaktor.mekanism.solvers.physicsAccelerationSolver1">
+        tools:context="com.wordpress.httpspandareaktor.mechanism.solvers.physicsAccelerationSolver1">
 
         <ImageView
             android:id="@+id/triangleImage"

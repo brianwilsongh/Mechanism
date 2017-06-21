@@ -1,7 +1,7 @@
 <resources>
     <!--general information strings -->
-    <string name="app_name">MΞKANISM</string>
-    <string name="app_description">Mekanism is an application built to solve physics/math equations and generate unique problem sets.</string>
+    <string name="app_name">MΞCHANISM</string>
+    <string name="app_description">Mechanism is an application built to solve physics/math equations and generate unique problem sets.</string>
     <string name="version_number">BETA 0.4</string>
 
     <!--firebase stuff -->

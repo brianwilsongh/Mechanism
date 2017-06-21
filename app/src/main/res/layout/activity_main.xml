@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar"
-    tools:context="com.wordpress.httpspandareaktor.mekanism.MainActivity">
+    tools:context="com.wordpress.httpspandareaktor.mechanism.MainActivity">
 
     <RelativeLayout
         android:id="@+id/mainMenuWhitespace"
