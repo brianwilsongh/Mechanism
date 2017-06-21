@@ -18,13 +18,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.wordpress.httpspandareaktor.mechanism.generators.GenUtils;
@@ -35,13 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
 
-    private CallbackManager fbCallbackManager;
-    private LoginButton facebookLoginButton;
-    private TextView facebookLoginInfo;
 
     //animation experimental below:
     ImageView imageHolder;
-
+    byte animCount = 0;
     RelativeLayout whiteSpace;
     private Thread thread;
     private Handler mHandler;
@@ -49,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -59,10 +49,6 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         // init facebook for analytics, set login button and informational textview
-        AppEventsLogger.activateApp(this);
-        fbCallbackManager = CallbackManager.Factory.create();
-        facebookLoginButton = (LoginButton) findViewById(R.id.fb_login_button);
-        facebookLoginInfo = (TextView) findViewById(R.id.fb_login_info);
 
         //identify the imageviews for the animation
         // Refer the first animation ImageView like this
@@ -82,30 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 doAnimation();
             }
         };
-
-
-        //handle the callback with registerCallback, change textview appropriately
-        facebookLoginButton.registerCallback(fbCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // if login callback sends success signal, set button height to zero and set text to userId
-                facebookLoginButton.setHeight(0);
-                facebookLoginInfo.setText("Logged in as " + loginResult.getAccessToken().getUserId());
-            }
-            @Override
-            public void onCancel() {
-                // if login attempt is cancelled...
-                facebookLoginInfo.setText("Login attempt cancelled");
-            }
-            @Override
-            public void onError(FacebookException e) {
-                //if there is an error
-                facebookLoginInfo.setText("Login attempt failed");
-
-            }
-        });
-
-        //
 
         //Set main text to include the awesome Xi
         TextView title = (TextView) findViewById(R.id.title);
@@ -170,68 +132,70 @@ public class MainActivity extends AppCompatActivity {
 
     private void doAnimation(){
 
+        animCount++;
 
-        //generate a random number to find random drawable from equation images
-        int randomEqnNum = GenUtils.generateRandomInRange(1, 26).intValue();
-        //get a drawable resource id based on the random
-        int generatedId = getResources().getIdentifier("phy" + randomEqnNum, "drawable", getPackageName());
+        if (animCount < 12) {
+            //if there are more than 12 animations, don't do anything
+            //generate a random number to find random drawable from equation images
+            int randomEqnNum = GenUtils.generateRandomInRange(1, 26).intValue();
+            //get a drawable resource id based on the random
+            int generatedId = getResources().getIdentifier("phy" + randomEqnNum, "drawable", getPackageName());
 
-        //create a view iv with the randomzied resource
-        final ImageView iv = new ImageView(this);
-        iv.setImageResource(generatedId);
-        whiteSpace.addView(iv);
+            //create a view iv with the randomzied resource
+            final ImageView iv = new ImageView(this);
+            iv.setImageResource(generatedId);
+            whiteSpace.addView(iv);
 
-        iv.setImageResource(generatedId);
-        byte alphaMultiplier = GenUtils.generateRandomInRange(1, 4).byteValue();
-        iv.setAlpha(0.12f * alphaMultiplier);
+            iv.setImageResource(generatedId);
+            byte alphaMultiplier = GenUtils.generateRandomInRange(1, 4).byteValue();
+            iv.setAlpha(0.12f * alphaMultiplier);
 
-        // Load the animation like this
+            // Load the animation like this
 //        Animation animSlide = AnimationUtils.loadAnimation(getApplicationContext(),
 //                R.anim.slider);
 
-        int randomHeight = GenUtils.generateRandomInRange(0, whiteSpace.getHeight()).intValue();
-        int boxWidth = whiteSpace.getWidth();
+            int randomHeight = GenUtils.generateRandomInRange(0, whiteSpace.getHeight()).intValue();
+            int boxWidth = whiteSpace.getWidth();
 
-        TranslateAnimation animSlide;
-        //generate randomly left-to-right or right-to-left
-        byte direction = GenUtils.generateRandomInRange(0, 2).byteValue();
-        if (direction == 0) {
-            //translate animation args: fromXposition, toXPosition, fromYPosition, toYPosition
-            animSlide = new TranslateAnimation(-boxWidth, boxWidth, randomHeight / 4, randomHeight / 4);
-        } else {
-            animSlide = new TranslateAnimation(boxWidth, -boxWidth, randomHeight / 4, randomHeight / 4);
+            TranslateAnimation animSlide;
+            //generate randomly left-to-right or right-to-left
+            byte direction = GenUtils.generateRandomInRange(0, 2).byteValue();
+            if (direction == 0) {
+                //translate animation args: fromXposition, toXPosition, fromYPosition, toYPosition
+                animSlide = new TranslateAnimation(-boxWidth, boxWidth, randomHeight / 4, randomHeight / 4);
+            } else {
+                animSlide = new TranslateAnimation(boxWidth, -boxWidth, randomHeight / 4, randomHeight / 4);
+            }
+            //generate a random duration for the animation
+            int randomDuration = GenUtils.generateRandomInRange(9, 17).intValue();
+            animSlide.setDuration(randomDuration * 1000);
+
+
+            // Start the animation like this
+            iv.startAnimation(animSlide);
+
+            animSlide.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation arg0) {
+                    iv.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation arg0) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation arg0) {
+                    iv.setVisibility(View.GONE);
+                    ((ViewGroup) iv.getParent()).removeView(iv);
+                    animCount--;
+                }
+            });
+
         }
-        //generate a random duration for the animation
-        int randomDuration = GenUtils.generateRandomInRange(9, 17).intValue();
-        animSlide.setDuration(randomDuration * 1000);
-
-
-        // Start the animation like this
-        iv.startAnimation(animSlide);
-
-        animSlide.setAnimationListener(new Animation.AnimationListener(){
-            @Override
-            public void onAnimationStart(Animation arg0) {
-                iv.setVisibility(View.VISIBLE);
-            }
-            @Override
-            public void onAnimationRepeat(Animation arg0) {
-            }
-            @Override
-            public void onAnimationEnd(Animation arg0) {
-                iv.setVisibility(View.GONE);
-                ((ViewGroup) iv.getParent()).removeView(iv);
-            }
-        });
-
 
     }
 
-    //tapping the login button starts new activity, to receive and handle result we need the following:
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        fbCallbackManager.onActivityResult(requestCode, resultCode, data);
-    }
 
     public void startPhysics(View view) {
         Intent intent = new Intent(this, PhysicsEquations.class);

@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:128157626829:android:93e0c98b305aeee7",
         "android_client_info": {
-          "package_name": "com.wordpress.httpspandareaktor.mekanism"
+          "package_name": "com.wordpress.httpspandareaktor.mechanism"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "128157626829-roehpvmodta5jp6esi310ms88eb510jl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.wordpress.httpspandareaktor.mekanism",
+            "package_name": "com.wordpress.httpspandareaktor.mechanism",
             "certificate_hash": "68d0d02c59fec2662f05b0a9b8b3a59599e7ac7a"
           }
         },

@@ -150,6 +150,7 @@ public class ThreeVar extends AppCompatActivity {
             solveMissing.setAccessible(true);
             Object temp = equationClass.newInstance();
             resultVal = (String) solveMissing.invoke(temp, arrayCode, solveMethodParam1, solveMethodParam2);
+            Log.v("ThreeVar.attemptSolve", " result value of " + resultVal);
 
             //if the resultVal is not numeric, something went wrong so throw the toast and exit
             if (!PHYutils.isNumeric(resultVal)) {
@@ -201,7 +202,7 @@ public class ThreeVar extends AppCompatActivity {
             arrayCode += "0";
         }
 
-        Log.v("ThreeVar.validateInput", "I think the code is..." + arrayCode);
+        Log.v("ThreeVar.validateInput", "thinks the code is..." + arrayCode);
 
         switch (arrayCode) {
             case "011":

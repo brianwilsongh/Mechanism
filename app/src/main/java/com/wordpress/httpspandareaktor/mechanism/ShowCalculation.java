@@ -4,9 +4,6 @@ package com.wordpress.httpspandareaktor.mechanism;
  * Created by Brian on 12/11/2016.
  */
 
-import com.facebook.FacebookSdk;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareDialog;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -32,12 +29,10 @@ public class ShowCalculation extends AppCompatActivity {
 
     //variables for sharing on FB
     private String sharingURL = "https://play.google.com/store/apps/details?id=com.wordpress.httpspandareaktor.mekanism";
-    ShareDialog shareDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.show_calculation);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -110,15 +105,6 @@ public class ShowCalculation extends AppCompatActivity {
         }
     }
 
-    public void shareFB(View view) {
-        //Build a share for the url of the app
-        shareDialog = new ShareDialog(this);
-        ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                .setContentTitle(getString(R.string.app_name))
-                .setContentDescription(getString(R.string.app_description))
-                .setContentUrl(Uri.parse(sharingURL)).build();
-        shareDialog.show(linkContent);
-    }
 
 
 }

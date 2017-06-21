@@ -233,6 +233,6 @@ public class PHYutils {
 
     public static boolean isNumeric(String str)
     {
-        return str.matches("(-)?\\d*.\\d*(-)?(E)?\\d*");  //use RegEx to match, can handle SciNo numbers as well
+        return str.matches("(-)?\\d*.\\d*(-)?(E)?(-)?\\d*");  //use RegEx to match, can handle SciNo numbers as well
     }
 }

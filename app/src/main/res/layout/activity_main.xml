@@ -171,28 +171,6 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="3">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="5dp">
-
-                <com.facebook.login.widget.LoginButton
-                    android:id="@+id/fb_login_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="5dp" />
-
-                <TextView
-                    android:id="@+id/fb_login_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@id/fb_login_button"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/sun"
-                    tools:text="Logged in as Brian" />
-            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -200,14 +178,27 @@
                 android:gravity="center">
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:alpha=".3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_gravity="center"
+                    android:background="@color/darkWorld"
+                    android:drawablePadding="7dp"
+                    android:text="Console"
+                    android:textColor="@color/lightWorld" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
                     android:onClick="startQuestionCell"
                     android:layout_gravity="center"
                     android:background="@color/rust"
                     android:drawableLeft="@mipmap/ic_group_work_white_24dp"
                     android:drawablePadding="7dp"
-                    android:padding="10dp"
                     android:text="Generator"
                     android:textColor="@color/lightWorld" />
 
