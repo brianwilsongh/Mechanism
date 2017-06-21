@@ -34,18 +34,10 @@ public class PhysicsEquations extends AppCompatActivity {
     Equation PHY5;    Equation PHY6;    Equation PHY7;    Equation PHY8;
     Equation PHY9;    Equation PHY10;    Equation PHY11;    Equation PHY12;
     Equation PHY13;   Equation PHY14;
-    Equation PHY15;
-    Equation PHY16;
-    Equation PHY17;
-    Equation PHY18;
-    Equation PHY19;
-    Equation PHY20;
-    Equation PHY21;
-    Equation PHY22;
-    Equation PHY23;
-    Equation PHY24;
-    Equation PHY25;
-    Equation PHY26;
+    Equation PHY15;   Equation PHY16;   Equation PHY17;   Equation PHY18;   Equation PHY19;
+    Equation PHY20;   Equation PHY21;   Equation PHY22;   Equation PHY23;   Equation PHY24;
+    Equation PHY25;   Equation PHY26;
+    Equation PHY27;
 
 
     // from stack overflow, how to super/subscript:
@@ -90,6 +82,8 @@ public class PhysicsEquations extends AppCompatActivity {
         PHY24 = new Equation("PHY24", FourVar.class, R.drawable.phy24); //grav potential energy
         PHY25 = new Equation("PHY25", ThreeVar.class, R.drawable.phy25); //Hooke's Law
         PHY26 = new Equation("PHY26", ThreeVar.class, R.drawable.phy26); //pendulum
+
+        PHY27 = new Equation("PHY27", ThreeVar.class, R.drawable.phy27); //escape velocity
 
 
         //create and set up list view, adapters
@@ -185,6 +179,7 @@ public class PhysicsEquations extends AppCompatActivity {
         physicsEquationList.add(PHY24);
         physicsEquationList.add(PHY12);
         physicsEquationList.add(PHY23);
+        physicsEquationList.add(PHY27);
 
 
         equationList.setAdapter(equationAdapter);
