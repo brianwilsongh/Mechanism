@@ -13,7 +13,7 @@ public class PHY25 {
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
 
-    public final String descriptionGeneral = "The change in the gravitational potential energy of an object on earth given a change in its height off the ground";
+    public final String descriptionGeneral = "Hooke's Law - an equation to determine the force exerted by springs and spring-like systems";
 
     //descriptorText contains all the variables used and their descriptions
     public final Spanned[] descriptorArray = {PHYutils.PHYvarDescForce,
@@ -30,7 +30,7 @@ public class PHY25 {
     public Spanned unitValB = PHYutils.PHYvarUnitSpringConstant;
     public Spanned unitValC = PHYutils.PHYvarUnitDisplacement;
 
-    public String solveMissing(String arrayCode, double param1, double param2) {
+    public static String solveMissing(String arrayCode, double param1, double param2) {
         Log.v("PHY24.class", " receives: " + param1 + param2);
         switch (arrayCode) {
             case "011":
