@@ -31,7 +31,7 @@ public class PHY23 {
     public Spanned unitValB = PHYutils.PHYvarUnitMass;
     public Spanned unitValC = PHYutils.PHYvarUnitRadius;
 
-    public String solveMissing(String arrayCode, double param1, double param2) {
+    public static String solveMissing(String arrayCode, double param1, double param2) {
         Log.v("PHY23.class", " receives: " + param1 + param2);
         switch (arrayCode) {
             case "011":
