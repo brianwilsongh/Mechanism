@@ -273,7 +273,6 @@ public class ThreeVar extends AppCompatActivity {
                 fieldA.setText(String.valueOf(equationClass.getDeclaredField("defaultA").get(o)));
             }
         } catch (Exception e){
-                Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
             }
 
         try {
@@ -281,7 +280,6 @@ public class ThreeVar extends AppCompatActivity {
                 fieldB.setText(String.valueOf(equationClass.getDeclaredField("defaultB").get(o)));
             }
         } catch (Exception e){
-            Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
         }
 
         try {
@@ -289,7 +287,6 @@ public class ThreeVar extends AppCompatActivity {
                 fieldC.setText(String.valueOf(equationClass.getDeclaredField("defaultC").get(o)));
             }
         } catch (Exception e){
-            Log.v("ThreeVar.setDefault", " no field found for " + equationClass.toString(), e);
         }
 
     }

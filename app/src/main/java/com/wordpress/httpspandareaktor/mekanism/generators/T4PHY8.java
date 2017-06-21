@@ -24,7 +24,7 @@ public class T4PHY8 implements Generator {
     public Double falseAnswerTwo;
 
     public T4PHY8(){
-        //generate a random code for the 3-var PHY1
+        //generate a random code for the 3-var
         String randomizedPHY8 = GenUtils.generateRandomCode(4);
         //store the unit of the answer manually here
         switch (randomizedPHY8) {

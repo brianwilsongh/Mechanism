@@ -12,7 +12,7 @@ import com.wordpress.httpspandareaktor.mekanism.PHYutils;
 public class T4PHY10 implements Generator {
 
 
-    //this is a tier 4 generator applying PHY1
+    //this is a tier 4 generator applying PHY10
     public static byte tier = 4;
     public static boolean image = false;
 
@@ -27,7 +27,7 @@ public class T4PHY10 implements Generator {
     public Double falseAnswerTwo;
 
     public T4PHY10(){
-        //generate a random code for the 3-var PHY1
+        //generate a random code for the 3-var
         String randomizedPHY10 = GenUtils.generateRandomCode(3);
         //store the unit of the answer manually here
         switch (randomizedPHY10) {

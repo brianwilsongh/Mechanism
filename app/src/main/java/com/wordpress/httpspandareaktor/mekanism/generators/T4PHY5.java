@@ -25,7 +25,7 @@ public class T4PHY5 implements Generator {
     public Double falseAnswerTwo;
 
     public T4PHY5(){
-    //generate a random code for the 3-var PHY1
+    //generate a random code for the 3-var
     String randomizedPHY5 = GenUtils.generateRandomCode(4);
     //store the unit of the answer manually here
         switch (randomizedPHY5) {

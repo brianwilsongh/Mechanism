@@ -8,7 +8,7 @@ import com.wordpress.httpspandareaktor.mekanism.PHYutils;
  */
 
 public class T4PHY4 implements Generator {
-    //this is a tier 4 generator applying the PHY3 equation
+    //this is a tier 4 generator applying the PHY4 equation
     public static byte tier = 4;
     public static boolean image = false;
 
@@ -24,7 +24,7 @@ public class T4PHY4 implements Generator {
     public Double falseAnswerTwo;
 
     public T4PHY4(){
-        //generate a random code for the 3-var PHY1
+        //generate a random code for the 3-var
         String randomizedPHY4 = GenUtils.generateRandomCode(4);
         //store the unit of the answer manually here
         switch (randomizedPHY4) {

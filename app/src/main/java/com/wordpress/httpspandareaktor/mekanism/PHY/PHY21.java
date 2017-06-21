@@ -30,7 +30,7 @@ public class PHY21 {
     public Spanned unitValB = PHYutils.PHYvarUnitRadius;
     public Spanned unitValC = PHYutils.PHYvarUnitAngularVelocity;
 
-    public String solveMissing(String arrayCode, double firstVar, double secondVar) {
+    public static String solveMissing(String arrayCode, double firstVar, double secondVar) {
         switch (arrayCode) {
             case "011":
                 return String.valueOf(firstVar * secondVar);

@@ -23,7 +23,7 @@ public class T4PHY11 implements Generator{
     public Double falseAnswerTwo;
 
     public T4PHY11(){
-        //generate a random code for the 3-var PHY1
+        //generate a random code for the 3-var
         String randomizedPHY11 = GenUtils.generateRandomCode(3);
         //store the unit of the answer manually here
         switch (randomizedPHY11) {
