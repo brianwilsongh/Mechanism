@@ -55,13 +55,13 @@ public class QuestionCell extends AppCompatActivity {
 
         //set the question and solution using a Generator object
 //        setQuestion();
-        tapGenerator("T4", "PHY", "21");
+        tapGenerator("T4", "PHY", "22");
 
     }
 
     public void setQuestion(){
         try {
-            Generator g = retrieveGenerator("T4", "PHY", "3");
+            Generator g = retrieveGenerator("T4", "PHY", "22");
 
             //this is the code, ie "T4PHY1" for testing
             displayCode.setText(g.getClass().getSimpleName());

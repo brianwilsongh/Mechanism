@@ -33,7 +33,7 @@ public class PHY22 {
     public Spanned unitValC = PHYutils.PHYvarUnitVelocity;
     public Spanned unitValD = PHYutils.PHYvarUnitRadius;
 
-    public String solveMissing(String arrayCode, double param1, double param2, double param3) {
+    public static String solveMissing(String arrayCode, double param1, double param2, double param3) {
         Log.v("PHY22.class", " receives: " + param1 + param2 + param3);
         switch (arrayCode) {
             case "0111":

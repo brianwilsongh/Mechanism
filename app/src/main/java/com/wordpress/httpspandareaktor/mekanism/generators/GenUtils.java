@@ -76,7 +76,7 @@ public class GenUtils {
 
     public static String randomPlanet(){
         String[] objects = new String[]{"Omicron Persei 8", "Arrakis", "Giedi Prime", "Yavin", "Shi'ar", "Namek", "LV-426", "Eden Prime",
-        "Dagobah"};
+        "Dagobah", "Korriban", "Coruscant"};
         Random r = new Random();
         int idx = r.nextInt(objects.length);
         return objects[idx];
