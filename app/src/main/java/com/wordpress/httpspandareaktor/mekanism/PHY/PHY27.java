@@ -32,7 +32,7 @@ public class PHY27 {
     public Spanned unitValC = PHYutils.PHYvarUnitRadius;
 
 
-    public String solveMissing(String arrayCode, double param1, double param2) {
+    public static String solveMissing(String arrayCode, double param1, double param2) {
         Log.v("PHY27.class", " receives: " + param1 + param2);
         switch (arrayCode) {
             case "011":
