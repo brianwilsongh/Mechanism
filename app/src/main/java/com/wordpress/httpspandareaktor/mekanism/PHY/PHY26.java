@@ -32,7 +32,7 @@ public class PHY26 {
 
     public Double defaultC = 9.807;
 
-    public String solveMissing(String arrayCode, double param1, double param2) {
+    public static String solveMissing(String arrayCode, double param1, double param2) {
         Log.v("PHY26.class", " receives: " + param1 + param2);
         switch (arrayCode) {
             case "011":
