@@ -60,8 +60,8 @@ public class T4PHY20 implements Generator {
 
         switch (code){
             case "011":
-                base = "A %s orbiting a planet covers %s degrees every %s seconds. What is its angular velocity (in radians/second)?";
-                formatted = String.format(base, GenUtils.normalObject(), firstVar, secondVar);
+                base = "An object orbiting a planet covers %s degrees every %s seconds. What is its angular velocity (in radians/second)?";
+                formatted = String.format(base, firstVar, secondVar);
                 break;
             case "101":
                 base = "A %s is being spun on a rope at an angular velocity of %s radians/second, undergoing uniform circular " +

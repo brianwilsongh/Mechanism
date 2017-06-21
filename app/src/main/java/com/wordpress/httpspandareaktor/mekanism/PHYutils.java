@@ -162,6 +162,15 @@ public class PHYutils {
     public static Spanned PHYvarSymGravField = fromHtml("<b>g</b>");
     public static Spanned PHYvarUnitGravField = fromHtml("Newtons/kilogram or meters/second^2");
 
+    public static Spanned PHYvarDescLength = fromHtml("<br><b>L</b> : the length of an object</br>");
+    public static Spanned PHYvarSymLength = fromHtml("<b>L</b>");
+    public static Spanned PHYvarUnitLength = fromHtml("meters");
+
+    public static Spanned PHYvarDescPeriod = fromHtml("<br><b>T</b> : period, or the time required for one cycle</br>");
+    public static Spanned PHYvarSymPeriod = fromHtml("<br><b>T</b></br>");
+    public static Spanned PHYvarUnitPeriod = fromHtml("seconds");
+
+
 
     //following are special m1 and m2 symbols for universal gravitation equation
     public static Spanned PHYvarSymMass1 = fromHtml("<b>m<small>1</small></b>");

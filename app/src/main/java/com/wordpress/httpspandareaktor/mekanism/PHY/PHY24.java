@@ -13,8 +13,6 @@ public class PHY24 {
     //!!!DEFINE VARIABLES & METHODS FOR THIS EQN HERE!!!
     //descriptionGeneral is a general description of the equation for the ArrayAdapter
 
-    //TODO: generate a special method to leave little g open but auto-fill 9.8, do this for W=mg as well
-
     public final String descriptionGeneral = "The change in the gravitational potential energy of an object on earth given a change in its height off the ground";
 
     //descriptorText contains all the variables used and their descriptions
