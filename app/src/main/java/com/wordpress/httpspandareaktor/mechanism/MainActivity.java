@@ -8,13 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -69,42 +73,109 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        //Set main text to include the awesome Xi
-        TextView title = (TextView) findViewById(R.id.title);
-        title.setText(getString(R.string.app_name));
 
-        //Create rotation animation for the primary gear
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation.setInterpolator(new LinearInterpolator());
-        rotateAnimation.setDuration(15000);
-        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        ViewTreeObserver vto = whiteSpace.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener (new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                whiteSpace.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
-        findViewById(R.id.gearLogo).startAnimation(rotateAnimation);
+                //set title to include Xi
+                TextView title = (TextView) findViewById(R.id.title);
+                title.setText(getString(R.string.app_name));
 
-        //Create rotation animation for the second gear
-        RotateAnimation rotateAnimation2 = new RotateAnimation(360f, 0,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation2.setInterpolator(new LinearInterpolator());
-        rotateAnimation2.setDuration(21562);
-        rotateAnimation2.setRepeatCount(Animation.INFINITE);
+                //move gears into position 
+                Double WSwidth = Double.parseDouble(String.valueOf(whiteSpace.getWidth()));
+                Double WSheight = Double.parseDouble(String.valueOf(whiteSpace.getHeight()));
 
-        findViewById(R.id.gearLogo2).startAnimation(rotateAnimation2);
+                //move the title words within whiteSpace
+                LinearLayout titleArea = (LinearLayout) findViewById(R.id.titleArea);
+                titleArea.setY((WSheight.floatValue() * 0.6f));
 
-        //Create rotation animation for the third gear
-        RotateAnimation rotateAnimation3 = new RotateAnimation(360f, 0,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation3.setInterpolator(new LinearInterpolator());
-        rotateAnimation3.setDuration(23159);
-        rotateAnimation3.setRepeatCount(Animation.INFINITE);
+                Log.v("Main", " widthxheight: " + WSwidth + " x " + WSheight);
 
-        findViewById(R.id.gearLogo3).startAnimation(rotateAnimation3);
+                //create gears and set positions
+
+                ImageView gear1 = new ImageView(getApplicationContext());
+                gear1.setImageResource(R.drawable.pinion);
+                gear1.setAlpha(0.2f);
+                RelativeLayout.LayoutParams gear1params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .235 * 1.5)).intValue(),
+                        ((Double) (WSwidth * .235 * 1.5)).intValue());
+                gear1params.leftMargin = ((Double) (WSwidth * 0.37)).intValue();
+                gear1params.rightMargin = WSwidth.intValue();
+                gear1params.topMargin = ((Double) (WSheight * 0.05)).intValue();
+                whiteSpace.addView(gear1, gear1params);
+
+                ImageView gear2 = new ImageView(getApplicationContext());
+                gear2.setImageResource(R.drawable.pinion2);
+                gear2.setAlpha(0.2f);
+                RelativeLayout.LayoutParams gear2params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .338 * 1.5)).intValue(),
+                        ((Double) (WSwidth * .338 * 1.5)).intValue());
+                gear2params.leftMargin = ((Double) (WSwidth * 0.7)).intValue();
+                gear2params.rightMargin = WSwidth.intValue();
+                gear2params.topMargin = -((Double) (WSheight * 0.3)).intValue();
+                whiteSpace.addView(gear2, gear2params);
+
+                ImageView gear3 = new ImageView(getApplicationContext());
+                gear3.setImageResource(R.drawable.pinion3);
+                gear3.setAlpha(0.2f);
+                RelativeLayout.LayoutParams gear3params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .426 * 1.5)).intValue(),
+                        ((Double) (WSwidth * .426 * 1.5)).intValue());
+                gear3params.leftMargin = -((Double) (WSwidth * 0.21)).intValue();
+                gear3params.rightMargin = WSwidth.intValue() / 2;
+                gear3params.topMargin = -((Double) (WSheight * 0.42)).intValue();
+                whiteSpace.addView(gear3, gear3params);
+
+//                ImageView gear1 = (ImageView) findViewById(R.id.gearLogo);
+//                ImageView gear2 = (ImageView) findViewById(R.id.gearLogo2);
+//                ImageView gear3 = (ImageView) findViewById(R.id.gearLogo3);
+
+                //widths and heights are both proportional to WIDTH of parentview
+//                gear1.getLayoutParams().width = ((Double) (WSwidth * .235 * 2)).intValue();
+//                gear1.getLayoutParams().height = ((Double) (WSwidth * .235 * 2)).intValue();
+
+//                gear2.getLayoutParams().width = ((Double) (WSwidth * .338 * 2)).intValue();
+//                gear2.getLayoutParams().height = ((Double) (WSwidth * .338 * 2)).intValue();
+//
+//                gear3.getLayoutParams().width = ((Double) (WSwidth * .426 * 2)).intValue();
+//                gear3.getLayoutParams().height = ((Double) (WSwidth * .426 * 2)).intValue();
+
+
+                //Create rotation animation for the primary gear
+                RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.5f);
+                rotateAnimation.setInterpolator(new LinearInterpolator());
+                rotateAnimation.setDuration(15000);
+                rotateAnimation.setRepeatCount(Animation.INFINITE);
+
+                gear1.startAnimation(rotateAnimation);
+
+                //Create rotation animation for the second gear
+                RotateAnimation rotateAnimation2 = new RotateAnimation(360f, 0,
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.5f);
+                rotateAnimation2.setInterpolator(new LinearInterpolator());
+                rotateAnimation2.setDuration(21562);
+                rotateAnimation2.setRepeatCount(Animation.INFINITE);
+
+                gear2.startAnimation(rotateAnimation2);
+
+                //Create rotation animation for the third gear
+                RotateAnimation rotateAnimation3 = new RotateAnimation(360f, 0,
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.5f);
+                rotateAnimation3.setInterpolator(new LinearInterpolator());
+                rotateAnimation3.setDuration(23159);
+                rotateAnimation3.setRepeatCount(Animation.INFINITE);
+
+                gear3.startAnimation(rotateAnimation3);
+
+            }
+        });
+
 
     }
-
 
 
 
@@ -134,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
 
         animCount++;
 
-        if (animCount < 12) {
             //if there are more than 12 animations, don't do anything
             //generate a random number to find random drawable from equation images
             int randomEqnNum = GenUtils.generateRandomInRange(1, 26).intValue();
@@ -191,8 +261,6 @@ public class MainActivity extends AppCompatActivity {
                     animCount--;
                 }
             });
-
-        }
 
     }
 
