@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageHolder;
     byte animCount = 0;
     RelativeLayout whiteSpace;
+    int whiteSpaceHeight;
+    int whiteSpaceWidth;
     private Thread thread;
     private Handler mHandler;
 
@@ -80,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
             public void onGlobalLayout() {
                 whiteSpace.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
+                //TODO: determine best location for this
+                whiteSpaceHeight = whiteSpace.getHeight();
+                whiteSpaceWidth = whiteSpace.getWidth();
+
                 //set title to include Xi
                 TextView title = (TextView) findViewById(R.id.title);
                 title.setText(getString(R.string.app_name));
@@ -90,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //move the title words within whiteSpace
                 LinearLayout titleArea = (LinearLayout) findViewById(R.id.titleArea);
-                titleArea.setY((WSheight.floatValue() * 0.6f));
+                titleArea.setY((WSheight.floatValue() * 0.618f));
 
                 Log.v("Main", " widthxheight: " + WSwidth + " x " + WSheight);
 
@@ -99,29 +105,29 @@ public class MainActivity extends AppCompatActivity {
                 ImageView gear1 = new ImageView(getApplicationContext());
                 gear1.setImageResource(R.drawable.pinion);
                 gear1.setAlpha(0.2f);
-                RelativeLayout.LayoutParams gear1params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .235 * 1.5)).intValue(),
-                        ((Double) (WSwidth * .235 * 1.5)).intValue());
-                gear1params.leftMargin = ((Double) (WSwidth * 0.37)).intValue();
+                RelativeLayout.LayoutParams gear1params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .382)).intValue(),
+                        ((Double) (WSwidth * .382)).intValue());
+                gear1params.leftMargin = ((Double) (WSwidth * 0.32)).intValue();
                 gear1params.rightMargin = WSwidth.intValue();
-                gear1params.topMargin = ((Double) (WSheight * 0.05)).intValue();
+                gear1params.topMargin = -((Double) (WSheight * 0.05)).intValue();
                 whiteSpace.addView(gear1, gear1params);
 
                 ImageView gear2 = new ImageView(getApplicationContext());
                 gear2.setImageResource(R.drawable.pinion2);
                 gear2.setAlpha(0.2f);
-                RelativeLayout.LayoutParams gear2params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .338 * 1.5)).intValue(),
-                        ((Double) (WSwidth * .338 * 1.5)).intValue());
-                gear2params.leftMargin = ((Double) (WSwidth * 0.7)).intValue();
+                RelativeLayout.LayoutParams gear2params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .382 * 1.618)).intValue(),
+                        ((Double) (WSwidth * .382 * 1.618)).intValue());
+                gear2params.leftMargin = ((Double) (WSwidth * 0.71)).intValue();
                 gear2params.rightMargin = WSwidth.intValue();
-                gear2params.topMargin = -((Double) (WSheight * 0.3)).intValue();
+                gear2params.topMargin = -((Double) (WSheight * 0.27)).intValue();
                 whiteSpace.addView(gear2, gear2params);
 
                 ImageView gear3 = new ImageView(getApplicationContext());
                 gear3.setImageResource(R.drawable.pinion3);
                 gear3.setAlpha(0.2f);
-                RelativeLayout.LayoutParams gear3params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .426 * 1.5)).intValue(),
-                        ((Double) (WSwidth * .426 * 1.5)).intValue());
-                gear3params.leftMargin = -((Double) (WSwidth * 0.21)).intValue();
+                RelativeLayout.LayoutParams gear3params = new RelativeLayout.LayoutParams(((Double) (WSwidth * .382 * 1.618 * 1.618)).intValue(),
+                        ((Double) (WSwidth * .382 * 1.618)).intValue());
+                gear3params.leftMargin = -((Double) (WSwidth * 0.4)).intValue();
                 gear3params.rightMargin = WSwidth.intValue() / 2;
                 gear3params.topMargin = -((Double) (WSheight * 0.42)).intValue();
                 whiteSpace.addView(gear3, gear3params);
@@ -187,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     //generate a sleep value
-                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 325;
+                    sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 350;
                     Thread.sleep(sleepyTime);
                     //send message to handler to cause the animation to happen
                     Message message = Message.obtain();
@@ -205,9 +211,10 @@ public class MainActivity extends AppCompatActivity {
 
         animCount++;
 
-            //if there are more than 12 animations, don't do anything
+            //if there are more than 12 animations, don't do anything?
             //generate a random number to find random drawable from equation images
-            int randomEqnNum = GenUtils.generateRandomInRange(1, 26).intValue();
+            int randomEqnNum = (int) Math.floor(Math.random() * 26) + 1;
+
             //get a drawable resource id based on the random
             int generatedId = getResources().getIdentifier("phy" + randomEqnNum, "drawable", getPackageName());
 
@@ -224,17 +231,16 @@ public class MainActivity extends AppCompatActivity {
 //        Animation animSlide = AnimationUtils.loadAnimation(getApplicationContext(),
 //                R.anim.slider);
 
-            int randomHeight = GenUtils.generateRandomInRange(0, whiteSpace.getHeight()).intValue();
-            int boxWidth = whiteSpace.getWidth();
+            int randomHeight = (int) Math.floor(Math.random() * whiteSpaceHeight);
 
             TranslateAnimation animSlide;
             //generate randomly left-to-right or right-to-left
             byte direction = GenUtils.generateRandomInRange(0, 2).byteValue();
             if (direction == 0) {
                 //translate animation args: fromXposition, toXPosition, fromYPosition, toYPosition
-                animSlide = new TranslateAnimation(-boxWidth, boxWidth, randomHeight / 4, randomHeight / 4);
+                animSlide = new TranslateAnimation(-whiteSpaceWidth, whiteSpaceWidth, randomHeight / 4, randomHeight / 4);
             } else {
-                animSlide = new TranslateAnimation(boxWidth, -boxWidth, randomHeight / 4, randomHeight / 4);
+                animSlide = new TranslateAnimation(whiteSpaceWidth, -whiteSpaceWidth, randomHeight / 4, randomHeight / 4);
             }
             //generate a random duration for the animation
             int randomDuration = GenUtils.generateRandomInRange(9, 17).intValue();
