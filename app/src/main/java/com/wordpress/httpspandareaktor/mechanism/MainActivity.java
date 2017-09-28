@@ -4,12 +4,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -22,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.wordpress.httpspandareaktor.mechanism.generators.GenUtils;
@@ -32,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private AdView mAdView;
-
 
     //animation experimental below:
     ImageView imageHolder;
@@ -165,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     class EqThread implements Runnable {
-        //Thread that triggers a single equation animation
+        //Thread that triggers the equation image animations
         @Override
         public void run() {
             int sleepyTime;
@@ -174,10 +169,15 @@ public class MainActivity extends AppCompatActivity {
                     //generate a sleep value
                     sleepyTime = GenUtils.generateRandomInRange(1, 3).intValue() * 350;
                     Thread.sleep(sleepyTime);
-                    //send message to handler to cause the animation to happen
-                    Message message = Message.obtain();
-                    message.arg1 = 0;
-                    mHandler.sendMessage(message);
+                    if (animCount >= 12){
+                        //if animations exceed 12, sleep more
+                        Thread.sleep(sleepyTime);
+                    } else {
+                        //send message to handler to cause the animation to happen
+                        Message message = Message.obtain();
+                        message.arg1 = 0;
+                        mHandler.sendMessage(message);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -188,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
     private void doAnimation(){
 
         animCount++;
-            //if there are more than 12 animations, don't do anything
             //generate a random number to find random drawable from equation images
             int randomEqnNum = (int) Math.floor(Math.random() * 26) + 1;
 
