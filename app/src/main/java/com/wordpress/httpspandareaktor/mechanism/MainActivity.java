@@ -54,14 +54,12 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        // init facebook for analytics, set login button and informational textview
 
-        //identify the imageviews for the animation
-        // Refer the first animation ImageView like this
+        //first ImageView for the animation
         imageHolder = (ImageView) findViewById(R.id.mainimg1);
 
 
-        //create EqThread and run it
+        //create and run first EqThread
         thread = new Thread(new EqThread());
         thread.start();
 
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         mHandler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                //do animation when Handler receives message
+                //trigger animation when Handler receives message from thread
                 doAnimation();
             }
         };
@@ -98,10 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout titleArea = (LinearLayout) findViewById(R.id.titleArea);
                 titleArea.setY((WSheight.floatValue() * 0.618f));
 
-                Log.v("Main", " widthxheight: " + WSwidth + " x " + WSheight);
-
                 //create gears and set positions
-
                 ImageView gear1 = new ImageView(getApplicationContext());
                 gear1.setImageResource(R.drawable.pinion);
                 gear1.setAlpha(0.2f);
@@ -131,21 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 gear3params.rightMargin = WSwidth.intValue() / 2;
                 gear3params.topMargin = -((Double) (WSheight * 0.42)).intValue();
                 whiteSpace.addView(gear3, gear3params);
-
-//                ImageView gear1 = (ImageView) findViewById(R.id.gearLogo);
-//                ImageView gear2 = (ImageView) findViewById(R.id.gearLogo2);
-//                ImageView gear3 = (ImageView) findViewById(R.id.gearLogo3);
-
-                //widths and heights are both proportional to WIDTH of parentview
-//                gear1.getLayoutParams().width = ((Double) (WSwidth * .235 * 2)).intValue();
-//                gear1.getLayoutParams().height = ((Double) (WSwidth * .235 * 2)).intValue();
-
-//                gear2.getLayoutParams().width = ((Double) (WSwidth * .338 * 2)).intValue();
-//                gear2.getLayoutParams().height = ((Double) (WSwidth * .338 * 2)).intValue();
-//
-//                gear3.getLayoutParams().width = ((Double) (WSwidth * .426 * 2)).intValue();
-//                gear3.getLayoutParams().height = ((Double) (WSwidth * .426 * 2)).intValue();
-
 
                 //Create rotation animation for the primary gear
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
@@ -180,13 +160,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
 
 
     class EqThread implements Runnable {
-        //Thread to call
+        //Thread that triggers a single equation animation
         @Override
         public void run() {
             int sleepyTime;
@@ -202,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         }
     }
@@ -210,8 +188,7 @@ public class MainActivity extends AppCompatActivity {
     private void doAnimation(){
 
         animCount++;
-
-            //if there are more than 12 animations, don't do anything?
+            //if there are more than 12 animations, don't do anything
             //generate a random number to find random drawable from equation images
             int randomEqnNum = (int) Math.floor(Math.random() * 26) + 1;
 
